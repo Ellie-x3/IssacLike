@@ -1,0 +1,82 @@
+{
+  "name": "TestLevel",
+  "ogmoVersion": "3.4.0",
+  "levelPaths": ["."],
+  "backgroundColor": "#ddb3ffff",
+  "gridColor": "#3c4049cc",
+  "anglesRadians": true,
+  "directoryDepth": 5,
+  "layerGridDefaultSize": {"x": 64, "y": 64},
+  "levelDefaultSize": {"x": 320, "y": 240},
+  "levelMinSize": {"x": 640, "y": 360},
+  "levelMaxSize": {"x": 640, "y": 360},
+  "levelValues": [
+    {"name": "Collision", "definition": "Integer", "display": 0, "defaults": 1, "bounded": false, "min": 0, "max": 100},
+    {"name": "Volume", "definition": "Integer", "display": 0, "defaults": 2, "bounded": false, "min": 0, "max": 100}
+  ],
+  "defaultExportMode": ".json",
+  "compactExport": false,
+  "externalScript": "",
+  "playCommand": "",
+  "entityTags": ["Collision"],
+  "layers": [
+    {
+      "definition": "tile",
+      "name": "Level",
+      "gridSize": {"x": 64, "y": 64},
+      "exportID": "36398139",
+      "exportMode": 0,
+      "arrayMode": 1,
+      "defaultTileset": "New Tileset"
+    },
+    {
+      "definition": "entity",
+      "name": "Collision",
+      "gridSize": {"x": 64, "y": 64},
+      "exportID": "36469628",
+      "requiredTags": ["Collision"],
+      "excludedTags": []
+    }
+  ],
+  "entities": [
+    {
+      "exportID": "36460343",
+      "name": "CollisionWall",
+      "limit": -1,
+      "size": {"x": 64, "y": 64},
+      "origin": {"x": 0, "y": 0},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 64, "y": 64},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": ["Collision"],
+      "values": []
+    }
+  ],
+  "tilesets": [
+    {"label": "New Tileset", "path": "../TEXTURE_default.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAALZJREFUeJzt2rENg1AUxVA+YSxWoEdiwfQULEDBVmGMk8Je4FrWK994jus3QdbvJuenma7/AQXQApoCaAFNAbSApgBaQFMALaApgBbQFEALaAqgBTQF0AKaAmgBTQG0gKYAWkBTAC2gKYAW0BRAC2jG8lnof8C9n3K+CyiAFtAUQAtoCqAFNAXQApoCaAFNAbSApgBaQFMALaApgBbQFEALaAqgBTQF0AKaAmgBTQG0gKYAWkDzArFyB2K/cB1uAAAAAElFTkSuQmCC", "tileWidth": 64, "tileHeight": 64, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0}
+  ]
+}

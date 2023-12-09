@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IssacLike", "IssacLike\IssacLike.csproj", "{6E0DDE50-37A5-4B03-80A1-F090AA4D6259}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monogame.ImGuiNet", "vendor\MonoGame.ImGuiNet\Monogame.ImGuiNet.csproj", "{616C333B-D7A9-40CC-9158-108C82E17AF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E0DDE50-37A5-4B03-80A1-F090AA4D6259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E0DDE50-37A5-4B03-80A1-F090AA4D6259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E0DDE50-37A5-4B03-80A1-F090AA4D6259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E0DDE50-37A5-4B03-80A1-F090AA4D6259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{616C333B-D7A9-40CC-9158-108C82E17AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{616C333B-D7A9-40CC-9158-108C82E17AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{616C333B-D7A9-40CC-9158-108C82E17AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{616C333B-D7A9-40CC-9158-108C82E17AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09ACE7B1-737C-4D77-994D-048D91B15833}
+	EndGlobalSection
+EndGlobal

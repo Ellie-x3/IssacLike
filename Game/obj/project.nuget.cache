@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "2AFAddcAmMcAikR7APTMgH83Of5Twir8PlW/F2REIX9qrWS+Op2knZSbb1sR8fxfqbEluJXb1P8EIgmgAECYZQ==",
+  "success": true,
+  "projectFilePath": "D:\\MonoGame\\IssacLikeBulletHell\\IssacLike\\IssacLike\\IssacLike.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ellie\\.nuget\\packages\\imgui.net\\1.89.7.1\\imgui.net.1.89.7.1.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\ldtkmonogame\\1.1.2\\ldtkmonogame.1.1.2.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.14\\microsoft.netcore.app.host.win-x64.6.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
