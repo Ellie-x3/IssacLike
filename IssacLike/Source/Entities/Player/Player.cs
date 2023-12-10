@@ -29,11 +29,16 @@ namespace IssacLike.Source.Entities.Player
 
         private Animation.Direction m_Facing = 0;
 
+        private Vector2 m_SpriteHalf = new Vector2(32, 32);
+        private int m_RayLength;
+        private Vector2 m_PrevPosition;
+        private Vector2 m_NextPosition;
+
         public Player()
         {
             name = "Player";
             Scale = new Vector2(1f);
-            Origin = new Vector2(1f);
+            Origin = new Vector2(32f, 32f);
             TextureLoader.AddTexture("Walk", "Player/Player_Walk");
             TextureLoader.AddTexture("Idle", "Player/Player_Idle");
             TextureLoader.AddTexture("Static", "Player/mcfront");
@@ -54,34 +59,34 @@ namespace IssacLike.Source.Entities.Player
 
             Position = body.Position;
 
-            Collider = new Collider(new Rectangle((int)Position.X, (int)Position.Y, 64, 64));
+            Collider = new Collider(new Rectangle((int)(Position.X - m_SpriteHalf.X), (int)(Position.Y - m_SpriteHalf.Y), 64, 64));
+            m_RayLength = (int)m_SpriteHalf.Y + 5;
 
             base.Start();
-        }
+        } 
 
         public override void Update(GameTime gameTime)
         {
             PlayerMove(gameTime);
-            Collider.Location = new Point((int)Position.X, (int)Position.Y);
-            //Logger.Log(m_Bound.Location);
+            Collider.Location = new Point((int)(Position.X - m_SpriteHalf.X), (int)(Position.Y - m_SpriteHalf.Y));
 
             base.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch batch, GameTime gameTime)
-        {
-
-            //batch.Draw(m_BoundBox, Bound, Color.White);
-            
-            base.Draw(batch, gameTime);  
-            
+        {            
+            base.Draw(batch, gameTime);              
         }
 
         private void OnCollision(List<Rectangle> tiles) {
             foreach(Rectangle tile in tiles) {
-                if (Collider.Bound.Intersects(tile)) {
-                    Logger.Log("Player is hitting level collision!!!");
-                }
+                bool hit;
+                Collider.Raycast(new Point((int)Position.X, (int)(Position.Y - m_SpriteHalf.Y)), new Point((int)Position.X, (int)(Position.Y + m_SpriteHalf.Y)), out hit, tile);
+
+                if (hit) {
+                    body.Velocity = Vector2.Zero;
+                    Position = m_PrevPosition;
+                }              
             }
         }  
         
@@ -101,7 +106,6 @@ namespace IssacLike.Source.Entities.Player
             if (Input.IsKeyDown(Keys.S)) {
                 body.Magnitude += Directions.South;
                 m_Facing = Animation.Direction.SOUTH;
-
             }
 
             if (Input.IsKeyDown(Keys.D)) {
@@ -118,6 +122,10 @@ namespace IssacLike.Source.Entities.Player
            
             body.Magnitude = Directions.Normalize(body.Magnitude);
             body.Velocity = body.Magnitude * body.Speed * Globals.Delta;
+
+            m_PrevPosition = Position;
+            m_NextPosition = Position += body.Velocity;
+
             OnCollision(LevelLoader.LevelCollisionTiles);
 
             Position = body.Move();

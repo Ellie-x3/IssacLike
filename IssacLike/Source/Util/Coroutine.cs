@@ -40,7 +40,7 @@ namespace IssacLike.Source.Util {
 
         public static void StopCoroutine(string coroutine) {
             if (m_CoroutineTask.TryGetValue(coroutine, out CancellationTokenSource token)) {
-                Debug.WriteLine($"Stopping task with {token}");
+                System.Diagnostics.Debug.WriteLine($"Stopping task with {token}");
                 token.Cancel();
                 m_CoroutineTask.Remove(coroutine);
             }

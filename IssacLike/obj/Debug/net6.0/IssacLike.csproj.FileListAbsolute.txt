@@ -80,3 +80,6 @@ D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\obj\Debug\net6.0\refint\Issa
 D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\obj\Debug\net6.0\IssacLike.pdb
 D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\obj\Debug\net6.0\IssacLike.genruntimeconfig.cache
 D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\obj\Debug\net6.0\ref\IssacLike.dll
+D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\bin\Debug\net6.0\Content\Textures\line.xnb
+D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\bin\Debug\net6.0\MonoGame.Extended.dll
+D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\bin\Debug\net6.0\Newtonsoft.Json.dll

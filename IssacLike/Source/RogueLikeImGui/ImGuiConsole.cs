@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +19,7 @@ namespace IssacLike.Source.RogueLikeImGui {
     internal class Logger : UIRenderer {
 
         private static bool s_IsConsoleShowPressed = false;
+        private static bool s_IsDrawColliderChecked = false;
 
         private static byte[] inputBuf = new byte[64];
         private static List<string> ConsoleOutput = new List<string>();
@@ -34,6 +34,7 @@ namespace IssacLike.Source.RogueLikeImGui {
         private enum RenderTarget {
             Console,
             Log,
+            Debug,
             Default
         }
 
@@ -46,6 +47,11 @@ namespace IssacLike.Source.RogueLikeImGui {
         internal static new void Update(GameTime gt) {
             if (Input.IsKeyPressed(Keys.OemTilde))
                 s_IsConsoleShowPressed = !s_IsConsoleShowPressed;
+
+            if (Input.IsKeyPressed(Keys.F3)) {
+                s_IsDrawColliderChecked = !s_IsDrawColliderChecked;
+                Debug.DrawDebug = !Debug.DrawDebug;
+            }
         }
 
         private static void RenderConsole() {
@@ -104,8 +110,17 @@ namespace IssacLike.Source.RogueLikeImGui {
 
                 ImGui.PopStyleVar();
             }
+            if(LogOutput.Count >= 200)
+                LogOutput = new List<string>();
+
             ImGui.EndChild();
             ImGui.Separator();
+        }
+
+        private static void RenderDebug() {
+            if (ImGui.Checkbox("Draw Colliders", ref s_IsDrawColliderChecked)) {
+                Debug.DrawDebug = !Debug.DrawDebug;
+            }
         }
 
         internal static void Draw(GameTime gt) {
@@ -113,8 +128,8 @@ namespace IssacLike.Source.RogueLikeImGui {
             s_GuiRenderer.BeginLayout(gt);
  
             ImGuiWindowFlags flags = ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoSavedSettings;
-            ImGui.SetNextWindowSize(new System.Numerics.Vector2(Globals.ScreenSize.X, 150.0f));
-            ImGui.SetNextWindowPos(new System.Numerics.Vector2(0, Globals.ScreenSize.Y - 150.0f));
+            ImGui.SetNextWindowSize(new System.Numerics.Vector2(Globals.ScreenSize.X, 225.0f));
+            ImGui.SetNextWindowPos(new System.Numerics.Vector2(0, Globals.ScreenSize.Y - 225.0f));
 
             if (ImGui.Begin("Console", flags) && s_IsConsoleShowPressed) {
                 if (ImGui.BeginTabBar("Tabs")) {
@@ -128,6 +143,12 @@ namespace IssacLike.Source.RogueLikeImGui {
                         ImGui.EndTabItem();
                     }
 
+                    if(ImGui.BeginTabItem("Debug Options")) {
+                        target = RenderTarget.Debug;
+                        
+                        ImGui.EndTabItem();
+                    }
+
                     ImGui.EndTabBar();
                 }
 
@@ -137,6 +158,9 @@ namespace IssacLike.Source.RogueLikeImGui {
                         break;
                     case RenderTarget.Log:
                         RenderLog();
+                        break;
+                    case RenderTarget.Debug:
+                        RenderDebug();
                         break;
                     default:
                         break;

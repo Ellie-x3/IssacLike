@@ -5,6 +5,7 @@
   <Config />
   <SourceFiles>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/background.png</File>
+    <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/line.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/mainmenu.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/Player/mcfront.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/Player/mcside.png</File>
@@ -13,6 +14,7 @@
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/TEXTURE_default.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

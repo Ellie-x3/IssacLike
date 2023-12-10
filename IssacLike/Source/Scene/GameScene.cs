@@ -12,11 +12,14 @@ using IssacLike.Source.Entities.Player;
 using IssacLike.Source.Managers.Resources;
 using LDtk.Renderer;
 using Microsoft.Xna.Framework.Graphics;
+using IssacLike.Source.Rooms;
 
 namespace IssacLike.Source.Scene
 {
     internal class GameScene : IScene {
         public string name { get => "GameScene"; }
+
+        private Floor floor;
 
         public static IScene Instance { get {
                 if(m_Instance == null){
@@ -32,6 +35,8 @@ namespace IssacLike.Source.Scene
         public GameScene() {
             Player player = new Player();
             AddEntityToScene(player);
+
+            floor = new Floor();
         }
 
         public void AddEntityToScene(Entity entity) {
@@ -39,18 +44,19 @@ namespace IssacLike.Source.Scene
         }
 
         public void Update(GameTime gameTime) {
-            LevelLoader.Update(gameTime);
+            //LevelLoader.Update(gameTime);
             EntityManager.Update(gameTime);
+            floor.Update(gameTime);   
         }
 
         public void SceneContent(SpriteBatch batch) {
-            LevelLoader.m_Renderer = new LDtkRenderer(batch);
-            LevelLoader.Init(batch);
+           // LevelLoader.m_Renderer = new LDtkRenderer(batch);
+           // LevelLoader.Init(batch);
         }
 
         public void Draw(SpriteBatch batch, GameTime gameTime) {
-            LevelLoader.Draw(batch);
-
+           // LevelLoader.Draw(batch);
+            floor.Draw(batch, gameTime);
             EntityManager.Draw(batch, gameTime);
         }
     }

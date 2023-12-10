@@ -51,7 +51,7 @@ namespace IssacLike.Source.Managers.Resources {
             foreach (LDtkLevel level in m_World.Levels) {
                
                 m_Renderer.RenderPrerenderedLevel(level);
-                if(m_DrawLevelCollision)
+                if(Debug.DrawDebug)
                     DrawLevelCollision(level, batch);
 
             }
