@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IssacLike.Source.Managers.Resources {
-    internal class TextureLoader : ResourceLoader {
+    public class TextureLoader : ResourceLoader {
 
         public static readonly Dictionary<string, Texture2D> Textures = new Dictionary<string, Texture2D>();
         private static string m_DefaultTexture = "Textures/TEXTURE_default";
         private static string m_TexturePath = "Textures/";
 
-        internal static void Init() {
+        public static void Init() {
             Texture2D texture = m_ContentManager.Load<Texture2D>(m_DefaultTexture);
             Textures.Add(m_DefaultTexture, texture);
         }

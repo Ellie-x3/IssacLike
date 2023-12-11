@@ -23,13 +23,11 @@ namespace IssacLike.Source.Entities {
         protected Vector2 Origin = new Vector2(1f);
         protected SpriteEffects SpriteEffects { get; set; }
         protected Color Color = Color.White;
-        internal List<IComponent> Components = new List<IComponent>();
+        public List<IComponent> Components = new List<IComponent>();
 
         public string name { get; set; }
         protected bool Destroyed { get;set; }
         protected float Layer { get;set; }
-
-        //public Rectangle Bound { get => CalculateBound(); }
 
         public virtual void Start() {
             if(Texture == null)

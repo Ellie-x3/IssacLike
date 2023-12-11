@@ -57,7 +57,7 @@ namespace IssacLike
         }
 
         protected override void LoadContent() {
-            renderTarget = new RenderTarget2D(Globals.s_GraphicsDevice, 1920, 1080);
+            renderTarget = new RenderTarget2D(Globals.s_GraphicsDevice, 1280, 720);
 
             GameManager.LoadContent(_spriteBatch);            
 
@@ -85,16 +85,14 @@ namespace IssacLike
 
         protected override void Draw(GameTime gameTime) {
 
-            renderScale = 1f / (1080f / Globals.s_Graphics.GraphicsDevice.Viewport.Height);
+            renderScale = 1f / (360f / Globals.s_Graphics.GraphicsDevice.Viewport.Height);
 
             GraphicsDevice.SetRenderTarget(renderTarget);
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             float fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            _spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp);
-                GameManager.Draw(_spriteBatch, gameTime);
-            _spriteBatch.End();
+            GameManager.Draw(_spriteBatch, gameTime);
             
             GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.CornflowerBlue);

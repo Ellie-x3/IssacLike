@@ -11,18 +11,18 @@ using System.Threading.Tasks;
 
 namespace IssacLike.Source.Util
 {
-    internal static class Globals {
-        internal static GraphicsDevice s_GraphicsDevice;
-        internal static GraphicsDeviceManager s_Graphics;
-        internal static SpriteBatch s_SpriteBatch;
-        internal static float Delta;
+    public static class Globals {
+        public static GraphicsDevice s_GraphicsDevice;
+        public static GraphicsDeviceManager s_Graphics;
+        public static SpriteBatch s_SpriteBatch;      
+        public static float Delta;
 
         public static LDtkLevel CurrentLevel { get; set; }
 
         //Debug
         public static Vector2 RoomSize { get => new Vector2(640, 360); }
 
-        internal static Vector2 ScreenSize {
+        public static Vector2 ScreenSize {
             get {
                 return new Vector2(s_Graphics.PreferredBackBufferWidth, s_Graphics.PreferredBackBufferHeight);
             }
@@ -32,6 +32,8 @@ namespace IssacLike.Source.Util
                 s_Graphics.PreferredBackBufferHeight = (int)value.Y;
             }
         }
+
+        public static Camera Camera { get; set; }
 
         public static int GetHash(string input) {
             using (SHA256 sha = SHA256.Create()) {

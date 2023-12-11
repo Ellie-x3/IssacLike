@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace IssacLike.Source.Managers.Resources
 {
-    internal abstract class ResourceLoader
+    public abstract class ResourceLoader
     {
         protected static ContentManager m_ContentManager;
 

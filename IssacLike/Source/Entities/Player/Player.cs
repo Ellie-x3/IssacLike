@@ -15,7 +15,7 @@ using LDtk;
 
 namespace IssacLike.Source.Entities.Player
 {
-    internal class Player : Entity {
+    public class Player : Entity {
         //Componenets
 
         [Component(typeof(CharacterBody))]
@@ -32,7 +32,9 @@ namespace IssacLike.Source.Entities.Player
         private Vector2 m_SpriteHalf = new Vector2(32, 32);
         private int m_RayLength;
         private Vector2 m_PrevPosition;
-        private Vector2 m_NextPosition;
+
+        //DEBUG / TESTING
+        public Vector2 PlayerPosition { get => Position; } 
 
         public Player()
         {
@@ -53,13 +55,14 @@ namespace IssacLike.Source.Entities.Player
             AnimationController.Create("Idle", TextureLoader.Texture("Idle"), new Vector2(64,64), 1, 4, 0f);
 
             body = new CharacterBody();
-            body.Position = new Vector2(150, 70);
+           // body.Position = new Vector2(150, 70);
+            body.Position = FloorManager.SpawnPosition;           
             body.Speed = 175.0f;
             body.Velocity = new Vector2();
 
             Position = body.Position;
 
-            Collider = new Collider(new Rectangle((int)(Position.X - m_SpriteHalf.X), (int)(Position.Y - m_SpriteHalf.Y), 64, 64));
+            Collider = new Collider(new Rectangle((int)(Position.X - (m_SpriteHalf.X / 2)), (int)(Position.Y - m_SpriteHalf.Y), 32, 64));
             m_RayLength = (int)m_SpriteHalf.Y + 5;
 
             base.Start();
@@ -68,7 +71,7 @@ namespace IssacLike.Source.Entities.Player
         public override void Update(GameTime gameTime)
         {
             PlayerMove(gameTime);
-            Collider.Location = new Point((int)(Position.X - m_SpriteHalf.X), (int)(Position.Y - m_SpriteHalf.Y));
+            Collider.Location = new Point((int)(Position.X - (m_SpriteHalf.X / 2)), (int)(Position.Y - m_SpriteHalf.Y));
 
             base.Update(gameTime);
         }
@@ -78,16 +81,17 @@ namespace IssacLike.Source.Entities.Player
             base.Draw(batch, gameTime);              
         }
 
-        private void OnCollision(List<Rectangle> tiles) {
-            foreach(Rectangle tile in tiles) {
-                bool hit;
-                Collider.Raycast(new Point((int)Position.X, (int)(Position.Y - m_SpriteHalf.Y)), new Point((int)Position.X, (int)(Position.Y + m_SpriteHalf.Y)), out hit, tile);
+        private void OnCollision() {
+            /*bool hit;
+            Collider.Raycast(new Point((int)Position.X, (int)(Position.Y - m_SpriteHalf.Y)), new Point((int)Position.X, (int)(Position.Y + m_SpriteHalf.Y)), out hit);
 
-                if (hit) {
-                    body.Velocity = Vector2.Zero;
-                    Position = m_PrevPosition;
-                }              
-            }
+            if (hit) {
+                body.Velocity = Vector2.Zero;
+                Position = m_PrevPosition;
+            }  */
+            
+            // Screen/wall base collision
+
         }  
         
         private void PlayerMove(GameTime gameTime) {
@@ -124,9 +128,9 @@ namespace IssacLike.Source.Entities.Player
             body.Velocity = body.Magnitude * body.Speed * Globals.Delta;
 
             m_PrevPosition = Position;
-            m_NextPosition = Position += body.Velocity;
+            //m_NextPosition = Position += body.Velocity;
 
-            OnCollision(LevelLoader.LevelCollisionTiles);
+            OnCollision();
 
             Position = body.Move();
         }

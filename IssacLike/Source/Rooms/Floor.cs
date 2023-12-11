@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IssacLike.Source.Managers;
 using IssacLike.Source.RogueLikeImGui;
 using IssacLike.Source.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace IssacLike.Source.Rooms {
-    internal class Floor { //New floor
+    public class Floor { //New floor
         //Create room
         //Manage room door
         //Manage room transition
@@ -17,10 +19,16 @@ namespace IssacLike.Source.Rooms {
         //Keep track of floor state
 
         public Room CurrentRoom { get => m_CurrentRoom; }
+        public List<Point> RoomsPositions { get => m_RoomPoints; }
+        public List<Room> Rooms { get => m_AllRooms; }
 
         private Dictionary<Room, Point> m_Rooms = new Dictionary<Room, Point>();
+        private List<Room> m_AllRooms = new List<Room>();
         private List<Point> m_RoomPoints = new List<Point>();
         private Dictionary<Room, Flags> m_RoomNeighbours = new Dictionary<Room, Flags>();
+
+        private List<Rectangle> m_DoorLocations = new List<Rectangle>();
+
         private Flags m_RoomFlags;
         private Room m_CurrentRoom;
 
@@ -28,7 +36,7 @@ namespace IssacLike.Source.Rooms {
 
         private Texture2D m_DoorTexture;
      
-        internal Floor() {
+        public Floor() {
 
             m_DoorTexture = new Texture2D(Globals.s_GraphicsDevice, 1, 1);
             m_DoorTexture.SetData(new Color[] { Color.Green });
@@ -36,23 +44,26 @@ namespace IssacLike.Source.Rooms {
             m_RoomPoints = GetRoomPoints();
 
             foreach(Point point in m_RoomPoints) {
-                m_Rooms.Add(new Room(point, new Vector2(Globals.RoomSize.X, Globals.RoomSize.Y)), point);
+                Room room = new Room(point, new Vector2(Globals.RoomSize.X, Globals.RoomSize.Y));
+                m_Rooms.Add(room, point);
+                m_AllRooms.Add(room);
             }
             CheckNeighbours(m_Rooms);
+            GetDoorPoints();
 
-            m_CurrentRoom = m_Rooms.Keys.First();
-
+            FloorManager.CurrentRoom = m_AllRooms[0];
         }
 
-        internal void Update(GameTime gameTime) {
-            m_CurrentRoom.Update(gameTime);
+        public void Update(GameTime gameTime) {
+           FloorManager.CurrentRoom.Update(gameTime);
         }
 
-        internal void Draw(SpriteBatch batch, GameTime gameTime) {
+        public void Draw(SpriteBatch batch, GameTime gameTime) {
             foreach(KeyValuePair<Room, Point> room in m_Rooms) {
-                room.Key.Draw(batch, gameTime);
-                DrawDoors(batch);
+                room.Key.Draw(batch, gameTime);           
             }
+
+            DrawDoors(batch);
         }
 
         private List<Point> GetRoomPoints() {
@@ -73,14 +84,6 @@ namespace IssacLike.Source.Rooms {
         }
         
         private void CheckNeighbours(Dictionary<Room, Point> rooms) { 
-
-            Point minSize = new Point(0,0);
-            Point maxSize = new Point((int)m_MaxSize.X, (int)m_MaxSize.Y);
-
-            Point roomSize = new Point((int)Globals.RoomSize.X, (int)Globals.RoomSize.Y);
-
-            bool[] hasNeighbor = new bool[4]; 
-
             foreach(KeyValuePair<Room, Point> kvp in rooms) {
                 Room room = kvp.Key;
                 Point point = kvp.Value;
@@ -103,40 +106,43 @@ namespace IssacLike.Source.Rooms {
                 }
 
                 m_RoomNeighbours.Add(room, m_RoomFlags);
+               
             }
         }
 
         private void DrawDoors(SpriteBatch batch) {
-            foreach(KeyValuePair<Room, Flags> kvp in m_RoomNeighbours) {
-                //bit math yay
+            for(int i = 0; i < m_DoorLocations.Count; i++) {
+                batch.Draw(m_DoorTexture, m_DoorLocations[i], Color.White);
+            }
+        }
+
+        private void GetDoorPoints() {
+            foreach (KeyValuePair<Room, Flags> kvp in m_RoomNeighbours) {
                 //East door example: 1
                 //East with some other doors: 7 //east + north + west
-                
-                //Mask out other values to get east, idk how :(
+
+                //Mask out other values to get east
                 //& operator masks values
                 //flags & Flags.East will mask out all other flags then East
 
                 Flags flags = kvp.Value;
 
-                if((flags & Flags.East) == Flags.East) {
-                    Logger.Log("East door connected");
-                    batch.Draw(m_DoorTexture, new Rectangle(m_Rooms[kvp.Key].X + (int)Globals.RoomSize.X - 32, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), 32 ,32), Color.White);
+                if ((flags & Flags.East) == Flags.East) {
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)Globals.RoomSize.X - 32, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), 40, 40));
                 }
 
                 if ((flags & Flags.North) == Flags.North) {
-                    Logger.Log("North door connected");
-                    batch.Draw(m_DoorTexture, new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y, 32, 32), Color.White);
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y, 40, 40));  
                 }
 
                 if ((flags & Flags.West) == Flags.West) {
-                    Logger.Log("West door connected");
-                    batch.Draw(m_DoorTexture, new Rectangle(m_Rooms[kvp.Key].X, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), 32, 32), Color.White);
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), 40, 40));
                 }
 
                 if ((flags & Flags.South) == Flags.South) {
-                    Logger.Log("South door connected");
-                    batch.Draw(m_DoorTexture, new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y + (int)Globals.RoomSize.Y - 32, 32, 32), Color.White);
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y + (int)Globals.RoomSize.Y - 32, 40, 40));
                 }
+
             }
         }
 
@@ -149,10 +155,10 @@ namespace IssacLike.Source.Rooms {
         }
     }
 
-    internal static class PointDirections {
-        internal static Point North = new Point(0, -360);
-        internal static Point East  = new Point(640, 0);
-        internal static Point South = new Point(0, 360);
-        internal static Point West  = new Point(-640, 0);
+    public static class PointDirections {
+        public static Point North = new Point(0, -360);
+        public static Point East  = new Point(640, 0);
+        public static Point South = new Point(0, 360);
+        public static Point West  = new Point(-640, 0);
     }
 }

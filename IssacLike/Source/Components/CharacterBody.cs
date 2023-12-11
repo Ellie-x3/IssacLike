@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IssacLike.Source.Components {
-    internal class CharacterBody : IComponent {
+    public class CharacterBody : IComponent {
         public Entity Owner { get; set; }
 
         public string name { get; set; }

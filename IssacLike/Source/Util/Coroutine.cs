@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 using System.Threading;
 
 namespace IssacLike.Source.Util {
-    internal static class Coroutine {
+    public static class Coroutine {
 
         private static Dictionary<string, CancellationTokenSource> m_CoroutineTask = new Dictionary<string, CancellationTokenSource>();
 
@@ -47,7 +47,7 @@ namespace IssacLike.Source.Util {
         }
     }
 
-    internal class WaitForSeconds {
+    public class WaitForSeconds {
         private float m_Duration;
         private Stopwatch m_StopWatch;
 

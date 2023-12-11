@@ -13,7 +13,7 @@ using IssacLike.Source.RogueLikeImGui;
 using Microsoft.Xna.Framework;
 
 namespace IssacLike.Source.Managers.Resources {
-    internal class LevelLoader : ResourceLoader {
+    public class LevelLoader : ResourceLoader {
         private static LDtkWorld m_World;
         public static LDtkRenderer m_Renderer;
 
@@ -21,14 +21,14 @@ namespace IssacLike.Source.Managers.Resources {
         private static List<LDtkLevel> Levels = new List<LDtkLevel>();
         public static LDtkLevel CurrentLevel;
 
-        internal static List<Rectangle> LevelCollisionTiles = new List<Rectangle>(); 
+        public static List<Rectangle> LevelCollisionTiles = new List<Rectangle>(); 
 
         private static Texture2D m_BoundBox;
 
         private static bool m_DrawLevelCollision = false;
         public static bool s_DrawLevelCollision { get { return m_DrawLevelCollision; } set { m_DrawLevelCollision = value; } }
 
-        internal static void Init(SpriteBatch batch) {
+        public static void Init(SpriteBatch batch) {
             LDtkFile file = LDtkFile.FromFile(string.Concat(m_LevelDirectory, "testlevel.ldtk"));
             m_World = file.LoadWorld(file.Worlds[0].Iid);
 
@@ -47,7 +47,7 @@ namespace IssacLike.Source.Managers.Resources {
             CurrentLevel = Levels[0];
         }
 
-        internal static void Draw(SpriteBatch batch) {
+        public static void Draw(SpriteBatch batch) {
             foreach (LDtkLevel level in m_World.Levels) {
                
                 m_Renderer.RenderPrerenderedLevel(level);
@@ -57,14 +57,14 @@ namespace IssacLike.Source.Managers.Resources {
             }
         }
 
-        internal static void Update(GameTime gameTime) { 
+        public static void Update(GameTime gameTime) { 
             if(Input.IsKeyPressed(Keys.F1))
                 m_DrawLevelCollision = !m_DrawLevelCollision;    
         }
 
-        internal static void LoadWorld(LDtkWorld world) { }
+        public static void LoadWorld(LDtkWorld world) { }
 
-        internal static void DrawLevelCollision(LDtkLevel level, SpriteBatch batch) {
+        public static void DrawLevelCollision(LDtkLevel level, SpriteBatch batch) {
             LDtkIntGrid collisions = level.GetIntGrid("Collision");
 
             Point topLeftGrid = collisions.FromWorldToGridSpace(new Vector2(0, 0));
@@ -82,7 +82,7 @@ namespace IssacLike.Source.Managers.Resources {
             }
         }
 
-        internal static void LevelCollisions(LDtkLevel level) {
+        public static void LevelCollisions(LDtkLevel level) {
             LDtkIntGrid collisions = level.GetIntGrid("Collision");
 
             Point topLeftGrid = collisions.FromWorldToGridSpace(new Vector2(0, 0));

@@ -16,7 +16,7 @@ using System.Collections;
 using IssacLike.Source.Managers;
 
 namespace IssacLike.Source.RogueLikeImGui {
-    internal class Logger : UIRenderer {
+    public class Logger : UIRenderer {
 
         private static bool s_IsConsoleShowPressed = false;
         private static bool s_IsDrawColliderChecked = false;
@@ -40,11 +40,11 @@ namespace IssacLike.Source.RogueLikeImGui {
 
         private static RenderTarget target = RenderTarget.Log;
 
-        internal static void Start() {
+        public static void Start() {
             //Coroutine.StartCoroutine(() => testCoroutine());
         }
 
-        internal static new void Update(GameTime gt) {
+        public static new void Update(GameTime gt) {
             if (Input.IsKeyPressed(Keys.OemTilde))
                 s_IsConsoleShowPressed = !s_IsConsoleShowPressed;
 
@@ -123,7 +123,7 @@ namespace IssacLike.Source.RogueLikeImGui {
             }
         }
 
-        internal static void Draw(GameTime gt) {
+        public static void Draw(GameTime gt) {
 
             s_GuiRenderer.BeginLayout(gt);
  

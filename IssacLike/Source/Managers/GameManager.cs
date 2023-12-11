@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IssacLike.Source.Managers {
-    internal static class GameManager {
+    public static class GameManager {
 
         public static void Start(){
 

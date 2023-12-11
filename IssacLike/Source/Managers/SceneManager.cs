@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace IssacLike.Source.Managers {
-    internal class SceneManager {
+    public class SceneManager {
 
         private static IScene m_ActiveScene;
 

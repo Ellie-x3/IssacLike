@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IssacLike.Source.Components {
-    internal class Animation : IDraw {
+    public class Animation : IDraw {
 
         public enum Direction {
             EAST  = 0,
@@ -85,7 +85,7 @@ namespace IssacLike.Source.Components {
         }
     }
 
-    internal class Flipbook {
+    public class Flipbook {
         private Texture2D m_Texture; // Texture to read from
         private int m_FrameCount; // How many frames to split it
         private int m_TotalFrameCount; // How many frames to split it

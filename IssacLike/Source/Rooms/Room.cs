@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IssacLike.Source.Rooms {
-    internal class Room { //Create and defines a room
+    public class Room { //Create and defines a room
         //Size
         //Enemies
         //Difficuly
@@ -33,9 +33,12 @@ namespace IssacLike.Source.Rooms {
 
         private Point m_Position;
 
-        internal Room(Point pos, Vector2 size) {
+        public Point RoomPosition { get; set; }
+
+        public Room(Point pos, Vector2 size) {
             m_Size = size;
             m_Position = pos;
+            RoomPosition = m_Position;
 
             DateTime time = DateTime.Now; //debug purposes
 
@@ -55,11 +58,11 @@ namespace IssacLike.Source.Rooms {
             m_BackgroundTexture.SetData(new Color[] { m_BackgroundColor });
         }
 
-        internal void Update(GameTime gameTime) {
+        public void Update(GameTime gameTime) {
 
         }
 
-        internal void Draw(SpriteBatch batch, GameTime gameTime) {
+        public void Draw(SpriteBatch batch, GameTime gameTime) {
             batch.Draw(m_BackgroundTexture, new Rectangle(m_Position.X, m_Position.Y, (int)m_Size.X, (int)m_Size.Y), Color.White);
         }
     }

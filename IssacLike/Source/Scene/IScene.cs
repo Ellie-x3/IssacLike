@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IssacLike.Source.Scene {
-    internal interface IScene {
+    public interface IScene {
         string name { get; }
 
         void AddEntityToScene(Entity entity);

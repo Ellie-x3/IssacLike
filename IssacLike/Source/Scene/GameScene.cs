@@ -13,13 +13,14 @@ using IssacLike.Source.Managers.Resources;
 using LDtk.Renderer;
 using Microsoft.Xna.Framework.Graphics;
 using IssacLike.Source.Rooms;
+using IssacLike.Source.RogueLikeImGui;
 
 namespace IssacLike.Source.Scene
 {
-    internal class GameScene : IScene {
+    public class GameScene : IScene {
         public string name { get => "GameScene"; }
 
-        private Floor floor;
+        private Player player;
 
         public static IScene Instance { get {
                 if(m_Instance == null){
@@ -33,10 +34,12 @@ namespace IssacLike.Source.Scene
         private static IScene m_Instance;
 
         public GameScene() {
-            Player player = new Player();
-            AddEntityToScene(player);
+            Globals.Camera = new Camera(Globals.s_GraphicsDevice);
 
-            floor = new Floor();
+            FloorManager.Create();
+
+            player = new Player();
+            AddEntityToScene(player);           
         }
 
         public void AddEntityToScene(Entity entity) {
@@ -45,8 +48,12 @@ namespace IssacLike.Source.Scene
 
         public void Update(GameTime gameTime) {
             //LevelLoader.Update(gameTime);
+            Globals.Camera.Update();
+            //Globals.Camera.Position = new Vector2(0,0);
+            Globals.Camera.Zoom = Math.Max(Globals.s_GraphicsDevice.Viewport.Height / 720f, 1);
             EntityManager.Update(gameTime);
-            floor.Update(gameTime);   
+            FloorManager.PlayerPosition = player.PlayerPosition;
+            FloorManager.Update(gameTime);   
         }
 
         public void SceneContent(SpriteBatch batch) {
@@ -55,9 +62,14 @@ namespace IssacLike.Source.Scene
         }
 
         public void Draw(SpriteBatch batch, GameTime gameTime) {
-           // LevelLoader.Draw(batch);
-            floor.Draw(batch, gameTime);
-            EntityManager.Draw(batch, gameTime);
+            batch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, transformMatrix: Globals.Camera.Transform);
+                FloorManager.Draw(batch, gameTime);
+                EntityManager.Draw(batch, gameTime);
+            batch.End();
+        }
+
+        private void UpdateCameraPosition() {
+
         }
     }
 }

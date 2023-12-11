@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using IssacLike.Source.RogueLikeImGui;
 
 namespace IssacLike.Source.Components {
-    internal class Sprite : IDraw {
-        internal Texture2D Texture { get; set; }
+    public class Sprite : IDraw {
+        public Texture2D Texture { get; set; }
 
         public Entity Owner { get; set; }
         public string name { get; set; }

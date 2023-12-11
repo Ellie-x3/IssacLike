@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IssacLike.Source.Managers {
-    internal class CollisionManager {
+    public class CollisionManager {
         private static List<Rectangle> CollisionList = new List<Rectangle>();
 
 

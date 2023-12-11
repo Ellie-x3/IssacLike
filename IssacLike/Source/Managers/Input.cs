@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace IssacLike.Source.Managers {
-    internal static class Input {
+    public static class Input {
         private static KeyboardState m_KeyboardCurrent;
         private static KeyboardState m_KeyboardPrevious;
 

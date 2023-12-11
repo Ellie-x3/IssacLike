@@ -1,7 +1,9 @@
 ﻿using IssacLike.Source.Components;
 using IssacLike.Source.Entities;
+using IssacLike.Source.Managers;
 using IssacLike.Source.Managers.Resources;
 using IssacLike.Source.RogueLikeImGui;
+using IssacLike.Source.Rooms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -12,7 +14,7 @@ using System.Threading.Tasks;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace IssacLike.Source.Scene {
-    internal class MainMenuScene : IScene {
+    public class MainMenuScene : IScene {
         public string name { get => "MainMenuScene"; }
 
         public static IScene Instance { get {
@@ -37,8 +39,10 @@ namespace IssacLike.Source.Scene {
         public void Update(GameTime gameTime) {
         }
 
-        public void Draw(SpriteBatch batch, GameTime gameTime) {
-            batch.Draw(TextureLoader.Texture("MainMenu"), new Rectangle(0,0,640,360), Color.White);
+        public void Draw(SpriteBatch batch, GameTime gameTime) {            
+            batch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp);
+                batch.Draw(TextureLoader.Texture("MainMenu"), new Rectangle(0, 0, 640, 360), Color.White);
+            batch.End();
         }
 
         public void SceneContent(SpriteBatch batch) {
