@@ -1,21 +1,26 @@
 ﻿using IssacLike.Source.Entities;
 using IssacLike.Source.Managers;
+using IssacLike.Source.Managers.Events;
 using IssacLike.Source.Managers.Resources;
 using IssacLike.Source.RogueLikeImGui;
 using IssacLike.Source.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static IssacLike.Source.Entities.ICollidable;
 
 namespace IssacLike.Source.Components {
-    public class Collider : IDraw, ICollisionDetection {
+    public class Collider : IDraw, ICollidable {
 
+        public string Tag { get; set; } = "default";
         public string name { get; set; }
         public Entity Owner { get; set; }
+        public Entity Entity { get => Owner; }
 
         private Rectangle m_Bound;
         public Rectangle Bound {
@@ -45,9 +50,6 @@ namespace IssacLike.Source.Components {
 
         private readonly Texture2D m_Debug;
 
-        private int m_width;
-        private float radians;
-        private Rectangle m_RaycastRect;
         private Color m_Color;
 
         public Collider(Rectangle bound) {
@@ -55,11 +57,6 @@ namespace IssacLike.Source.Components {
             m_Debug = new Texture2D(Globals.s_GraphicsDevice, 1, 1);
             m_Debug.SetData(new Color[] { Color });
 
-            TextureLoader.AddTexture("Raycast", "line");
-        }
-        
-        public Collider() {
-            ColliderActive = false;
             TextureLoader.AddTexture("Raycast", "line");
         }
 
@@ -72,15 +69,10 @@ namespace IssacLike.Source.Components {
         public void Draw(SpriteBatch batch, Vector2 position, Color color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layer) {
             if(Debug.DrawDebug && ColliderActive) {
                 batch.Draw(m_Debug, m_Bound, Color.White);
-            }
-
-            if (Debug.DrawDebug && m_RaycastRect != null) {
-                batch.Draw(TextureLoader.Texture("Raycast"), m_RaycastRect, null, Color.White, radians, new Vector2(0,0), effects, layer);
-            }
-                
+            }                
         }
 
-        public void Raycast(Point start, Point end, out bool hit, Rectangle collision) {
+        /*public void Raycast(Point start, Point end, out bool hit, Rectangle collision) {
             var length = 0.0f;
             var startX = start.X;
             var startY = start.Y;
@@ -136,20 +128,21 @@ namespace IssacLike.Source.Components {
 
             if (endY - startY > 0 || endY - startY < 0) {
                 height = endY - startY;
-                Logger.Log(height);
             }
             else {
                 width = endX - startX;
-                Logger.Log(width);
             }
        
             radians = MathHelper.ToRadians(0f);
             m_RaycastRect = new Rectangle(startX, startY, -70, 1);
             return point;
-        }
+        }*/
 
         public bool CollidesWith(Rectangle other) {
             throw new NotImplementedException();
         }
+
+        public void Dispose() { }
+
     }
 }

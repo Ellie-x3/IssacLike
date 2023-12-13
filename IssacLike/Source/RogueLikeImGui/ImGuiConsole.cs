@@ -24,6 +24,7 @@ namespace IssacLike.Source.RogueLikeImGui {
         private static byte[] inputBuf = new byte[64];
         private static List<string> ConsoleOutput = new List<string>();
         private static List<string> LogOutput = new List<string>();
+        private static List<string> LogOutputQueue = new List<string>();
         private static List<string> Commands = new List<string> { 
             "CLEAR",
             "CLEARLOG",
@@ -101,8 +102,8 @@ namespace IssacLike.Source.RogueLikeImGui {
             if (ImGui.BeginChild("ScrollingRegion", new System.Numerics.Vector2(0, 0), false, ImGuiWindowFlags.HorizontalScrollbar)) {
                 ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new System.Numerics.Vector2(4, 1));
 
-                foreach (string log in LogOutput) {
-                    ImGui.TextUnformatted(log);
+                for(int i = 0; i < LogOutput.Count; i++) {
+                    ImGui.TextUnformatted(LogOutput[i]);
                 }
 
                 if(ImGui.GetScrollY() >= ImGui.GetScrollMaxY())
@@ -110,8 +111,6 @@ namespace IssacLike.Source.RogueLikeImGui {
 
                 ImGui.PopStyleVar();
             }
-            if(LogOutput.Count >= 200)
-                LogOutput = new List<string>();
 
             ImGui.EndChild();
             ImGui.Separator();

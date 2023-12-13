@@ -17,6 +17,9 @@ namespace IssacLike.Source.Util
         public static SpriteBatch s_SpriteBatch;      
         public static float Delta;
 
+        public static SpriteFont font;
+        public static float fps;
+
         public static LDtkLevel CurrentLevel { get; set; }
 
         //Debug

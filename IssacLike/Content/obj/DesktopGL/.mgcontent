@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Fonts/File.spritefont</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/background.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/line.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/mainmenu.png</File>
@@ -16,6 +17,7 @@
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/TEXTURE_default.png</File>
   </SourceFiles>
   <DestFiles>
+    <File>Fonts/Font.spritefont</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

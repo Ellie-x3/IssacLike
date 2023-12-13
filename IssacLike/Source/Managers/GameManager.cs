@@ -47,5 +47,6 @@ namespace IssacLike.Source.Managers {
         public static void Draw(SpriteBatch batch, GameTime gameTime){
             SceneManager.ActiveScene.Draw(batch, gameTime);
         }
+
     }
 }

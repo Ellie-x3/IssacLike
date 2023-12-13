@@ -22,6 +22,9 @@ namespace IssacLike
 
         private RenderTarget2D renderTarget;
         private float renderScale;
+        private float fps;
+
+        private SpriteFont font;
 
         public RogueLike() {
             Globals.s_Graphics = new GraphicsDeviceManager(this);
@@ -34,8 +37,9 @@ namespace IssacLike
             Globals.s_GraphicsDevice = Globals.s_Graphics.GraphicsDevice;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            IsFixedTimeStep = true;
-            TargetElapsedTime = TimeSpan.FromSeconds(1.0 / 144.0f);
+            //IsFixedTimeStep = true;
+            //TargetElapsedTime = TimeSpan.FromSeconds(1.0 / 144.0f);
+            IsFixedTimeStep = false;
 
             IsMouseVisible = true;
 
@@ -58,7 +62,7 @@ namespace IssacLike
 
         protected override void LoadContent() {
             renderTarget = new RenderTarget2D(Globals.s_GraphicsDevice, 1280, 720);
-
+            Globals.font = Content.Load<SpriteFont>("Fonts/Font");
             GameManager.LoadContent(_spriteBatch);            
 
             UIRenderer.s_GuiRenderer.RebuildFontAtlas();
@@ -79,6 +83,8 @@ namespace IssacLike
                 Logger.Log("F3 Pressed");
             }
 
+            Globals.fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             base.Update(gameTime);
  
         }
@@ -90,9 +96,9 @@ namespace IssacLike
             GraphicsDevice.SetRenderTarget(renderTarget);
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            float fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+            
 
-            GameManager.Draw(_spriteBatch, gameTime);
+            GameManager.Draw(_spriteBatch, gameTime);         
             
             GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -100,7 +106,7 @@ namespace IssacLike
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             _spriteBatch.Draw(renderTarget, Vector2.Zero, null, Color.White, 0f, Vector2.Zero, renderScale, SpriteEffects.None, 0f);
             _spriteBatch.End();
-
+            
             base.Draw(gameTime);
             Logger.Draw(gameTime);
         }

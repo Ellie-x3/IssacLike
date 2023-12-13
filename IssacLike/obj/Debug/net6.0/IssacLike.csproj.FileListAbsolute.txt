@@ -85,3 +85,4 @@ D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\bin\Debug\net6.0\MonoGame.Ex
 D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\bin\Debug\net6.0\Content\Textures\Player\new_player_walk.xnb
 D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\bin\Debug\net6.0\Content\Textures\Player\new_player_idle.xnb
+D:\MonoGame\IssacLikeBulletHell\IssacLike\IssacLike\bin\Debug\net6.0\Content\Fonts\Font.xnb

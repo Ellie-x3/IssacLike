@@ -93,5 +93,7 @@ namespace IssacLike.Source.Entities {
 
         public virtual void Dispose() { }
 
+        public virtual void OnCollisionEvent(ICollidable other) { }
+
     }
 }

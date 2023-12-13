@@ -24,20 +24,18 @@ namespace IssacLike.Source.Rooms {
         public List<Room> Rooms { get => m_AllRooms; }
         public List<Door> Doors = new List<Door>();
 
-        private Dictionary<Room, Point> m_Rooms = new Dictionary<Room, Point>();
         private List<Room> m_AllRooms = new List<Room>();
         private List<Point> m_RoomPoints = new List<Point>();
-        private Dictionary<Room, Flags> m_RoomNeighbours = new Dictionary<Room, Flags>();
-
         private List<Rectangle> m_DoorLocations = new List<Rectangle>();
+
+        private Dictionary<Room, Point> m_Rooms = new Dictionary<Room, Point>();
+        private Dictionary<Room, Flags> m_RoomNeighbours = new Dictionary<Room, Flags>();    
 
         private Flags m_RoomFlags;
 
         private Vector2 m_MaxSize = new Vector2(Globals.RoomSize.X * 3, Globals.RoomSize.Y * 3);
-
         private Texture2D m_DoorTexture;
-
-        private Point DoorSize = new Point(32,32);
+        private Point DoorSize = new Point(48,48);
      
         public Floor() {
 
@@ -54,8 +52,6 @@ namespace IssacLike.Source.Rooms {
             CheckNeighbours(m_Rooms);
             GetDoorPoints();
             SpawnDoor();
-
-            Logger.Log("Door count: {0}", Doors.Count);
 
             FloorManager.CurrentRoom = m_AllRooms[0];
         }
@@ -140,19 +136,19 @@ namespace IssacLike.Source.Rooms {
                 Flags flags = kvp.Value;
 
                 if ((flags & Flags.East) == Flags.East) {
-                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)Globals.RoomSize.X - 32, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), DoorSize.X, DoorSize.Y));
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)Globals.RoomSize.X - 49, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), DoorSize.X, DoorSize.Y));
                 }
 
                 if ((flags & Flags.North) == Flags.North) {
-                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y, DoorSize.X, DoorSize.Y));  
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y + 1, DoorSize.X, DoorSize.Y));  
                 }
 
                 if ((flags & Flags.West) == Flags.West) {
-                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), DoorSize.X, DoorSize.Y));
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + 1, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), DoorSize.X, DoorSize.Y));
                 }
 
                 if ((flags & Flags.South) == Flags.South) {
-                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y + (int)Globals.RoomSize.Y - 32, DoorSize.X, DoorSize.Y));
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y + (int)Globals.RoomSize.Y - 49, DoorSize.X, DoorSize.Y));
                 }
 
             }

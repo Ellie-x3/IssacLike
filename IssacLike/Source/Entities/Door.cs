@@ -33,20 +33,29 @@ namespace IssacLike.Source.Entities
         }
 
         public override void Start() {
-            m_Sprite = new Sprite(TextureLoader.Texture("Textures/TEXTURE_default"));
-            m_Collider = new Collider(m_Door) { CanCollide = true };
+            m_Sprite = new Sprite(TextureLoader.Texture("Textures/TEXTURE_default"));    
+            
+            m_Collider = new Collider(m_Door) { CanCollide = true, Tag = "Door" };
+            m_Collider.Color = new Color(255,0,0,125);
+            Scale = new Vector2(m_Collider.Bound.Width / 64);
             Position = m_Position;
             Texture = m_Sprite.Texture;
             base.Start();
         }
 
         public override void Draw(SpriteBatch batch, GameTime gameTime) {
-            //base.Draw(batch, gameTime);
             batch.Draw(Texture, m_Collider.Bound, Color.White);
+            base.Draw(batch, gameTime);       
         }
 
         public override void Update(GameTime gameTime) {           
             base.Update(gameTime);
         }
+
+        //public override void OnCollisionEvent(ICollidable other) {
+            //Logger.Log("{0} is Colliding with Door", other.Tag);
+
+          //  base.OnCollisionEvent(other);
+        //}
     }
 }

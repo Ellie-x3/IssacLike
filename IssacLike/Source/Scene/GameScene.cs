@@ -38,9 +38,9 @@ namespace IssacLike.Source.Scene
             m_Player = new Player();
             AddEntityToScene(m_Player);
 
-            //Coroutine.StartCoroutine(() => CheckCollisions());
-            CollisionManager.CheckCollisions();
-            
+            //CollisionManager.CheckCollisions();
+
+            Coroutine.StartCoroutine(() => CheckCollisions());
         }
 
         public void AddEntityToScene(Entity entity) {
@@ -66,6 +66,7 @@ namespace IssacLike.Source.Scene
             batch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, transformMatrix: Globals.Camera.Transform);
                 FloorManager.Draw(batch, gameTime);
                 EntityManager.Draw(batch, gameTime);
+                batch.DrawString(Globals.font, Globals.fps.ToString(), new Vector2(5, 5), Color.White);
             batch.End();
         }
 
@@ -81,5 +82,6 @@ namespace IssacLike.Source.Scene
 
             CollisionManager.CheckCollisions();
         }
+
     }
 }

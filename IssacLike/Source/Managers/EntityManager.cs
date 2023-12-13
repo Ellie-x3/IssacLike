@@ -12,10 +12,12 @@ namespace IssacLike.Source.Managers
 {
     public static class EntityManager
     {
-        private static readonly List<Entity> Entities = new List<Entity>();
+        private static List<Entity> Entities = new List<Entity>();
+
+        private static List<Entity> EntityQueue = new List<Entity>();
 
         public static void Add(Entity entity) {
-            Entities.Add(entity);
+            EntityQueue.Add(entity);
             entity.Start();
         }
 
@@ -26,7 +28,14 @@ namespace IssacLike.Source.Managers
         }
 
         public static void Update(GameTime gameTime) {
+            foreach(Entity queued in EntityQueue) {
+                Entities.Add(queued);            
+            }
+
             foreach (Entity ent in Entities) {
+                if(EntityQueue.Contains(ent))
+                    EntityQueue.Remove(ent);
+
                 ent.Update(gameTime);
             }
         }

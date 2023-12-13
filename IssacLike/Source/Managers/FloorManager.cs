@@ -1,4 +1,5 @@
 ﻿using IssacLike.Source.Entities.Player;
+using IssacLike.Source.Managers.Events;
 using IssacLike.Source.RogueLikeImGui;
 using IssacLike.Source.Rooms;
 using IssacLike.Source.Util;
@@ -39,16 +40,15 @@ namespace IssacLike.Source.Managers {
                 if (m_CurrentRoom == value) return;
                 m_CurrentRoom = value;
 
-                OnRoomChanged();
+                EventManager.OnRoomChanged();
             }
         }
 
-        public delegate void RoomChangedEventHandler();
-        public static event RoomChangedEventHandler E_RoomChanged;
-
         public static void Create() {
             Floor floor = new Floor();
-            E_RoomChanged += UpdateCamera;
+
+            EventManager.E_RoomChanged += UpdateCamera;
+
             m_CurrentFloor = floor;
             m_SpawnRoom = m_CurrentRoom;
             m_SpawnPosition = new Vector2(m_SpawnRoom.RoomPosition.X + (Globals.RoomSize.X / 2), m_SpawnRoom.RoomPosition.Y + (Globals.RoomSize.Y / 2));
@@ -64,9 +64,6 @@ namespace IssacLike.Source.Managers {
             m_CurrentFloor.Draw(batch, gameTime);
         }
 
-        private static void OnRoomChanged() {
-            E_RoomChanged?.Invoke();
-        }
 
         private static void UpdateCamera() {
             Logger.Log("Changed rooms");

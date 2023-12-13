@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using IssacLike.Source.Rooms;
 using IssacLike.Source.Util;
 using LDtk;
+using IssacLike.Source.Managers.Events;
 
 namespace IssacLike.Source.Entities.Player
 {
@@ -86,7 +87,7 @@ namespace IssacLike.Source.Entities.Player
 
             Position = body.Position;
             
-            m_DoorCollider = new Collider(new Rectangle(DoorColliderLocation.X, DoorColliderLocation.Y, 32,32)) { CanCollide = true };
+            m_DoorCollider = new Collider(new Rectangle(DoorColliderLocation.X, DoorColliderLocation.Y, 32,32)) { CanCollide = true, Tag = "Player" };
             m_ScreenCollider = new Collider(new Rectangle(ScreenColliderLocation.X, ScreenColliderLocation.Y, 32,64)) { CanCollide = false };
 
             m_ScreenCollider.Color = new Color(140,238,100,10);
@@ -98,6 +99,18 @@ namespace IssacLike.Source.Entities.Player
         public override void Update(GameTime gameTime)
         {
             PlayerMove(gameTime);
+
+            //TESTING
+
+            if (Input.IsLeftMouseButtonPressed()) {
+                Point pos = Input.MousePosition();
+                int diff = (int)(Globals.ScreenSize.X / Globals.RoomSize.X);
+                pos.X = pos.X / diff;
+                pos.Y = pos.Y / diff;
+                System.Diagnostics.Debug.WriteLine(pos);
+                Door door = new Door(new Rectangle(pos.X, pos.Y, 32,32));
+                EntityManager.Add(door);
+            }
 
             base.Update(gameTime);
         }
@@ -112,8 +125,6 @@ namespace IssacLike.Source.Entities.Player
             var roomHeight = Globals.RoomSize.Y;
 
             var playerNextPosition = m_NextPosition;
-            var playerDoorColliderX = m_DoorCollider.Bound.Width / 2;
-            var playerDoorColliderY = m_DoorCollider.Bound.Height / 2;
 
             var playerScreenColliderX = m_ScreenCollider.Bound.Width / 2;
             var playerScreenColliderY = m_ScreenCollider.Bound.Height / 2;
@@ -167,9 +178,15 @@ namespace IssacLike.Source.Entities.Player
             
             m_DoorCollider.Location = DoorColliderLocation;
             m_ScreenCollider.Location = ScreenColliderLocation;
-            OnCollision();
+            //OnCollision();
 
             Position = body.Move();
+        }
+
+        public override void OnCollisionEvent(ICollidable other) {
+           // Logger.Log("{0} is Colliding with Player", other.Tag);
+
+            base.OnCollisionEvent(other);
         }
     }
 }
