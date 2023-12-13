@@ -1,0 +1,519 @@
+<Project>
+  <Name>IssacLike</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Basic Flow</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Entry</Name>
+        <Access>Public</Access>
+        <Location left="209" top="183" />
+        <Size width="162" height="148" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void Initialize()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Member type="Method">public void LoadContent()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GameManager</Name>
+        <Access>Public</Access>
+        <Location left="578" top="168" />
+        <Size width="162" height="160" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void LoadContent()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SceneManager</Name>
+        <Access>Public</Access>
+        <Location left="917" top="127" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">IScene ActiveScene</Member>
+        <Member type="Method">public void AddSceneOnTop()</Member>
+        <Member type="Method">public void RemoveScene()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GameScene</Name>
+        <Access>Public</Access>
+        <Location left="1514" top="457" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public GameScene()</Member>
+        <Member type="Method">public void AddEntityToScene()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Member type="Method">public void SceneContent()</Member>
+        <Member type="Method">private static void CheckCollisions()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>MenuScene</Name>
+        <Access>Public</Access>
+        <Location left="917" top="457" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void AddEntityToScene()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Member type="Method">public void SceneContent()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IScene</Name>
+        <Access>Public</Access>
+        <Location left="1203" top="127" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void AddEntityToScene()</Member>
+        <Member type="Method">void SceneContent()</Member>
+        <Member type="Method">void Update()</Member>
+        <Member type="Method">void Draw()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>FloorManager</Name>
+        <Access>Public</Access>
+        <Location left="1143" top="727" />
+        <Size width="198" height="264" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">List&lt;Point&gt; RoomPositions</Member>
+        <Member type="Field">Vector2 PlayerPosition</Member>
+        <Member type="Field">Vector2 SpawnPosition</Member>
+        <Member type="Event">public event EventHandler RoomChanged</Member>
+        <Member type="Method">public void Create()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Member type="Method">private void OnRoomChanged()</Member>
+        <Member type="Method">private void UpdateCamera()</Member>
+        <Member type="Method">private void PlayerIsInsideRoom()</Member>
+        <Member type="Method">private void ContainsPoint()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EntityManager</Name>
+        <Access>Public</Access>
+        <Location left="1514" top="743" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private static readonly List&lt;Entity&gt; Entities</Member>
+        <Member type="Method">public void Add()</Member>
+        <Member type="Method">public void Remove()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CollisionManager</Name>
+        <Access>Public</Access>
+        <Location left="1782" top="457" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">List&lt;ICollisionDetection&gt; Colliders</Member>
+        <Member type="Method">public static void CheckCollisions()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Entity</Name>
+        <Access>Public</Access>
+        <Location left="1465" top="1049" />
+        <Size width="277" height="412" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Texture2D Texture</Member>
+        <Member type="Field">Vector2 Position</Member>
+        <Member type="Field">Vector2 Direction</Member>
+        <Member type="Field">Vector2 Scale</Member>
+        <Member type="Field">Vector2 Origin</Member>
+        <Member type="Field">SpriteEffects SpriteEffects</Member>
+        <Member type="Field">Color Color</Member>
+        <Member type="Field">List&lt;IComponents&gt; Components</Member>
+        <Member type="Field">string Name</Member>
+        <Member type="Field">bool Destroyed</Member>
+        <Member type="Field">float Layer</Member>
+        <Member type="Method">public void Start()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Member type="Method">public void AddComponent()</Member>
+        <Member type="Method">public void RemoveComponent()</Member>
+        <Member type="Method">public T GetComponent&lt;T&gt;()</Member>
+        <Member type="Method">public void AddComponents()</Member>
+        <Member type="Method">public void Dispose()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Defines what a entity is
+</Text>
+        <Location left="1465" top="1468" />
+        <Size width="277" height="50" />
+      </Entity>
+      <Entity type="Class">
+        <Name>Player</Name>
+        <Access>Public</Access>
+        <Location left="1893" top="1136" />
+        <Size width="243" height="383" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Component CharacterBody</Member>
+        <Member type="Field">Component Animation</Member>
+        <Member type="Field">Component DoorCollider</Member>
+        <Member type="Field">Component ScreenCollider</Member>
+        <Member type="Field">Animation.Direction Facing</Member>
+        <Member type="Field">Vector2 SpriteHalf</Member>
+        <Member type="Field">Point ColliderPoint</Member>
+        <Member type="Field">Point ScreenPoint</Member>
+        <Member type="Field">Vector2 PrevPosition</Member>
+        <Member type="Field">Vector2 NextPosition</Member>
+        <Member type="Property">private point DoorColliderLocation { get; set; }</Member>
+        <Member type="Property">private point ScreenColliderLocation { get; set; }</Member>
+        <Member type="Constructor">public Player()</Member>
+        <Member type="Method">public override void Start()</Member>
+        <Member type="Method">public override void Update()</Member>
+        <Member type="Method">public override void Draw()</Member>
+        <Member type="Method">public void PlayerMove()</Member>
+        <Member type="Method">public void OnCollision()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>This is the structure of an entity
+Multiple Entities in game
+</Text>
+        <Location left="1893" top="1047" />
+        <Size width="243" height="75" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Entity List:
+Player
+Door</Text>
+        <Location left="1349" top="1047" />
+        <Size width="113" height="368" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Update / Draw will use their overriden base to update and draw the components </Text>
+        <Location left="1753" top="1094" />
+        <Size width="127" height="75" />
+      </Entity>
+      <Entity type="Interface">
+        <Name>IComponent</Name>
+        <Access>Public</Access>
+        <Location left="2508" top="1397" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void Initialize()</Member>
+        <Member type="Method">void Update()</Member>
+        <Member type="Property">int Name { get; set; }</Member>
+        <Member type="Property">int Owner { get; set; }</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IDraw</Name>
+        <Access>Public</Access>
+        <Location left="2508" top="1047" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void Draw()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>Sprite</Name>
+        <Access>Public</Access>
+        <Location left="2218" top="1049" />
+        <Size width="208" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">bool drawable</Member>
+        <Member type="Constructor">public Sprite()</Member>
+        <Member type="Property">public Texture2D Texture { get; set; }</Member>
+        <Member type="Property">public Entity Owner { get; set; }</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public bool IsDrawable { get; set; }</Member>
+        <Member type="Method">public void Draw()</Member>
+        <Member type="Method">public void Initialize()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CharacterBody</Name>
+        <Access>Public</Access>
+        <Location left="2218" top="1322" />
+        <Size width="208" height="332" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Vector2 Velocity</Member>
+        <Member type="Field">Vector2 Position</Member>
+        <Member type="Field">Vector2 Magnitude</Member>
+        <Member type="Field">float Speed</Member>
+        <Member type="Field">float Acceleration</Member>
+        <Member type="Property">public Entity Owner { get; set; }</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public Vector2 Velocity { get; set; }</Member>
+        <Member type="Property">public Vector2 Position { get; set; }</Member>
+        <Member type="Property">public Vector2 Magnitude { get; set; }</Member>
+        <Member type="Property">public float Speed { get; set; }</Member>
+        <Member type="Property">public float Acceleration { get; set; }</Member>
+        <Member type="Method">public void Initialize()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public Vector2 Move()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Example Of Components
+</Text>
+        <Location left="2218" top="989" />
+        <Size width="208" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Collects list of components on a entity
+and runs their Update / Draw method</Text>
+        <Location left="1465" top="1528" />
+        <Size width="277" height="58" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Will Loop through entities 
+and call their methods</Text>
+        <Location left="1713" top="743" />
+        <Size width="160" height="75" />
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="1">
+        <Label>Draw</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>401</X>
+          <Y>306</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <Label>Update</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>398</X>
+          <Y>277</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <Label>LoadContent</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>397</X>
+          <Y>251</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="2">
+        <Label>ActiveScene SceneContent</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>776</X>
+          <Y>232</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="2">
+        <Label>ActiveScene Update</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>765</X>
+          <Y>260</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="2">
+        <Label>ActiveScene Draw</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>765</X>
+          <Y>293</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="5">
+        <Label>ActiveScene</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1115</X>
+          <Y>192</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="5" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="5" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="7">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="8">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="9">
+        <Label>Start / Update / Draw</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="9">
+        <Label>Update</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1863</X>
+          <Y>1232</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="9">
+        <Label>Draw</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1867</X>
+          <Y>1251</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1770</X>
+          <Y>1251</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="17">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="18">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="17" second="16">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="16" second="15">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="18" second="15">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="9" second="17">
+        <Label>Draw Path</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1767</X>
+          <Y>1066</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>2193</X>
+          <Y>1031</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="9" second="18">
+        <Label>Update Path</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1767</X>
+          <Y>1430</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1944</X>
+          <Y>1566</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Comment" first="14" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1847</X>
+          <Y>1194</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1868</X>
+          <Y>1211</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Comment" first="21" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1688</X>
+          <Y>779</Y>
+        </BendPoint>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

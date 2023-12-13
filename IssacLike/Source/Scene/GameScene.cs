@@ -14,32 +14,33 @@ using LDtk.Renderer;
 using Microsoft.Xna.Framework.Graphics;
 using IssacLike.Source.Rooms;
 using IssacLike.Source.RogueLikeImGui;
+using System.Collections;
 
 namespace IssacLike.Source.Scene
 {
     public class GameScene : IScene {
-        public string name { get => "GameScene"; }
+        public string Name => "GameScene";
 
-        private Player player;
+        private readonly Player m_Player;
+        private Door m_Door;
 
-        public static IScene Instance { get {
-                if(m_Instance == null){
-                    m_Instance = new GameScene();
-                }
-
-                return m_Instance;
-            } 
+        public static IScene Instance {
+            get { return m_Instance ??= new GameScene(); } 
         }
         
         private static IScene m_Instance;
 
-        public GameScene() {
+        private GameScene() {
             Globals.Camera = new Camera(Globals.s_GraphicsDevice);
 
             FloorManager.Create();
 
-            player = new Player();
-            AddEntityToScene(player);           
+            m_Player = new Player();
+            AddEntityToScene(m_Player);
+
+            //Coroutine.StartCoroutine(() => CheckCollisions());
+            CollisionManager.CheckCollisions();
+            
         }
 
         public void AddEntityToScene(Entity entity) {
@@ -52,7 +53,7 @@ namespace IssacLike.Source.Scene
             //Globals.Camera.Position = new Vector2(0,0);
             Globals.Camera.Zoom = Math.Max(Globals.s_GraphicsDevice.Viewport.Height / 720f, 1);
             EntityManager.Update(gameTime);
-            FloorManager.PlayerPosition = player.PlayerPosition;
+            FloorManager.PlayerPosition = m_Player.PlayerPosition;
             FloorManager.Update(gameTime);   
         }
 
@@ -70,6 +71,15 @@ namespace IssacLike.Source.Scene
 
         private void UpdateCameraPosition() {
 
+        }
+
+        private static IEnumerator CheckCollisions() {
+            WaitForSeconds wait = new WaitForSeconds(Globals.Delta * 3);
+            while (!wait.IsWaitFinished()) {
+                yield return null;
+            }
+
+            CollisionManager.CheckCollisions();
         }
     }
 }

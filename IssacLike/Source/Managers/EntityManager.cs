@@ -15,9 +15,13 @@ namespace IssacLike.Source.Managers
         private static readonly List<Entity> Entities = new List<Entity>();
 
         public static void Add(Entity entity) {
-            if (!Entities.Contains(entity)) {
-                Entities.Add(entity);
-                entity.Start();
+            Entities.Add(entity);
+            entity.Start();
+        }
+
+        public static void Remove(Entity entity) {
+            if (Entities.Contains(entity)) {
+                Entities.Remove(entity);
             }
         }
 

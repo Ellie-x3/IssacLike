@@ -1,5 +1,6 @@
 ﻿using IssacLike.Source.Components;
 using IssacLike.Source.Managers.Resources;
+using IssacLike.Source.RogueLikeImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -17,36 +18,35 @@ namespace IssacLike.Source.Entities
         private Sprite m_Sprite;
 
         [Component(typeof(Collider))]
-        private static Collider m_Collider;
+        private Collider m_Collider;
 
         private Vector2 m_Size;
         private Vector2 m_Position;
+        private Rectangle m_Door;
 
-        public static Rectangle DoorBound { get => m_Collider.Bound; }
-
+        public Rectangle DoorBound { get => m_Collider.Bound; }
 
         public Door(Rectangle door) {
             m_Size = new Vector2(door.Width, door.Height);
             m_Position = new Vector2(door.X, door.Y);
+            m_Door = door;
         }
 
         public override void Start() {
-            m_Sprite = new Sprite(TextureLoader.Texture("TEXTURE_default"));
-            m_Collider = new Collider(new Rectangle(0, 0, (int)m_Size.X, (int)m_Size.Y));
+            m_Sprite = new Sprite(TextureLoader.Texture("Textures/TEXTURE_default"));
+            m_Collider = new Collider(m_Door) { CanCollide = true };
             Position = m_Position;
+            Texture = m_Sprite.Texture;
             base.Start();
         }
 
         public override void Draw(SpriteBatch batch, GameTime gameTime) {
-            base.Draw(batch, gameTime);
+            //base.Draw(batch, gameTime);
+            batch.Draw(Texture, m_Collider.Bound, Color.White);
         }
 
-        public override void Update(GameTime gameTime) {
+        public override void Update(GameTime gameTime) {           
             base.Update(gameTime);
-        }
-
-        public override void OnCollision(Rectangle hit) {
-
         }
     }
 }

@@ -13,14 +13,14 @@ namespace IssacLike.Source.Rooms {
     public class Room { //Create and defines a room
         //Size
         //Enemies
-        //Difficuly
+        //Difficulty
         //Boss room
         //Item Drop Room
         //Key Room
         //Secret door
         //Door Side
         //Background color (debug purposes)
-        //Room Collission
+        //Room Collision
         
         private Vector2 m_Size;
         //private EnemySpawner m_Spawner;

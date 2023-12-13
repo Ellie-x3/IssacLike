@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace IssacLike.Source.Scene {
     public interface IScene {
-        string name { get; }
+        string Name { get; }
 
         void AddEntityToScene(Entity entity);
 

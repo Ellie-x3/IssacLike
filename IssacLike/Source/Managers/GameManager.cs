@@ -27,7 +27,7 @@ namespace IssacLike.Source.Managers {
 
                 Logger.Log("Key Pressed");
 
-                switch(SceneManager.ActiveScene.name){
+                switch(SceneManager.ActiveScene.Name){
                     case "GameScene":
                         Logger.Log("Changing to MainMenu Scene");
                         SceneManager.ActiveScene = MainMenuScene.Instance;

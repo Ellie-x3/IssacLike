@@ -9,11 +9,15 @@
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/mainmenu.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/Player/mcfront.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/Player/mcside.png</File>
+    <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/Player/new_player_idle.png</File>
+    <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/Player/new_player_walk.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/Player/Player_Idle.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/Player/Player_Walk.png</File>
     <File>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/TEXTURE_default.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

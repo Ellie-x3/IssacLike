@@ -33,13 +33,13 @@ namespace IssacLike.Source.Managers {
         public static Vector2 SpawnPosition { get => m_SpawnPosition; }
 
         public static Room CurrentRoom {  
-            get { return m_CurrentRoom; }
-            set {
-                if(m_CurrentRoom != value) {
-                    m_CurrentRoom = value;
+            get => m_CurrentRoom;
+            set
+            {
+                if (m_CurrentRoom == value) return;
+                m_CurrentRoom = value;
 
-                    OnRoomChanged();
-                }
+                OnRoomChanged();
             }
         }
 
@@ -64,17 +64,17 @@ namespace IssacLike.Source.Managers {
             m_CurrentFloor.Draw(batch, gameTime);
         }
 
-        public static void OnRoomChanged() {
+        private static void OnRoomChanged() {
             E_RoomChanged?.Invoke();
         }
 
-        public static void UpdateCamera() {
+        private static void UpdateCamera() {
             Logger.Log("Changed rooms");
             Globals.Camera.Position = new Vector2(CurrentRoom.RoomPosition.X + Globals.RoomSize.X, CurrentRoom.RoomPosition.Y + Globals.RoomSize.Y);
         }
 
         private static void PlayerIsInsideRoom(Vector2 playerPosition) {
-            for(int i = 0; i < m_RoomPostions.Count; i++) {
+            for(var i = 0; i < m_RoomPostions.Count; i++) {
                 if(ContainsPoint(playerPosition, m_RoomPostions[i])) {
                     CurrentRoom = m_CurrentFloor.Rooms[i];
                 }

@@ -15,7 +15,7 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace IssacLike.Source.Scene {
     public class MainMenuScene : IScene {
-        public string name { get => "MainMenuScene"; }
+        public string Name { get => "MainMenuScene"; }
 
         public static IScene Instance { get {
                 if(m_Instance == null){

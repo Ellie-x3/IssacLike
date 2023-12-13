@@ -32,7 +32,8 @@ namespace IssacLike.Source.Util {
 
                 while (coroutine.MoveNext()) {
 
-                    await Task.Yield();
+                    await Task.Delay(1);
+                    //await Task.Yield();
 
                 }
             }                                     

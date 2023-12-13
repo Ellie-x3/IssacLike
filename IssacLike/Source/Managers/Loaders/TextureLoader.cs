@@ -20,7 +20,6 @@ namespace IssacLike.Source.Managers.Resources {
 
         public static void AddTexture(string name, string path) {
             if (Textures.ContainsKey(name)) {
-                Logger.Log("Key already exists: {0}", name);
                 return;
             }
             path = string.Concat(m_TexturePath, path);

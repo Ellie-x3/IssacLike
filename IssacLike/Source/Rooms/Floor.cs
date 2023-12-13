@@ -4,11 +4,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IssacLike.Source.Entities;
 using IssacLike.Source.Managers;
 using IssacLike.Source.RogueLikeImGui;
 using IssacLike.Source.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+// ReSharper disable All
 
 namespace IssacLike.Source.Rooms {
     public class Floor { //New floor
@@ -18,9 +20,9 @@ namespace IssacLike.Source.Rooms {
         //Manage Camera transition
         //Keep track of floor state
 
-        public Room CurrentRoom { get => m_CurrentRoom; }
         public List<Point> RoomsPositions { get => m_RoomPoints; }
         public List<Room> Rooms { get => m_AllRooms; }
+        public List<Door> Doors = new List<Door>();
 
         private Dictionary<Room, Point> m_Rooms = new Dictionary<Room, Point>();
         private List<Room> m_AllRooms = new List<Room>();
@@ -30,11 +32,12 @@ namespace IssacLike.Source.Rooms {
         private List<Rectangle> m_DoorLocations = new List<Rectangle>();
 
         private Flags m_RoomFlags;
-        private Room m_CurrentRoom;
 
         private Vector2 m_MaxSize = new Vector2(Globals.RoomSize.X * 3, Globals.RoomSize.Y * 3);
 
         private Texture2D m_DoorTexture;
+
+        private Point DoorSize = new Point(32,32);
      
         public Floor() {
 
@@ -50,6 +53,9 @@ namespace IssacLike.Source.Rooms {
             }
             CheckNeighbours(m_Rooms);
             GetDoorPoints();
+            SpawnDoor();
+
+            Logger.Log("Door count: {0}", Doors.Count);
 
             FloorManager.CurrentRoom = m_AllRooms[0];
         }
@@ -59,11 +65,9 @@ namespace IssacLike.Source.Rooms {
         }
 
         public void Draw(SpriteBatch batch, GameTime gameTime) {
-            foreach(KeyValuePair<Room, Point> room in m_Rooms) {
+            foreach(var room in m_Rooms) {
                 room.Key.Draw(batch, gameTime);           
             }
-
-            DrawDoors(batch);
         }
 
         private List<Point> GetRoomPoints() {
@@ -71,11 +75,11 @@ namespace IssacLike.Source.Rooms {
             var maxHorizontalRooms = (int)Math.Floor(m_MaxSize.X / Globals.RoomSize.X);
             var maxVerticalRooms = (int)Math.Floor(m_MaxSize.Y / Globals.RoomSize.Y);
 
-            List<Point> availablePoints = new List<Point>();
+            var availablePoints = new List<Point>();
 
             for (int y = 0; y < maxVerticalRooms; y++) {
                 for(int x = 0; x < maxHorizontalRooms; x++) {
-                    Point point = new Point((int)Globals.RoomSize.X * x, (int)Globals.RoomSize.Y * y);
+                    var point = new Point((int)Globals.RoomSize.X * x, (int)Globals.RoomSize.Y * y);
                     availablePoints.Add(point);
                 }
             }
@@ -85,8 +89,8 @@ namespace IssacLike.Source.Rooms {
         
         private void CheckNeighbours(Dictionary<Room, Point> rooms) { 
             foreach(KeyValuePair<Room, Point> kvp in rooms) {
-                Room room = kvp.Key;
-                Point point = kvp.Value;
+                var room = kvp.Key;
+                var point = kvp.Value;
                 m_RoomFlags = Flags.None;
 
                 if (m_RoomPoints.Contains(point + PointDirections.East)) { // East Point
@@ -111,8 +115,16 @@ namespace IssacLike.Source.Rooms {
         }
 
         private void DrawDoors(SpriteBatch batch) {
-            for(int i = 0; i < m_DoorLocations.Count; i++) {
+            for(var i = 0; i < m_DoorLocations.Count; i++) {
                 batch.Draw(m_DoorTexture, m_DoorLocations[i], Color.White);
+            }
+        }
+
+        private void SpawnDoor() {
+            for (var i = 0; i < m_DoorLocations.Count; i++) {
+                var door = new Door(m_DoorLocations[i]);
+                Doors.Add(door);
+                EntityManager.Add(door);
             }
         }
 
@@ -128,24 +140,25 @@ namespace IssacLike.Source.Rooms {
                 Flags flags = kvp.Value;
 
                 if ((flags & Flags.East) == Flags.East) {
-                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)Globals.RoomSize.X - 32, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), 40, 40));
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)Globals.RoomSize.X - 32, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), DoorSize.X, DoorSize.Y));
                 }
 
                 if ((flags & Flags.North) == Flags.North) {
-                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y, 40, 40));  
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y, DoorSize.X, DoorSize.Y));  
                 }
 
                 if ((flags & Flags.West) == Flags.West) {
-                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), 40, 40));
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X, m_Rooms[kvp.Key].Y + (int)(Globals.RoomSize.Y / 2), DoorSize.X, DoorSize.Y));
                 }
 
                 if ((flags & Flags.South) == Flags.South) {
-                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y + (int)Globals.RoomSize.Y - 32, 40, 40));
+                    m_DoorLocations.Add(new Rectangle(m_Rooms[kvp.Key].X + (int)(Globals.RoomSize.X / 2) - 32, m_Rooms[kvp.Key].Y + (int)Globals.RoomSize.Y - 32, DoorSize.X, DoorSize.Y));
                 }
 
             }
         }
 
+        [Flags]
         private enum Flags {
             None = 0,
             East = 1 << 0,  // 1

@@ -30,7 +30,7 @@ namespace IssacLike.Source.Managers {
 
         public void RemoveScene(IScene scene) {
             if (!Scenes.Contains(scene)){
-                Logger.Log("Scene {0} is already not an available scene", scene.name);
+                Logger.Log("Scene {0} is already not an available scene", scene.Name);
             }
 
             Scenes.Remove(scene);

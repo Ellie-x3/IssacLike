@@ -93,6 +93,5 @@ namespace IssacLike.Source.Entities {
 
         public virtual void Dispose() { }
 
-        public virtual void OnCollision(Rectangle hit) { }
     }
 }
