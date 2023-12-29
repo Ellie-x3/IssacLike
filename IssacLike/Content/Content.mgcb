@@ -10,6 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
+/reference:C:/Users/Ellie/.nuget/packages/ldtkmonogame.contentpipeline/1.1.2/lib/net6.0/LDtk.ContentPipeline.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -175,4 +176,21 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/TEXTURE_default.png
+
+#begin tileBaseTileset.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:tileBaseTileset.png
+
+#begin Worlds/TestHome.ldtk
+/importer:LDtkFileImporter
+/processor:LDtkFileProcessor
+/build:Worlds/TestHome.ldtk
 

@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using LDtk;
 using LDtk.Renderer;
-
+using LDtkTypes.TestHome;
 using ProjectMystic.Source.Util;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ProjectMystic.Source.ZeldaLikeImGui;
 using Microsoft.Xna.Framework;
+using ProjectMystic.Source.Entities.Player;
+using Microsoft.Xna.Framework.Content;
 
 namespace ProjectMystic.Source.Managers.Resources {
     public class LevelLoader : ResourceLoader {
@@ -25,15 +27,16 @@ namespace ProjectMystic.Source.Managers.Resources {
 
         private static Texture2D m_BoundBox;
 
+        public static LDtkWorld World { get => m_World; }
+
         private static bool m_DrawLevelCollision = false;
         public static bool s_DrawLevelCollision { get { return m_DrawLevelCollision; } set { m_DrawLevelCollision = value; } }
 
-        public static void Init(SpriteBatch batch) {
-            LDtkFile file = LDtkFile.FromFile(string.Concat(m_LevelDirectory, "TestHome.ldtk"));
-            m_World = file.LoadWorld(file.Worlds[0].Iid);
-
-            m_Renderer = new LDtkRenderer(batch);
-
+        public static void Init(SpriteBatch batch, ContentManager content) {
+            m_Renderer = new LDtkRenderer(batch, content);
+            LDtkFile file = LDtkFile.FromFile("Worlds/TestHome", content);
+            m_World = file.LoadWorld(Worlds.World.Iid);
+           
             m_BoundBox = new Texture2D(Globals.s_GraphicsDevice, 1, 1);
             m_BoundBox.SetData(new Color[] { new Color(173,216,230,32) });
 
@@ -49,6 +52,7 @@ namespace ProjectMystic.Source.Managers.Resources {
 
         //Create a renderer wrapper to render the room the player is in
         public static void Draw(SpriteBatch batch) {
+
             m_Renderer.RenderPrerenderedLevel(m_World.Levels.First());
 
             if (Debug.DrawDebug)
@@ -118,6 +122,12 @@ namespace ProjectMystic.Source.Managers.Resources {
             }
 
             return tiles;
+        }
+        
+        public static PlayerEnt GetEntityData(){
+            PlayerEnt data = m_World.GetEntity<PlayerEnt>();
+            //Logger.Log(data.MyNumber);
+            return data;
         }
     }
 }

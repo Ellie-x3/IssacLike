@@ -12,6 +12,7 @@ using ProjectMystic.Source.Scene;
 
 using LDtk;
 using LDtk.Renderer;
+using LDtkTypes.TestHome;
 
 namespace ProjectMystic
 {
@@ -19,6 +20,8 @@ namespace ProjectMystic
         private SpriteBatch m_SpriteBatch;
 
         private SceneManager m_SceneManager;
+
+        private PlayerEnt data;
 
         private RenderTarget2D m_RenderTarget;
         private float m_RenderScale;
@@ -53,13 +56,15 @@ namespace ProjectMystic
 
             UIRenderer.Init(this);
 
+            //LevelLoader.m_Renderer = new LDtkRenderer(m_SpriteBatch);
+
             base.Initialize();
         }
 
         protected override void LoadContent() {
             m_RenderTarget = new RenderTarget2D(Globals.s_GraphicsDevice, 1280, 720);
             Globals.font = Content.Load<SpriteFont>("Fonts/Font");
-            GameManager.LoadContent(m_SpriteBatch);            
+            GameManager.LoadContent(m_SpriteBatch, Content);            
 
             UIRenderer.s_GuiRenderer.RebuildFontAtlas();
         }

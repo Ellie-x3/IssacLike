@@ -60,9 +60,9 @@ namespace ProjectMystic.Source.Components {
         }
 
         public void Draw(SpriteBatch batch, Vector2 position, Color color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layer) {
-            /*if(Debug.DrawDebug && ColliderActive) {
+            if(Debug.DrawDebug && ColliderActive) {
                 batch.Draw(m_Debug, m_Bound, Color.White);
-            }*/                
+            }                
         }
 
         /*public void Raycast(Point start, Point end, out bool hit, Rectangle collision) {

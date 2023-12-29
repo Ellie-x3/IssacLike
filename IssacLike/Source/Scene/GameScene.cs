@@ -15,13 +15,17 @@ using Microsoft.Xna.Framework.Graphics;
 using ProjectMystic.Source.ZeldaLikeImGui;
 using System.Collections;
 using ProjectMystic.Source.Entities.Enemies;
+using LDtk;
+using LDtkTypes.TestHome;
+using System.Reflection.Metadata;
+using Microsoft.Xna.Framework.Content;
 
 namespace ProjectMystic.Source.Scene
 {
     public class GameScene : IScene {
         public string Name => "GameScene";
 
-        private readonly Player m_Player;
+        private Player m_Player;
 
         private Matrix m_ScaleMatrix;
 
@@ -37,9 +41,9 @@ namespace ProjectMystic.Source.Scene
 
             Globals.Camera.Position = new Vector2(640 - 74, 360-4);
 
-            m_Player = new Player();
+            //m_Player = new Player(LevelLoader.GetEntityData());
+           
 
-            AddEntityToScene(m_Player);
 
             Coroutine.StartCoroutine(() => CheckCollisions());
         }
@@ -55,9 +59,16 @@ namespace ProjectMystic.Source.Scene
             EntityManager.Update(gameTime);  
         }
 
-        public void SceneContent(SpriteBatch batch) {
-            LevelLoader.m_Renderer = new LDtkRenderer(batch);
-            LevelLoader.Init(batch);
+        public void SceneContent(SpriteBatch batch, ContentManager content) {
+            //LevelLoader.m_Renderer = new LDtkRenderer(batch);
+            //LevelLoader.Init(batch);
+
+            LevelLoader.Init(batch, content);
+
+
+            m_Player = new Player();
+
+            AddEntityToScene(m_Player);
         }
 
         public void Draw(SpriteBatch batch, GameTime gameTime) {

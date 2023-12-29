@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Content;
 
 namespace ProjectMystic.Source.Scene {
     public interface IScene {
@@ -13,7 +14,7 @@ namespace ProjectMystic.Source.Scene {
 
         void AddEntityToScene(Entity entity);
 
-        void SceneContent(SpriteBatch batch);
+        void SceneContent(SpriteBatch batch, ContentManager content);
         void Update(GameTime gameTime);
         void Draw(SpriteBatch batch, GameTime gameTime);
     }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Formats.Asn1.AsnWriter;
+using Microsoft.Xna.Framework.Content;
 
 namespace ProjectMystic.Source.Scene {
     public class MainMenuScene : IScene {
@@ -44,7 +45,7 @@ namespace ProjectMystic.Source.Scene {
             batch.End();
         }
 
-        public void SceneContent(SpriteBatch batch) {
+        public void SceneContent(SpriteBatch batch, ContentManager content) {
             Logger.Log("Main Menu Loading Content!");
         }
     }

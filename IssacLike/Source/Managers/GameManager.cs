@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Content;
 
 namespace ProjectMystic.Source.Managers {
     public static class GameManager {
@@ -16,8 +17,8 @@ namespace ProjectMystic.Source.Managers {
 
         }
 
-        public static void LoadContent(SpriteBatch batch){
-            SceneManager.ActiveScene.SceneContent(batch);
+        public static void LoadContent(SpriteBatch batch, ContentManager content){
+            SceneManager.ActiveScene.SceneContent(batch, content);
         }
 
         public static void Update(GameTime gameTime) {

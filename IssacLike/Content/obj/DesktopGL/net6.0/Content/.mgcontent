@@ -18,10 +18,14 @@
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Zink_Idle.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Zink_Walk.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/TEXTURE_default.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/tileBaseTileset.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Worlds/TestHome.ldtk</File>
   </SourceFiles>
   <DestFiles>
     <File>Textures/Enemies/Enemies.png</File>
     <File>Fonts/Font.spritefont</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
