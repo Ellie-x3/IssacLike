@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/Textures/Player/new_player_idle.png</SourceFile>
+  <SourceFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/new_player_idle.png</SourceFile>
   <SourceTime>2023-12-12T13:08:32.2509853-04:00</SourceTime>
-  <DestFile>D:/MonoGame/IssacLikeBulletHell/IssacLike/IssacLike/Content/bin/DesktopGL/Content/Textures/Player/new_player_idle.xnb</DestFile>
-  <DestTime>2023-12-12T13:09:03.712987-04:00</DestTime>
+  <DestFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Content/Textures/Player/new_player_idle.xnb</DestFile>
+  <DestTime>2023-12-27T19:09:37.8849351-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T08:44:56-03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

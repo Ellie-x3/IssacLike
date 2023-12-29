@@ -1,4 +1,4 @@
-﻿using IssacLike.Source.RogueLikeImGui;
+﻿using ProjectMystic.Source.ZeldaLikeImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Managers.Resources
+namespace ProjectMystic.Source.Managers.Resources
 {
     public abstract class ResourceLoader
     {

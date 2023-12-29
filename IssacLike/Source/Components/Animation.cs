@@ -1,6 +1,6 @@
-﻿using IssacLike.Source.Entities;
-using IssacLike.Source.RogueLikeImGui;
-using IssacLike.Source.Util;
+﻿using ProjectMystic.Source.Entities;
+using ProjectMystic.Source.ZeldaLikeImGui;
+using ProjectMystic.Source.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Components {
+namespace ProjectMystic.Source.Components {
     public class Animation : IDraw {
 
         public enum Direction {
@@ -167,6 +167,7 @@ namespace IssacLike.Source.Components {
 
         private int DetermineDirection(Animation.Direction facing) {
             if(facing == Animation.Direction.NONE)
+                
                 return m_CurrentFrame;
 
             int frames = m_FrameCount;

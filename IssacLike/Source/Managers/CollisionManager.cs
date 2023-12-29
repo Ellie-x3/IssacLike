@@ -1,7 +1,7 @@
-﻿using IssacLike.Source.Entities;
-using IssacLike.Source.Managers.Events;
-using IssacLike.Source.RogueLikeImGui;
-using IssacLike.Source.Util;
+﻿using ProjectMystic.Source.Entities;
+using ProjectMystic.Source.Managers.Events;
+using ProjectMystic.Source.ZeldaLikeImGui;
+using ProjectMystic.Source.Util;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Managers {
+namespace ProjectMystic.Source.Managers {
     public static class CollisionManager {
         public static List<ICollidable> Colliders = new List<ICollidable>();
 
@@ -19,7 +19,7 @@ namespace IssacLike.Source.Managers {
                 for (int j = i + 1; j < Colliders.Count; j++) {
                     var colliderB = Colliders[j];
                     
-                    if((colliderA == null || colliderB == null))
+                    if(colliderA == null || colliderB == null)
                         return;
 
                     if(colliderA.Entity == null || colliderB.Entity == null)

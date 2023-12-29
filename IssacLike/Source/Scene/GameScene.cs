@@ -1,4 +1,4 @@
-﻿using IssacLike.Source.Entities;
+﻿using ProjectMystic.Source.Entities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -6,23 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using IssacLike.Source.Util;
-using IssacLike.Source.Managers;
-using IssacLike.Source.Entities.Player;
-using IssacLike.Source.Managers.Resources;
+using ProjectMystic.Source.Util;
+using ProjectMystic.Source.Managers;
+using ProjectMystic.Source.Entities.Player;
+using ProjectMystic.Source.Managers.Resources;
 using LDtk.Renderer;
 using Microsoft.Xna.Framework.Graphics;
-using IssacLike.Source.Rooms;
-using IssacLike.Source.RogueLikeImGui;
+using ProjectMystic.Source.ZeldaLikeImGui;
 using System.Collections;
+using ProjectMystic.Source.Entities.Enemies;
 
-namespace IssacLike.Source.Scene
+namespace ProjectMystic.Source.Scene
 {
     public class GameScene : IScene {
         public string Name => "GameScene";
 
         private readonly Player m_Player;
-        private Door m_Door;
+
+        private Matrix m_ScaleMatrix;
 
         public static IScene Instance {
             get { return m_Instance ??= new GameScene(); } 
@@ -32,13 +33,13 @@ namespace IssacLike.Source.Scene
 
         private GameScene() {
             Globals.Camera = new Camera(Globals.s_GraphicsDevice);
+            m_ScaleMatrix = Matrix.CreateScale(2);
 
-            FloorManager.Create();
+            Globals.Camera.Position = new Vector2(640 - 74, 360-4);
 
             m_Player = new Player();
-            AddEntityToScene(m_Player);
 
-            //CollisionManager.CheckCollisions();
+            AddEntityToScene(m_Player);
 
             Coroutine.StartCoroutine(() => CheckCollisions());
         }
@@ -48,25 +49,22 @@ namespace IssacLike.Source.Scene
         }
 
         public void Update(GameTime gameTime) {
-            //LevelLoader.Update(gameTime);
+            LevelLoader.Update(gameTime);
             Globals.Camera.Update();
-            //Globals.Camera.Position = new Vector2(0,0);
             Globals.Camera.Zoom = Math.Max(Globals.s_GraphicsDevice.Viewport.Height / 720f, 1);
-            EntityManager.Update(gameTime);
-            FloorManager.PlayerPosition = m_Player.PlayerPosition;
-            FloorManager.Update(gameTime);   
+            EntityManager.Update(gameTime);  
         }
 
         public void SceneContent(SpriteBatch batch) {
-           // LevelLoader.m_Renderer = new LDtkRenderer(batch);
-           // LevelLoader.Init(batch);
+            LevelLoader.m_Renderer = new LDtkRenderer(batch);
+            LevelLoader.Init(batch);
         }
 
         public void Draw(SpriteBatch batch, GameTime gameTime) {
-            batch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, transformMatrix: Globals.Camera.Transform);
-                FloorManager.Draw(batch, gameTime);
-                EntityManager.Draw(batch, gameTime);
-                batch.DrawString(Globals.font, Globals.fps.ToString(), new Vector2(5, 5), Color.White);
+            batch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, transformMatrix: Globals.Camera.Transform * m_ScaleMatrix);
+                LevelLoader.Draw(batch);
+                EntityManager.Draw(batch, gameTime);                
+                //batch.DrawString(Globals.font, Globals.fps.ToString(), new Vector2(5, 5), Color.White);
             batch.End();
         }
 

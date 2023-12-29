@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Managers.Events
+namespace ProjectMystic.Source.Managers.Events
 {
     public static class EventManager
     {
-
         public delegate void RoomChangedEventHandler();
         public static event RoomChangedEventHandler E_RoomChanged;
 

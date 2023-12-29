@@ -188,7 +188,7 @@ Multiple Entities in game
 Player
 Door</Text>
         <Location left="1349" top="1047" />
-        <Size width="113" height="368" />
+        <Size width="113" height="414" />
       </Entity>
       <Entity type="Comment">
         <Text>Update / Draw will use their overriden base to update and draw the components </Text>
@@ -272,6 +272,12 @@ and call their methods</Text>
         <Location left="1713" top="743" />
         <Size width="160" height="75" />
       </Entity>
+      <Entity type="Comment">
+        <Text>See Collision Diagram
+</Text>
+        <Location left="1953" top="459" />
+        <Size width="160" height="50" />
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="1">
@@ -352,40 +358,30 @@ and call their methods</Text>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="8">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -425,40 +421,30 @@ and call their methods</Text>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="11" second="17">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="11" second="18">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="17" second="16">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="16" second="15">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="18" second="15">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -513,6 +499,176 @@ and call their methods</Text>
           <X>1688</X>
           <Y>779</Y>
         </BendPoint>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Collision</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>GameScene</Name>
+        <Access>Public</Access>
+        <Location left="276" top="170" />
+        <Size width="194" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public GameScene()</Member>
+        <Member type="Method">public IEnumerator CheckCollisions()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>GameScene Constructor Calls Coroutine and runs CheckCollisions every 3 frames</Text>
+        <Location left="276" top="81" />
+        <Size width="194" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>CollisionManager</Name>
+        <Access>Public</Access>
+        <Location left="685" top="170" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static List&lt;ICollidable&gt; Colliders</Member>
+        <Member type="Method">public static void CheckCollisions()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Loop through all Collider objects and run OnCollisionEvent on each entity that collides together</Text>
+        <Location left="641" top="81" />
+        <Size width="246" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>Entity</Name>
+        <Access>Public</Access>
+        <Location left="276" top="526" />
+        <Size width="234" height="103" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void OnCollisionEvent(ICollidable othe)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Player</Name>
+        <Access>Public</Access>
+        <Location left="641" top="504" />
+        <Size width="239" height="146" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">IComponent&lt;Collider&gt; Collider</Member>
+        <Member type="Method">public void OnCollisionEvent(ICollidable other)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Collider</Name>
+        <Access>Public</Access>
+        <Location left="951" top="504" />
+        <Size width="198" height="146" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public bool CanCollide { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Collider has a CanCollide setter that when set it will add itself into Colliders List
+</Text>
+        <Location left="951" top="705" />
+        <Size width="198" height="62" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Can init the collider with false on CanCollide to not have it in the collision list
+</Text>
+        <Location left="641" top="705" />
+        <Size width="239" height="62" />
+      </Entity>
+      <Entity type="Interface">
+        <Name>ICollidable</Name>
+        <Access>Public</Access>
+        <Location left="972" top="170" />
+        <Size width="162" height="110" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">Entity Owner { get; set; }</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>Player</Name>
+        <Access>Public</Access>
+        <Location left="1269" top="150" />
+        <Size width="239" height="146" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">IComponent&lt;Collider&gt; Collider</Member>
+        <Member type="Method">public void OnCollisionEvent(ICollidable other)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Check The Owner Entity and call its OnCollisionEvent Function</Text>
+        <Location left="923" top="100" />
+        <Size width="245" height="52" />
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="2">
+        <Label>CollisionManager.CheckCollisions()</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="5" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="2">
+        <Label>CollisionManager.Colliders.Add(this)</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Comment" first="7" second="8">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Comment" first="7" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1041</X>
+          <Y>685</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="2" second="9">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="9" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="9">
+        <Label>Collider inheirts interface</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1050</X>
+          <Y>479</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>

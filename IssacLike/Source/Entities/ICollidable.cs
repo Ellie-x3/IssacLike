@@ -1,4 +1,4 @@
-﻿using IssacLike.Source.Managers.Events;
+﻿using ProjectMystic.Source.Managers.Events;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Entities {
+namespace ProjectMystic.Source.Entities {
     public interface ICollidable : IDisposable {
 
         string Tag { get; set; }

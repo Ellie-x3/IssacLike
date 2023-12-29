@@ -1,9 +1,8 @@
-﻿using IssacLike.Source.Components;
-using IssacLike.Source.Entities;
-using IssacLike.Source.Managers;
-using IssacLike.Source.Managers.Resources;
-using IssacLike.Source.RogueLikeImGui;
-using IssacLike.Source.Rooms;
+﻿using ProjectMystic.Source.Components;
+using ProjectMystic.Source.Entities;
+using ProjectMystic.Source.Managers;
+using ProjectMystic.Source.Managers.Resources;
+using ProjectMystic.Source.ZeldaLikeImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -13,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Formats.Asn1.AsnWriter;
 
-namespace IssacLike.Source.Scene {
+namespace ProjectMystic.Source.Scene {
     public class MainMenuScene : IScene {
         public string Name { get => "MainMenuScene"; }
 

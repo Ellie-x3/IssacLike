@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IssacLike.Source.Entities;
-using IssacLike.Source.RogueLikeImGui;
+using ProjectMystic.Source.Entities;
+using ProjectMystic.Source.ZeldaLikeImGui;
 
-namespace IssacLike.Source.Managers
+namespace ProjectMystic.Source.Managers
 {
     public static class EntityManager
     {
@@ -30,7 +30,7 @@ namespace IssacLike.Source.Managers
         public static void Update(GameTime gameTime) {
             foreach(Entity queued in EntityQueue) {
                 Entities.Add(queued);            
-            }
+            }            
 
             foreach (Entity ent in Entities) {
                 if(EntityQueue.Contains(ent))

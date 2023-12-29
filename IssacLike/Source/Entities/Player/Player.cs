@@ -1,7 +1,7 @@
-﻿using IssacLike.Source.Components;
-using IssacLike.Source.Managers;
-using IssacLike.Source.Managers.Resources;
-using IssacLike.Source.RogueLikeImGui;
+﻿using ProjectMystic.Source.Components;
+using ProjectMystic.Source.Managers;
+using ProjectMystic.Source.Managers.Resources;
+using ProjectMystic.Source.ZeldaLikeImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,16 +10,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IssacLike.Source.Rooms;
-using IssacLike.Source.Util;
+using ProjectMystic.Source.Util;
 using LDtk;
-using IssacLike.Source.Managers.Events;
+using ProjectMystic.Source.Managers.Events;
 
-namespace IssacLike.Source.Entities.Player
+namespace ProjectMystic.Source.Entities.Player
 {
     public class Player : Entity {
+        #region Components
         //Components
-
         [Component(typeof(CharacterBody))]
         private CharacterBody body;
      
@@ -31,11 +30,13 @@ namespace IssacLike.Source.Entities.Player
 
         [Component(typeof(Collider))]
         private Collider m_ScreenCollider;
+        #endregion
 
+        //Animation
         private Animation.Direction m_Facing = 0;
-
         private readonly Vector2 m_SpriteHalf = new Vector2(32, 32);
 
+        //Collision
         private Point m_DoorColliderPoint;
         private Point DoorColliderLocation {
             get {
@@ -43,7 +44,6 @@ namespace IssacLike.Source.Entities.Player
                 return m_DoorColliderPoint;
             }
         }
-
         private Point m_ScreenColliderPoint;
         private Point ScreenColliderLocation {
             get {
@@ -52,22 +52,21 @@ namespace IssacLike.Source.Entities.Player
             }
         }
 
-        private int m_RayLength;
         private Vector2 m_PrevPosition;
         private Vector2 m_NextPosition;
-        private Room m_CurrentRoom => FloorManager.CurrentRoom;
 
         //DEBUG / TESTING
         public Vector2 PlayerPosition => Position;
+
 
         public Player()
         {
             name = "Player";
             Scale = new Vector2(1f);
-            Origin = new Vector2(32f, 32f);
-            TextureLoader.AddTexture("Walk", "Player/new_player_walk");
-            TextureLoader.AddTexture("Idle", "Player/new_player_idle");
-            TextureLoader.AddTexture("Static", "Player/mcfront");
+            Origin = new Vector2(8f, 8f);
+            TextureLoader.AddTexture("Walk", "Player/Zink_Walk");
+            TextureLoader.AddTexture("Idle", "Player/Zink_Idle");
+     
         }
 
         public override void Start()
@@ -75,23 +74,26 @@ namespace IssacLike.Source.Entities.Player
            
             AnimationController = new Animation();
          
-            AnimationController.Create("Walk", TextureLoader.Texture("Walk"), new Vector2(64,64), 4, 16, 0.17f);
-            AnimationController.Create("Idle", TextureLoader.Texture("Idle"), new Vector2(64,64), 1, 4, 0f);
+            AnimationController.Create("Walk", TextureLoader.Texture("Walk"), new Vector2(16,16), 2, 8, 0.17f);
+            AnimationController.Create("Idle", TextureLoader.Texture("Idle"), new Vector2(16,16), 1, 4, 0f);
 
             body = new CharacterBody
             {
-                Position = FloorManager.SpawnPosition,
-                Speed = 175.0f,
+                Position = new Vector2(10,10),
+                Speed = 60.0f,
                 Velocity = new Vector2()
             };
 
             Position = body.Position;
-            
-            m_DoorCollider = new Collider(new Rectangle(DoorColliderLocation.X, DoorColliderLocation.Y, 32,32)) { CanCollide = true, Tag = "Player" };
-            m_ScreenCollider = new Collider(new Rectangle(ScreenColliderLocation.X, ScreenColliderLocation.Y, 32,64)) { CanCollide = false };
-
-            m_ScreenCollider.Color = new Color(140,238,100,10);
-            m_RayLength = (int)m_SpriteHalf.Y + 5;
+            //Origin = Position;
+            m_DoorCollider = new Collider(new Rectangle(DoorColliderLocation.X, DoorColliderLocation.Y, 32,32)) { 
+                CanCollide = true,
+                Tag = "Player"
+            };
+            m_ScreenCollider = new Collider(new Rectangle(ScreenColliderLocation.X, ScreenColliderLocation.Y, 32,64)) { 
+                CanCollide = false, 
+                Color = new Color(140, 238, 100, 10)
+            };
 
             base.Start();
         } 
@@ -99,18 +101,6 @@ namespace IssacLike.Source.Entities.Player
         public override void Update(GameTime gameTime)
         {
             PlayerMove(gameTime);
-
-            //TESTING
-
-            if (Input.IsLeftMouseButtonPressed()) {
-                Point pos = Input.MousePosition();
-                int diff = (int)(Globals.ScreenSize.X / Globals.RoomSize.X);
-                pos.X = pos.X / diff;
-                pos.Y = pos.Y / diff;
-                System.Diagnostics.Debug.WriteLine(pos);
-                Door door = new Door(new Rectangle(pos.X, pos.Y, 32,32));
-                EntityManager.Add(door);
-            }
 
             base.Update(gameTime);
         }
@@ -170,6 +160,7 @@ namespace IssacLike.Source.Entities.Player
             }
 
            
+            body.Magnitude.Normalize(); //Directions.Normalize(body.Magnitude);
             body.Magnitude = Directions.Normalize(body.Magnitude);
             body.Velocity = body.Magnitude * body.Speed * Globals.Delta;
 
@@ -184,7 +175,7 @@ namespace IssacLike.Source.Entities.Player
         }
 
         public override void OnCollisionEvent(ICollidable other) {
-           // Logger.Log("{0} is Colliding with Player", other.Tag);
+            Logger.Log("Player is Colliding with {0}", other.Tag);
 
             base.OnCollisionEvent(other);
         }

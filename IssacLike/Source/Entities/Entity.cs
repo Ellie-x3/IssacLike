@@ -1,4 +1,4 @@
-﻿using IssacLike.Source.Managers.Resources;
+﻿using ProjectMystic.Source.Managers.Resources;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,10 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using IssacLike.Source.Components;
-using IssacLike.Source.RogueLikeImGui;
+using ProjectMystic.Source.Components;
+using ProjectMystic.Source.ZeldaLikeImGui;
 
-namespace IssacLike.Source.Entities {
+namespace ProjectMystic.Source.Entities {
     public abstract class Entity : IDisposable {
 
         protected const string DEFAULT_NAME = "Entity";
@@ -49,6 +49,7 @@ namespace IssacLike.Source.Entities {
             var drawable = Components.OfType<IDraw>();
 
             foreach (var component in drawable) {
+                
                 component.Draw(batch, Position, Color, 0f, Origin, Scale, SpriteEffects, Layer);
             }
         }
@@ -84,6 +85,7 @@ namespace IssacLike.Source.Entities {
 
                 if(attributes.Length > 0) {
                     var component = (IComponent)field.GetValue(this);
+                    Logger.Log("{0} : {1}", name, component);
                     AddComponent(component);
                 }
             }

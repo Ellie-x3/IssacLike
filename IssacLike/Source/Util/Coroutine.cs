@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Linq.Expressions;
 using System.Threading;
 
-namespace IssacLike.Source.Util {
+namespace ProjectMystic.Source.Util {
     public static class Coroutine {
 
         private static Dictionary<string, CancellationTokenSource> m_CoroutineTask = new Dictionary<string, CancellationTokenSource>();
@@ -20,21 +20,18 @@ namespace IssacLike.Source.Util {
             var methodName = body.Method.Name;
 
             var cancel = new CancellationTokenSource();
-            Task task = Task.Run(() => RunCoroutine(factory, cancel.Token, cancel), cancel.Token);
+            Task task = Task.Run(() => RunCoroutine(factory, cancel.Token), cancel.Token);
             
             if(!m_CoroutineTask.ContainsKey(methodName)) m_CoroutineTask.Add(methodName, cancel);
         }
 
-        private static async Task RunCoroutine(Expression<Func<IEnumerator>> factory, CancellationToken token, CancellationTokenSource source) {
+        private static async Task RunCoroutine(Expression<Func<IEnumerator>> factory, CancellationToken token) {
          
             while (!token.IsCancellationRequested) {
                 IEnumerator coroutine = factory.Compile().Invoke();
 
                 while (coroutine.MoveNext()) {
-
                     await Task.Delay(1);
-                    //await Task.Yield();
-
                 }
             }                                     
         }

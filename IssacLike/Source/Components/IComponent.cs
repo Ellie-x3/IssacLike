@@ -1,4 +1,4 @@
-﻿using IssacLike.Source.Entities;
+﻿using ProjectMystic.Source.Entities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Components {
+namespace ProjectMystic.Source.Components {
     public interface IComponent {
         string name { get; set; }
         Entity Owner { get; set; }

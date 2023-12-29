@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IssacLike.Source.RogueLikeImGui;
+using ProjectMystic.Source.ZeldaLikeImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace IssacLike.Source.Managers {
+namespace ProjectMystic.Source.Managers {
     public static class Input {
         private static KeyboardState m_KeyboardCurrent;
         private static KeyboardState m_KeyboardPrevious;
@@ -57,7 +57,7 @@ namespace IssacLike.Source.Managers {
 
             m_KeyboardPrevious = Keyboard.GetState();
 
-            m_MouseCurrent = Mouse.GetState();
+            /*m_MouseCurrent = Mouse.GetState();
 
             for(int i = 0; i < m_MouseCodes.Length; i++) {
                 MouseButtons button = (MouseButtons)m_KeyCodes[i];
@@ -69,7 +69,7 @@ namespace IssacLike.Source.Managers {
                 }
             }
 
-            m_MousePrevious = Mouse.GetState();
+            m_MousePrevious = Mouse.GetState();*/
         }
 
         public static bool IsKeyPressed(Keys key) {

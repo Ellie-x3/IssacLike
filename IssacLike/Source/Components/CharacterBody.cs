@@ -1,7 +1,7 @@
-﻿using IssacLike.Source.Entities;
-using IssacLike.Source.Entities.Player;
-using IssacLike.Source.RogueLikeImGui;
-using IssacLike.Source.Util;
+﻿using ProjectMystic.Source.Entities;
+using ProjectMystic.Source.Entities.Player;
+using ProjectMystic.Source.ZeldaLikeImGui;
+using ProjectMystic.Source.Util;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Components {
+namespace ProjectMystic.Source.Components {
     public class CharacterBody : IComponent {
         public Entity Owner { get; set; }
 

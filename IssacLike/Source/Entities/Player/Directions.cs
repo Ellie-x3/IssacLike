@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Entities.Player {
+namespace ProjectMystic.Source.Entities.Player {
     public static class Directions {
         public static readonly Vector2 Zero  = Vector2.Zero;
         public static readonly Vector2 North = new Vector2(0,-1);

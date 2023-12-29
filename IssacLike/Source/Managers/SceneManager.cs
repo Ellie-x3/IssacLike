@@ -4,12 +4,12 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
-using IssacLike.Source.RogueLikeImGui;
-using IssacLike.Source.Scene;
+using ProjectMystic.Source.ZeldaLikeImGui;
+using ProjectMystic.Source.Scene;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace IssacLike.Source.Managers {
+namespace ProjectMystic.Source.Managers {
     public class SceneManager {
 
         private static IScene m_ActiveScene;

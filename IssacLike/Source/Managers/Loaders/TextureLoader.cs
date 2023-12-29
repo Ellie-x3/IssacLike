@@ -1,4 +1,4 @@
-﻿using IssacLike.Source.RogueLikeImGui;
+﻿using ProjectMystic.Source.ZeldaLikeImGui;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Managers.Resources {
+namespace ProjectMystic.Source.Managers.Resources {
     public class TextureLoader : ResourceLoader {
 
         public static readonly Dictionary<string, Texture2D> Textures = new Dictionary<string, Texture2D>();

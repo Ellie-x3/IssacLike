@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 using LDtk;
 using LDtk.Renderer;
 
-using IssacLike.Source.Util;
+using ProjectMystic.Source.Util;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using IssacLike.Source.RogueLikeImGui;
+using ProjectMystic.Source.ZeldaLikeImGui;
 using Microsoft.Xna.Framework;
 
-namespace IssacLike.Source.Managers.Resources {
+namespace ProjectMystic.Source.Managers.Resources {
     public class LevelLoader : ResourceLoader {
         private static LDtkWorld m_World;
         public static LDtkRenderer m_Renderer;
 
-        private static string m_LevelDirectory = "D:\\MonoGame\\IssacLikeBulletHell\\IssacLike\\Assets\\Levels\\";
+        private static string m_LevelDirectory = "D:\\MonoGame\\ZeldaLike\\ZeldaLike\\Assets\\Levels\\ZinkLevels\\";
         private static List<LDtkLevel> Levels = new List<LDtkLevel>();
         public static LDtkLevel CurrentLevel;
 
@@ -29,7 +29,7 @@ namespace IssacLike.Source.Managers.Resources {
         public static bool s_DrawLevelCollision { get { return m_DrawLevelCollision; } set { m_DrawLevelCollision = value; } }
 
         public static void Init(SpriteBatch batch) {
-            LDtkFile file = LDtkFile.FromFile(string.Concat(m_LevelDirectory, "testlevel.ldtk"));
+            LDtkFile file = LDtkFile.FromFile(string.Concat(m_LevelDirectory, "TestHome.ldtk"));
             m_World = file.LoadWorld(file.Worlds[0].Iid);
 
             m_Renderer = new LDtkRenderer(batch);
@@ -40,21 +40,19 @@ namespace IssacLike.Source.Managers.Resources {
             foreach (LDtkLevel level in m_World.Levels) {
                 m_Renderer.PrerenderLevel(level);
                 Levels.Add(level);
+            
                 LevelCollisions(level);   
-                Logger.Log("");
             }
 
             CurrentLevel = Levels[0];
         }
 
+        //Create a renderer wrapper to render the room the player is in
         public static void Draw(SpriteBatch batch) {
-            foreach (LDtkLevel level in m_World.Levels) {
-               
-                m_Renderer.RenderPrerenderedLevel(level);
-                if(Debug.DrawDebug)
-                    DrawLevelCollision(level, batch);
+            m_Renderer.RenderPrerenderedLevel(m_World.Levels.First());
 
-            }
+            if (Debug.DrawDebug)
+                DrawLevelCollision(m_World.Levels.First(), batch);
         }
 
         public static void Update(GameTime gameTime) { 
@@ -65,15 +63,15 @@ namespace IssacLike.Source.Managers.Resources {
         public static void LoadWorld(LDtkWorld world) { }
 
         public static void DrawLevelCollision(LDtkLevel level, SpriteBatch batch) {
-            LDtkIntGrid collisions = level.GetIntGrid("Collision");
+            LDtkIntGrid collisions = level.GetIntGrid("IntGrid");
 
             Point topLeftGrid = collisions.FromWorldToGridSpace(new Vector2(0, 0));
-            Point bottomRightGrid = collisions.FromWorldToGridSpace(new Vector2(640, 392));
+            Point bottomRightGrid = collisions.FromWorldToGridSpace(new Vector2(1280, 720));
 
             for (int x = topLeftGrid.X; x < bottomRightGrid.X; x++) {
                 for (int y = topLeftGrid.Y; y < bottomRightGrid.Y; y++) {
                     long intGridValue = collisions.GetValueAt(x, y);
-                    if (intGridValue is 1) {
+                    if (intGridValue == 1) {
                         Vector2 tilePosition = level.Position.ToVector2() + new Vector2(x * collisions.TileSize, y * collisions.TileSize);
                         Vector2 tileSize = new Vector2(collisions.TileSize);
                         batch.Draw(m_BoundBox, new Rectangle((int)tilePosition.X, (int)tilePosition.Y, (int)tileSize.X, (int)tileSize.Y), Color.White);
@@ -83,10 +81,10 @@ namespace IssacLike.Source.Managers.Resources {
         }
 
         public static void LevelCollisions(LDtkLevel level) {
-            LDtkIntGrid collisions = level.GetIntGrid("Collision");
+            LDtkIntGrid collisions = level.GetIntGrid("IntGrid");
 
             Point topLeftGrid = collisions.FromWorldToGridSpace(new Vector2(0, 0));
-            Point bottomRightGrid = collisions.FromWorldToGridSpace(new Vector2(640, 392));
+            Point bottomRightGrid = collisions.FromWorldToGridSpace(new Vector2(1280, 720));
 
             for (int x = topLeftGrid.X; x < bottomRightGrid.X; x++) {
                 for (int y = topLeftGrid.Y; y < bottomRightGrid.Y; y++) {
@@ -98,6 +96,28 @@ namespace IssacLike.Source.Managers.Resources {
                     }
                 }
             }
+        }
+
+        public static List<Rectangle> GetTileData(LDtkLevel level, long tile, string enumName, Vector2 levelSize) {
+            List<Rectangle> tiles = new List<Rectangle>();
+            
+            LDtkIntGrid data = level.GetIntGrid(enumName);
+
+            Point topLeftGrid = data.FromWorldToGridSpace(new Vector2(0,0));
+            Point bottomRightGrid = data.FromWorldToGridSpace(levelSize);
+
+            for (int x = topLeftGrid.X; x < bottomRightGrid.X; x++) {
+                for (int y = topLeftGrid.Y; y < bottomRightGrid.Y; y++) {
+                    long intGridValue = data.GetValueAt(x, y);
+                    if (intGridValue == tile) {
+                        Vector2 tilePosition = level.Position.ToVector2() + new Vector2(x * data.TileSize, y * data.TileSize);
+                        Vector2 tileSize = new Vector2(data.TileSize);
+                        tiles.Add(new Rectangle((int)tilePosition.X, (int)tilePosition.Y, (int)tileSize.X, (int)tileSize.Y));
+                    }
+                }
+            }
+
+            return tiles;
         }
     }
 }

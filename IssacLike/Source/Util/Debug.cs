@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Util {
+namespace ProjectMystic.Source.Util {
     public static class Debug {
         public static bool DrawDebug { get; set; }
     }

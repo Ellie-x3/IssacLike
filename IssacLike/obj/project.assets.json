@@ -479,8 +479,8 @@
     },
     "MonoGame.ImGuiNet/1.0.0": {
       "type": "project",
-      "path": "../vendor/MonoGame.ImGuiNet/Monogame.ImGuiNet.csproj",
-      "msbuildProject": "../vendor/MonoGame.ImGuiNet/Monogame.ImGuiNet.csproj"
+      "path": "../../../IssacLikeBulletHell/IssacLike/vendor/MonoGame.ImGuiNet/Monogame.ImGuiNet.csproj",
+      "msbuildProject": "../../../IssacLikeBulletHell/IssacLike/vendor/MonoGame.ImGuiNet/Monogame.ImGuiNet.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -499,11 +499,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MonoGame\\IssacLikeBulletHell\\IssacLike\\IssacLike\\IssacLike.csproj",
-      "projectName": "IssacLike",
-      "projectPath": "D:\\MonoGame\\IssacLikeBulletHell\\IssacLike\\IssacLike\\IssacLike.csproj",
+      "projectUniqueName": "D:\\MonoGame\\ZeldaLike\\ZeldaLike\\IssacLike\\ZeldaLike.csproj",
+      "projectName": "ZeldaLike",
+      "projectPath": "D:\\MonoGame\\ZeldaLike\\ZeldaLike\\IssacLike\\ZeldaLike.csproj",
       "packagesPath": "C:\\Users\\Ellie\\.nuget\\packages\\",
-      "outputPath": "D:\\MonoGame\\IssacLikeBulletHell\\IssacLike\\IssacLike\\obj\\",
+      "outputPath": "D:\\MonoGame\\ZeldaLike\\ZeldaLike\\IssacLike\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

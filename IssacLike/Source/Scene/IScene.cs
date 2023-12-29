@@ -1,4 +1,4 @@
-﻿using IssacLike.Source.Entities;
+﻿using ProjectMystic.Source.Entities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Scene {
+namespace ProjectMystic.Source.Scene {
     public interface IScene {
         string Name { get; }
 

@@ -1,0 +1,33 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.tscn": false,
+        "**/.git*": true,
+        "**/*.svg*": true,
+        "**/project.godot": true,
+        "**/*.png*": true,
+        "Assets/": true,
+        ".godot/": true,
+        "IssacLike/Properties/": true,
+        "IssacLike/.config": true,
+        "IssacLike/bin": true,
+        "IssacLike/obj": true,
+        "IssacLike/app.*": true,
+        "IssacLike/Icon.*": true,
+        "IssacLike/imgui.*": true,
+        "IssacLike/Program.cs": true,
+        "vendor/": true,
+        "IssacLike.ncp": true,
+        "ZeldaLike.sln": true,
+        ".idea": true,
+        ".vs": true,
+        "IssacLike/Content/bin": true,
+        "IssacLike/Content/obj": true
+    },
+    
+}

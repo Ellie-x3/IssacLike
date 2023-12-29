@@ -1,5 +1,5 @@
-﻿using IssacLike.Source.RogueLikeImGui;
-using IssacLike.Source.Scene;
+﻿using ProjectMystic.Source.ZeldaLikeImGui;
+using ProjectMystic.Source.Scene;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Managers {
+namespace ProjectMystic.Source.Managers {
     public static class GameManager {
 
         public static void Start(){

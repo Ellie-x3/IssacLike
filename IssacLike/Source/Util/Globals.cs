@@ -1,4 +1,4 @@
-﻿using IssacLike.Source.Managers;
+﻿using ProjectMystic.Source.Managers;
 using LDtk;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IssacLike.Source.Util
+namespace ProjectMystic.Source.Util
 {
     public static class Globals {
         public static GraphicsDevice s_GraphicsDevice;

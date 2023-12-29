@@ -1,3 +1,3 @@
 ﻿
-using var game = new IssacLike.RogueLike();
+using var game = new ProjectMystic.ZeldaLike();
 game.Run();

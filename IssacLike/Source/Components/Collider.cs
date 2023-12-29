@@ -1,20 +1,13 @@
-﻿using IssacLike.Source.Entities;
-using IssacLike.Source.Managers;
-using IssacLike.Source.Managers.Events;
-using IssacLike.Source.Managers.Resources;
-using IssacLike.Source.RogueLikeImGui;
-using IssacLike.Source.Util;
+﻿using ProjectMystic.Source.Entities;
+using ProjectMystic.Source.Managers;
+using ProjectMystic.Source.Managers.Resources;
+using ProjectMystic.Source.ZeldaLikeImGui;
+using ProjectMystic.Source.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static IssacLike.Source.Entities.ICollidable;
 
-namespace IssacLike.Source.Components {
+namespace ProjectMystic.Source.Components {
     public class Collider : IDraw, ICollidable {
 
         public string Tag { get; set; } = "default";
@@ -67,9 +60,9 @@ namespace IssacLike.Source.Components {
         }
 
         public void Draw(SpriteBatch batch, Vector2 position, Color color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layer) {
-            if(Debug.DrawDebug && ColliderActive) {
+            /*if(Debug.DrawDebug && ColliderActive) {
                 batch.Draw(m_Debug, m_Bound, Color.White);
-            }                
+            }*/                
         }
 
         /*public void Raycast(Point start, Point end, out bool hit, Rectangle collision) {
@@ -137,10 +130,6 @@ namespace IssacLike.Source.Components {
             m_RaycastRect = new Rectangle(startX, startY, -70, 1);
             return point;
         }*/
-
-        public bool CollidesWith(Rectangle other) {
-            throw new NotImplementedException();
-        }
 
         public void Dispose() { }
 
