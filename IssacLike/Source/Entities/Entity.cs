@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 using ProjectMystic.Source.Components;
 using ProjectMystic.Source.ZeldaLikeImGui;
+using ZeldaLike.Source.Entities;
 
 namespace ProjectMystic.Source.Entities {
     public abstract class Entity : IDisposable {
@@ -28,6 +29,8 @@ namespace ProjectMystic.Source.Entities {
         public string name { get; set; }
         protected bool Destroyed { get;set; }
         protected float Layer { get;set; }
+
+        protected IMediator mediator;
 
         public virtual void Start() {
             if(Texture == null)
@@ -89,6 +92,14 @@ namespace ProjectMystic.Source.Entities {
                     AddComponent(component);
                 }
             }
+        }
+
+        protected void SetMediator(IMediator mediator) {
+            this.mediator = mediator;
+        }
+
+        protected void InteractWith(Entity other) {
+            mediator.Notify($"INTERACTION_{GetType().Name}_{other.GetType().Name}", this, other);
         }
 
         //protected abstract Rectangle CalculateBound();

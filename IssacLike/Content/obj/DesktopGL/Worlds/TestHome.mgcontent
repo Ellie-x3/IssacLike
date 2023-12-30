@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Worlds/TestHome.ldtk</SourceFile>
-  <SourceTime>2023-12-28T23:46:29.9970273-04:00</SourceTime>
+  <SourceFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Levels/ZinkLevels/TestHome.ldtk</SourceFile>
+  <SourceTime>2023-12-29T23:45:25.4144621-04:00</SourceTime>
   <DestFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Worlds/TestHome.xnb</DestFile>
-  <DestTime>2023-12-29T00:27:37.644779-04:00</DestTime>
+  <DestTime>2023-12-29T23:46:03.9485819-04:00</DestTime>
   <Importer>LDtkFileImporter</Importer>
   <ImporterTime>2023-09-07T22:36:58-03:00</ImporterTime>
   <Processor>LDtkFileProcessor</Processor>

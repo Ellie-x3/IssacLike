@@ -13,8 +13,8 @@ using Microsoft.Xna.Framework.Content;
 namespace ProjectMystic.Source.Managers {
     public static class GameManager {
 
-        public static void Start(){
-
+        public static void Start(SpriteBatch batch, ContentManager content) {
+            SceneManager.ActiveScene.Initialize(batch, content);
         }
 
         public static void LoadContent(SpriteBatch batch, ContentManager content){
@@ -25,9 +25,6 @@ namespace ProjectMystic.Source.Managers {
             
 
             if (Input.IsKeyPressed(Keys.F2)) {
-
-                Logger.Log("Key Pressed");
-
                 switch(SceneManager.ActiveScene.Name){
                     case "GameScene":
                         Logger.Log("Changing to MainMenu Scene");

@@ -26,6 +26,11 @@
 /processorParam:TextureFormat=Color
 /build:../../Assets/Atlas/Enemies.png;Textures/Enemies/Enemies.png
 
+#begin ../../Assets/Levels/ZinkLevels/TestHome.ldtk
+/importer:LDtkFileImporter
+/processor:LDtkFileProcessor
+/build:../../Assets/Levels/ZinkLevels/TestHome.ldtk;Worlds/TestHome.ldtk
+
 #begin Fonts/File.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -188,9 +193,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:tileBaseTileset.png
-
-#begin Worlds/TestHome.ldtk
-/importer:LDtkFileImporter
-/processor:LDtkFileProcessor
-/build:Worlds/TestHome.ldtk
 

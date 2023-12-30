@@ -57,7 +57,7 @@ namespace ProjectMystic.Source.Managers {
 
             m_KeyboardPrevious = Keyboard.GetState();
 
-            /*m_MouseCurrent = Mouse.GetState();
+            m_MouseCurrent = Mouse.GetState();
 
             for(int i = 0; i < m_MouseCodes.Length; i++) {
                 MouseButtons button = (MouseButtons)m_KeyCodes[i];
@@ -69,7 +69,7 @@ namespace ProjectMystic.Source.Managers {
                 }
             }
 
-            m_MousePrevious = Mouse.GetState();*/
+            m_MousePrevious = Mouse.GetState();
         }
 
         public static bool IsKeyPressed(Keys key) {

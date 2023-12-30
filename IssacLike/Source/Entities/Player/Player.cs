@@ -14,6 +14,7 @@ using ProjectMystic.Source.Util;
 using LDtk;
 using ProjectMystic.Source.Managers.Events;
 using LDtkTypes.TestHome;
+using ZeldaLike.Source.Managers.Events;
 
 namespace ProjectMystic.Source.Entities.Player
 {
@@ -53,9 +54,10 @@ namespace ProjectMystic.Source.Entities.Player
         //LDtk
         private PlayerEnt data;
 
-        public Player()//PlayerEnt data)
-        {
-            this.data = LevelLoader.GetEntityData();
+        public Player(PlayerEnt data)
+        {            
+            this.data = data;
+            Logger.Log(data.Position);
             name = "Player";
             Scale = new Vector2(1f);
             Origin = new Vector2(8f, 8f);
@@ -66,7 +68,9 @@ namespace ProjectMystic.Source.Entities.Player
 
         public override void Start()
         {
-           
+            var mediator = MediatorHandler.PlayerMediator;
+            SetMediator(mediator);
+
             AnimationController = new Animation();
          
             AnimationController.Create("Walk", TextureLoader.Texture("Walk"), new Vector2(16,16), 2, 8, 0.17f);
@@ -74,7 +78,7 @@ namespace ProjectMystic.Source.Entities.Player
 
             body = new CharacterBody
             {                
-                Position = new Vector2(data.Position.X + m_SpriteHalf.X, data.Position.Y + m_SpriteHalf.Y),
+                Position = new Vector2(data.Position.X, data.Position.Y),
                 Speed = 60.0f,
                 Velocity = new Vector2()
             };
@@ -82,7 +86,7 @@ namespace ProjectMystic.Source.Entities.Player
             Position = body.Position;
             //Origin = Position;
             m_DoorCollider = new Collider(new Rectangle(DoorColliderLocation.X, DoorColliderLocation.Y, 16,16)) { 
-                CanCollide = true,
+                CanCollide = false,
                 Tag = "Player",
                 Color = new Color(140, 238, 100, 10)
             };
@@ -144,15 +148,12 @@ namespace ProjectMystic.Source.Entities.Player
             m_NextPosition = Position += body.Velocity;
             
             m_DoorCollider.Location = DoorColliderLocation;
-            //OnCollision();
 
             Position = body.Move();
         }
 
         public override void OnCollisionEvent(ICollidable other) {
-            Logger.Log("Player is Colliding with {0}", other.Tag);
-
-            base.OnCollisionEvent(other);
+            InteractWith(other.Entity);
         }
     }
 }

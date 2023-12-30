@@ -13,6 +13,7 @@ using ProjectMystic.Source.ZeldaLikeImGui;
 using Microsoft.Xna.Framework;
 using ProjectMystic.Source.Entities.Player;
 using Microsoft.Xna.Framework.Content;
+using ProjectMystic.Source.Entities;
 
 namespace ProjectMystic.Source.Managers.Resources {
     public class LevelLoader : ResourceLoader {
@@ -75,7 +76,7 @@ namespace ProjectMystic.Source.Managers.Resources {
             for (int x = topLeftGrid.X; x < bottomRightGrid.X; x++) {
                 for (int y = topLeftGrid.Y; y < bottomRightGrid.Y; y++) {
                     long intGridValue = collisions.GetValueAt(x, y);
-                    if (intGridValue == 1) {
+                    if (intGridValue == 2) {
                         Vector2 tilePosition = level.Position.ToVector2() + new Vector2(x * collisions.TileSize, y * collisions.TileSize);
                         Vector2 tileSize = new Vector2(collisions.TileSize);
                         batch.Draw(m_BoundBox, new Rectangle((int)tilePosition.X, (int)tilePosition.Y, (int)tileSize.X, (int)tileSize.Y), Color.White);
@@ -93,7 +94,7 @@ namespace ProjectMystic.Source.Managers.Resources {
             for (int x = topLeftGrid.X; x < bottomRightGrid.X; x++) {
                 for (int y = topLeftGrid.Y; y < bottomRightGrid.Y; y++) {
                     long intGridValue = collisions.GetValueAt(x, y);
-                    if (intGridValue is 1) {
+                    if (intGridValue is 2) {
                         Vector2 tilePosition = level.Position.ToVector2() + new Vector2(x * collisions.TileSize, y * collisions.TileSize);
                         Vector2 tileSize = new Vector2(collisions.TileSize);
                         LevelCollisionTiles.Add(new Rectangle((int)tilePosition.X, (int)tilePosition.Y, (int)tileSize.X, (int)tileSize.Y));
@@ -102,32 +103,30 @@ namespace ProjectMystic.Source.Managers.Resources {
             }
         }
 
-        public static List<Rectangle> GetTileData(LDtkLevel level, long tile, string enumName, Vector2 levelSize) {
-            List<Rectangle> tiles = new List<Rectangle>();
-            
-            LDtkIntGrid data = level.GetIntGrid(enumName);
+        /*public static T GetLevelEntities<T>() where T : ILDtkEntity, new() {
+            T[] entities = CurrentLevel.GetEntities<T>();
+        }*/
 
-            Point topLeftGrid = data.FromWorldToGridSpace(new Vector2(0,0));
-            Point bottomRightGrid = data.FromWorldToGridSpace(levelSize);
-
-            for (int x = topLeftGrid.X; x < bottomRightGrid.X; x++) {
-                for (int y = topLeftGrid.Y; y < bottomRightGrid.Y; y++) {
-                    long intGridValue = data.GetValueAt(x, y);
-                    if (intGridValue == tile) {
-                        Vector2 tilePosition = level.Position.ToVector2() + new Vector2(x * data.TileSize, y * data.TileSize);
-                        Vector2 tileSize = new Vector2(data.TileSize);
-                        tiles.Add(new Rectangle((int)tilePosition.X, (int)tilePosition.Y, (int)tileSize.X, (int)tileSize.Y));
-                    }
-                }
+        public static void SpawnEntitiesInLevel<T>() where T : ILDtkEntity, new() { 
+            foreach (T entity in CurrentLevel.GetEntities<T>()) {
+                Entity child = CreateGameEntityFactory(entity);
+                EntityManager.Add(child);
             }
-
-            return tiles;
         }
-        
-        public static PlayerEnt GetEntityData(){
-            PlayerEnt data = m_World.GetEntity<PlayerEnt>();
-            //Logger.Log(data.MyNumber);
-            return data;
+
+        private static Entity CreateGameEntityFactory(ILDtkEntity entity) {
+            switch (entity) {
+                case PlayerEnt playerEntity:
+                    return new Player(playerEntity);
+                case DoorEnt doorEntity:
+                    var size = doorEntity.Size;
+                    var Position = doorEntity.Position;
+                    Door door = new Door(new Rectangle((int)Position.X, (int)Position.Y, (int)size.X, (int)size.Y), doorEntity);
+                    return door;
+
+                default:
+                    throw new ArgumentException("Unsupported entity type: " + entity.GetType());
+            }
         }
     }
 }

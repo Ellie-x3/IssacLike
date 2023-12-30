@@ -6,7 +6,7 @@ using LDtk;
 
 using Microsoft.Xna.Framework;
 
-public class PlayerEnt : ILDtkEntity
+public class DoorEnt : ILDtkEntity
 {
     public string Identifier { get; set; }
     public System.Guid Iid { get; set; }
@@ -18,7 +18,9 @@ public class PlayerEnt : ILDtkEntity
 
     public Color SmartColor { get; set; }
 
-    public int MyNumber { get; set; }
+    public Vector2? Point { get; set; }
+    public EntityRef? DoorRef { get; set; }
+    public int Integer { get; set; }
     public string? ClassName { get; set; }
 }
 #pragma warning restore

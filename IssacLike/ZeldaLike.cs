@@ -21,7 +21,7 @@ namespace ProjectMystic
 
         private SceneManager m_SceneManager;
 
-        private PlayerEnt data;
+        private Color m_BackgroundColor = new Color(19,0,13,255);
 
         private RenderTarget2D m_RenderTarget;
         private float m_RenderScale;
@@ -47,21 +47,21 @@ namespace ProjectMystic
         }
 
         protected override void Initialize() {
-            
             PreInit();
             Input.Initialize();
             ResourceLoader.Initialize(Content);
             Logger.Log("Initializing");
             m_SceneManager = new SceneManager(GameScene.Instance);
 
-            UIRenderer.Init(this);
+            GameManager.Start(m_SpriteBatch, Content);
 
-            //LevelLoader.m_Renderer = new LDtkRenderer(m_SpriteBatch);
+            UIRenderer.Init(this);
 
             base.Initialize();
         }
 
         protected override void LoadContent() {
+            Logger.Log("LOAD CONTENT");
             m_RenderTarget = new RenderTarget2D(Globals.s_GraphicsDevice, 1280, 720);
             Globals.font = Content.Load<SpriteFont>("Fonts/Font");
             GameManager.LoadContent(m_SpriteBatch, Content);            
@@ -80,10 +80,6 @@ namespace ProjectMystic
 
             GameManager.Update(gameTime);
 
-            if (Input.IsKeyPressed(Keys.F3)) {
-                Logger.Log("F3 Pressed");
-            }
-
             Globals.fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             base.Update(gameTime);
@@ -95,12 +91,12 @@ namespace ProjectMystic
             m_RenderScale = 1f / (360f / Globals.s_Graphics.GraphicsDevice.Viewport.Height);
 
             GraphicsDevice.SetRenderTarget(m_RenderTarget);
-            GraphicsDevice.Clear(Color.CornflowerBlue);   
+            GraphicsDevice.Clear(m_BackgroundColor);   
 
             GameManager.Draw(m_SpriteBatch, gameTime);         
             
             GraphicsDevice.SetRenderTarget(null);
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(m_BackgroundColor);
 
             m_SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
             m_SpriteBatch.Draw(m_RenderTarget, Vector2.Zero, null, Color.White, 0f, Vector2.Zero, m_RenderScale, SpriteEffects.None, 0f);

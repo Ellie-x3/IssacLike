@@ -28,12 +28,12 @@ namespace ProjectMystic.Source.Scene {
 
         private static IScene m_Instance;
 
-        public MainMenuScene() {
-            TextureLoader.AddTexture("MainMenu", "mainmenu");
+        public void Initialize(SpriteBatch batch, ContentManager content) {
+
         }
 
-        public void AddEntityToScene(Entity entity) {
-            throw new NotImplementedException();
+        public MainMenuScene() {
+            TextureLoader.AddTexture("MainMenu", "mainmenu");
         }
 
         public void Update(GameTime gameTime) {
@@ -48,5 +48,7 @@ namespace ProjectMystic.Source.Scene {
         public void SceneContent(SpriteBatch batch, ContentManager content) {
             Logger.Log("Main Menu Loading Content!");
         }
+
+        
     }
 }

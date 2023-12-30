@@ -12,8 +12,7 @@ namespace ProjectMystic.Source.Scene {
     public interface IScene {
         string Name { get; }
 
-        void AddEntityToScene(Entity entity);
-
+        void Initialize(SpriteBatch batch, ContentManager content);
         void SceneContent(SpriteBatch batch, ContentManager content);
         void Update(GameTime gameTime);
         void Draw(SpriteBatch batch, GameTime gameTime);
