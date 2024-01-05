@@ -23,13 +23,28 @@ namespace ProjectMystic.Source.Components {
 
         public Vector2 Velocity { get => m_Velocity; set => m_Velocity = value; }
         public Vector2 Position { get => m_Position; set => m_Position = value; }
+
+        public float PositionX {
+            get => m_Position.X;
+            set {
+                m_Position = new Vector2(value, m_Position.Y);
+            }
+        }
+
+        public float PositionY {
+            get => m_Position.Y;
+            set {
+                m_Position = new Vector2(m_Position.X, value);
+            }
+        }
+
         public Vector2 Magnitude { get => m_Magnitude; set => m_Magnitude = value; }
 
         public float Speed { get => m_Speed; set => m_Speed = value; }
         public float Acceleration { get => m_Acceleration; set => m_Acceleration = value; }
 
         public void Initialize() {
-            Logger.Log("Initializing {0}'s Characterbody", Owner.name);
+            Logger.Log("Initializing {0}'s Characterbody", Owner.Name);
         }
 
         public void Update(GameTime gameTime) {

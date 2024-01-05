@@ -17,6 +17,9 @@ using LDtkTypes.TestHome;
 namespace ProjectMystic
 {
     public class ZeldaLike : Game {
+
+        
+
         private SpriteBatch m_SpriteBatch;
 
         private SceneManager m_SceneManager;
@@ -34,6 +37,7 @@ namespace ProjectMystic
         }
 
         private void PreInit() {
+            Globals.Content = Content;
             Globals.s_GraphicsDevice = Globals.s_Graphics.GraphicsDevice;
             m_SpriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -67,6 +71,8 @@ namespace ProjectMystic
             GameManager.LoadContent(m_SpriteBatch, Content);            
 
             UIRenderer.s_GuiRenderer.RebuildFontAtlas();
+
+            
         }
 
         protected override void Update(GameTime gameTime) {

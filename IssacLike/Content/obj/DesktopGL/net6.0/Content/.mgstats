@@ -1,6 +1,8 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Atlas/Enemies.png","D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Content/Textures/Enemies/Enemies.xnb","TextureProcessor","Texture2DContent",2020,131157,0.1421847
-"D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Levels/ZinkLevels/TestHome.ldtk","D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Content/Worlds/TestHome.xnb","LDtkFileProcessor","LDtkFile",69446,27031,0.1881138
+"D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Levels/ZinkLevels/TestHome.ldtk","D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Content/Worlds/TestHome.xnb","LDtkFileProcessor","LDtkFile",207079,114713,0.2039083
+"D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Effects/File.fx","D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Content/Effects/File.xnb","EffectProcessor","CompiledEffectContent",522,699,0.3280669
+"D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Effects/player.fx","D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Content/Effects/player.xnb","EffectProcessor","CompiledEffectContent",522,699,0.3067189
 "D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Fonts/File.spritefont","D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Content/Fonts/Font.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0.1121704
 "D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/background.png","D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Content/Textures/background.xnb","TextureProcessor","Texture2DContent",272792,921685,0.0457296
 "D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/line.png","D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Content/Textures/line.xnb","TextureProcessor","Texture2DContent",90,101,0.0061701

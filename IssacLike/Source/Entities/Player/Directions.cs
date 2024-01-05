@@ -20,9 +20,9 @@ namespace ProjectMystic.Source.Entities.Player {
             if(vector == Vector2.Zero)
                 return vector;
 
-            double sqrtroot = Math.Sqrt((x * x) + (y * y));     
+            double sqrroot = Math.Sqrt((x * x) + (y * y));     
 
-            return new Vector2((float)(x / sqrtroot), (float)(y / sqrtroot));
+            return new Vector2((float)(x / sqrroot), (float)(y / sqrroot));
         }
     }
 }

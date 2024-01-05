@@ -21,6 +21,7 @@ namespace ProjectMystic.Source.Components {
         }
         
         private State m_State;
+
         public enum State {
             ONCE,
             LOOP

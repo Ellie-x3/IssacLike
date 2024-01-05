@@ -45,5 +45,17 @@ namespace ProjectMystic.Source.Managers
                 ent.Draw(batch, gameTime);
             }
         }
+
+        public static Entity Find(string name) {
+            var ent = Entities.Find(x => x.Name.Equals(name));
+
+            if(ent == null)
+                ent = EntityQueue.Find(x => x.Name.Equals(name));
+
+            if(ent == null)
+                throw new NullReferenceException($"No entity with the name: {name}");
+
+            return ent;
+        }
     }
 }

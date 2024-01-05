@@ -6,6 +6,8 @@
   <SourceFiles>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Atlas/Enemies.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Levels/ZinkLevels/TestHome.ldtk</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Effects/File.fx</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Effects/player.fx</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Fonts/File.spritefont</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/background.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/line.png</File>
@@ -24,6 +26,8 @@
   <DestFiles>
     <File>Textures/Enemies/Enemies.png</File>
     <File>Worlds/TestHome.ldtk</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File>Fonts/Font.spritefont</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />

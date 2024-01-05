@@ -19,7 +19,7 @@ public class DoorEnt : ILDtkEntity
     public Color SmartColor { get; set; }
 
     public Vector2? Point { get; set; }
-    public EntityRef? DoorRef { get; set; }
+    public EntityRef DoorRef { get; set; }
     public int Integer { get; set; }
     public string? ClassName { get; set; }
 }

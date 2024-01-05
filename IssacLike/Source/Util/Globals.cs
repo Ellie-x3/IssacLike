@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Content;
 
 namespace ProjectMystic.Source.Util
 {
@@ -16,6 +17,7 @@ namespace ProjectMystic.Source.Util
         public static GraphicsDeviceManager s_Graphics;
         public static SpriteBatch s_SpriteBatch;      
         public static float Delta;
+        public static ContentManager Content { get; set; }
 
         public static SpriteFont font;
         public static float fps;
@@ -24,6 +26,7 @@ namespace ProjectMystic.Source.Util
 
         //Debug
         public static Vector2 RoomSize { get => new Vector2(640, 360); }
+        public static Vector2 TileSize { get => new Vector2(16f); }
 
         public static Vector2 ScreenSize {
             get {

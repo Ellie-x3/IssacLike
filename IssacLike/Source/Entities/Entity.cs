@@ -11,9 +11,12 @@ using System.Threading.Tasks;
 using ProjectMystic.Source.Components;
 using ProjectMystic.Source.ZeldaLikeImGui;
 using ZeldaLike.Source.Entities;
+using ZeldaLike.Source.Managers;
 
 namespace ProjectMystic.Source.Entities {
     public abstract class Entity : IDisposable {
+
+        public Vector2 EntityPosition { get => Position; }
 
         protected const string DEFAULT_NAME = "Entity";
 
@@ -26,7 +29,7 @@ namespace ProjectMystic.Source.Entities {
         protected Color Color = Color.White;
         public List<IComponent> Components = new List<IComponent>();
 
-        public string name { get; set; }
+        public string Name { get; set; }
         protected bool Destroyed { get;set; }
         protected float Layer { get;set; }
 
@@ -51,8 +54,18 @@ namespace ProjectMystic.Source.Entities {
         public virtual void Draw(SpriteBatch batch, GameTime gameTime) {
             var drawable = Components.OfType<IDraw>();
 
+            foreach (var component in drawable) {              
+                component.Draw(batch, Position, Color, 0f, Origin, Scale, SpriteEffects, Layer);
+            }
+        }
+
+        public void Draw(SpriteBatch batch, GameTime gameTime, Effect effect) {
+            batch.End(); //End current batch to prepare new batch for shader effect on entity
+
+            batch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, transformMatrix: CameraManager.CurrentCameraMatrices, effect: effect);
+            var drawable = Components.OfType<IDraw>();
+
             foreach (var component in drawable) {
-                
                 component.Draw(batch, Position, Color, 0f, Origin, Scale, SpriteEffects, Layer);
             }
         }
@@ -88,7 +101,7 @@ namespace ProjectMystic.Source.Entities {
 
                 if(attributes.Length > 0) {
                     var component = (IComponent)field.GetValue(this);
-                    Logger.Log("{0} : {1}", name, component);
+                    Logger.Log("{0} : {1}", Name, component);
                     AddComponent(component);
                 }
             }
@@ -99,7 +112,8 @@ namespace ProjectMystic.Source.Entities {
         }
 
         protected void InteractWith(Entity other) {
-            mediator.Notify($"INTERACTION_{GetType().Name}_{other.GetType().Name}", this, other);
+            if(mediator != null)
+                mediator.Notify($"INTERACTION_{GetType().Name}_{other.GetType().Name}", this, other);
         }
 
         //protected abstract Rectangle CalculateBound();
@@ -107,6 +121,7 @@ namespace ProjectMystic.Source.Entities {
         public virtual void Dispose() { }
 
         public virtual void OnCollisionEvent(ICollidable other) { }
+        public virtual void OnExitCollisionEvent() { }
 
     }
 }

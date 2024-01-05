@@ -14,24 +14,28 @@ using Microsoft.Xna.Framework;
 using ProjectMystic.Source.Entities.Player;
 using Microsoft.Xna.Framework.Content;
 using ProjectMystic.Source.Entities;
+using System.Reflection;
+using System.Text.Json;
 
 namespace ProjectMystic.Source.Managers.Resources {
     public class LevelLoader : ResourceLoader {
-        private static LDtkWorld m_World;
-        public static LDtkRenderer m_Renderer;
 
-        private static string m_LevelDirectory = "D:\\MonoGame\\ZeldaLike\\ZeldaLike\\Assets\\Levels\\ZinkLevels\\";
+        public static List<Rectangle> LevelCollisionTiles = new List<Rectangle>();
+        public static LDtkRenderer m_Renderer { get; private set; }
+        public static LDtkLevel CurrentLevel { get; set; }
+        public static LDtkLevel NextLevel { get; private set; }
+        public static LDtkWorld World { get => m_World; }
+        public static Dictionary<Guid, LDtkLevel> WorldLevels = new Dictionary<Guid, LDtkLevel>();
+        public static bool s_DrawLevelCollision { get { return m_DrawLevelCollision; } set { m_DrawLevelCollision = value; } }
+        public static Dictionary<Guid, Guid> ReferencedEntityLevel = new Dictionary<Guid, Guid>();
+
         private static List<LDtkLevel> Levels = new List<LDtkLevel>();
-        public static LDtkLevel CurrentLevel;
-
-        public static List<Rectangle> LevelCollisionTiles = new List<Rectangle>(); 
+        private static List<Entity> LDtkLevelEntities = new List<Entity>();
 
         private static Texture2D m_BoundBox;
-
-        public static LDtkWorld World { get => m_World; }
-
+        private static LDtkWorld m_World;
         private static bool m_DrawLevelCollision = false;
-        public static bool s_DrawLevelCollision { get { return m_DrawLevelCollision; } set { m_DrawLevelCollision = value; } }
+        
 
         public static void Init(SpriteBatch batch, ContentManager content) {
             m_Renderer = new LDtkRenderer(batch, content);
@@ -44,20 +48,20 @@ namespace ProjectMystic.Source.Managers.Resources {
             foreach (LDtkLevel level in m_World.Levels) {
                 m_Renderer.PrerenderLevel(level);
                 Levels.Add(level);
-            
-                LevelCollisions(level);   
+                WorldLevels.Add(level.Iid, level);
             }
-
+           
             CurrentLevel = Levels[0];
+            LevelCollisions(CurrentLevel);
+            NextLevel = Levels[1];
         }
 
         //Create a renderer wrapper to render the room the player is in
         public static void Draw(SpriteBatch batch) {
-
-            m_Renderer.RenderPrerenderedLevel(m_World.Levels.First());
+            m_Renderer.RenderPrerenderedLevel(CurrentLevel);
 
             if (Debug.DrawDebug)
-                DrawLevelCollision(m_World.Levels.First(), batch);
+                DrawLevelCollision(CurrentLevel, batch);
         }
 
         public static void Update(GameTime gameTime) { 
@@ -65,13 +69,33 @@ namespace ProjectMystic.Source.Managers.Resources {
                 m_DrawLevelCollision = !m_DrawLevelCollision;    
         }
 
-        public static void LoadWorld(LDtkWorld world) { }
+        public static void LoadWorld(LDtkWorld world) { 
+            
+        }
+
+        public static void ChangeLevel(LDtkLevel level) {       
+            CurrentLevel = level;            
+            UnLoadLevel();
+            LevelCollisions(CurrentLevel);
+            SpawnEntitiesInLevel<DoorEnt>();
+        }
+
+        private static void UnLoadLevel() {
+            List<Rectangle> tilesToRemove = new List<Rectangle>(LevelCollisionTiles);
+            foreach (var tile in tilesToRemove) {
+                LevelCollisionTiles.Remove(tile);
+            }
+            DespawnEntitiesFromLevel();
+        }
 
         public static void DrawLevelCollision(LDtkLevel level, SpriteBatch batch) {
             LDtkIntGrid collisions = level.GetIntGrid("IntGrid");
 
-            Point topLeftGrid = collisions.FromWorldToGridSpace(new Vector2(0, 0));
-            Point bottomRightGrid = collisions.FromWorldToGridSpace(new Vector2(1280, 720));
+            Vector2 levelTopLeft = Vector2.Zero;
+            Vector2 levelBottomRight = new Vector2(level.Size.X, level.Size.Y);
+
+            Point topLeftGrid = collisions.FromWorldToGridSpace(levelTopLeft);
+            Point bottomRightGrid = collisions.FromWorldToGridSpace(levelBottomRight);
 
             for (int x = topLeftGrid.X; x < bottomRightGrid.X; x++) {
                 for (int y = topLeftGrid.Y; y < bottomRightGrid.Y; y++) {
@@ -88,8 +112,13 @@ namespace ProjectMystic.Source.Managers.Resources {
         public static void LevelCollisions(LDtkLevel level) {
             LDtkIntGrid collisions = level.GetIntGrid("IntGrid");
 
-            Point topLeftGrid = collisions.FromWorldToGridSpace(new Vector2(0, 0));
-            Point bottomRightGrid = collisions.FromWorldToGridSpace(new Vector2(1280, 720));
+            Logger.Log("ADDING: {0} LEVEL COLLISIONS!!", level.Identifier);
+
+            Vector2 levelTopLeft = Vector2.Zero;
+            Vector2 levelBottomRight = new Vector2(level.Size.X, level.Size.Y);
+
+            Point topLeftGrid = collisions.FromWorldToGridSpace(levelTopLeft);
+            Point bottomRightGrid = collisions.FromWorldToGridSpace(levelBottomRight);
 
             for (int x = topLeftGrid.X; x < bottomRightGrid.X; x++) {
                 for (int y = topLeftGrid.Y; y < bottomRightGrid.Y; y++) {
@@ -103,14 +132,49 @@ namespace ProjectMystic.Source.Managers.Resources {
             }
         }
 
-        /*public static T GetLevelEntities<T>() where T : ILDtkEntity, new() {
-            T[] entities = CurrentLevel.GetEntities<T>();
-        }*/
+        public static List<Rectangle> GetLevelIntGridTile(LDtkLevel level, long type) {
+            LDtkIntGrid intGrid = level.GetIntGrid("IntGrid");
 
-        public static void SpawnEntitiesInLevel<T>() where T : ILDtkEntity, new() { 
+            List<Rectangle> tiles = new List<Rectangle>();
+
+            Vector2 levelTopLeft = Vector2.Zero;
+            Vector2 levelBottomRight = new Vector2(level.Size.X, level.Size.Y);
+
+            Point topLeftGrid = intGrid.FromWorldToGridSpace(levelTopLeft);
+            Point bottomRightGrid = intGrid.FromWorldToGridSpace(levelBottomRight);
+
+            for (int x = topLeftGrid.X; x < bottomRightGrid.X; x++) {
+                for (int y = topLeftGrid.Y; y < bottomRightGrid.Y; y++) {
+                    long intGridValue = intGrid.GetValueAt(x, y);
+                    if (intGridValue == type) {
+                        Vector2 tilePosition = level.Position.ToVector2() + new Vector2(x * intGrid.TileSize, y * intGrid.TileSize);
+                        Vector2 tileSize = new Vector2(intGrid.TileSize);
+                        tiles.Add(new Rectangle((int)tilePosition.X, (int)tilePosition.Y, (int)tileSize.X, (int)tileSize.Y));
+                    }
+                }
+            }
+
+            return tiles;
+        }
+
+        public static void SpawnEntitiesInLevel<T>() where T : ILDtkEntity, new() {
             foreach (T entity in CurrentLevel.GetEntities<T>()) {
+                Logger.Log("CCC");
                 Entity child = CreateGameEntityFactory(entity);
+                LDtkLevelEntities.Add(child);
                 EntityManager.Add(child);
+            }
+        }
+
+        private static void DespawnEntitiesFromLevel() {
+            List<Entity> entitiesToRemove = new List<Entity>(LDtkLevelEntities);
+
+            foreach (Entity ent in entitiesToRemove) {
+                if(ent is Player)
+                    continue;
+
+                LDtkLevelEntities.Remove(ent);
+                EntityManager.Remove(ent);
             }
         }
 
@@ -122,11 +186,30 @@ namespace ProjectMystic.Source.Managers.Resources {
                     var size = doorEntity.Size;
                     var Position = doorEntity.Position;
                     Door door = new Door(new Rectangle((int)Position.X, (int)Position.Y, (int)size.X, (int)size.Y), doorEntity);
+                    
                     return door;
 
                 default:
                     throw new ArgumentException("Unsupported entity type: " + entity.GetType());
             }
+        }
+
+        public static LDtkLevel EntityLevel(string indentifier, string field, Guid entity) {
+            foreach (LayerInstance layer in CurrentLevel.LayerInstances) {
+                foreach (EntityInstance ent in layer.EntityInstances) {
+                    if (ent._Identifier == indentifier) {
+                        foreach (FieldInstance _field in ent.FieldInstances) {
+                            if (_field._Identifier == field) {
+                                EntityRef _ent = JsonSerializer.Deserialize<EntityRef>(_field._Value.ToString());
+                                if(ent.Iid == entity)
+                                    return WorldLevels[_ent.LevelIid];
+                            }
+                        }
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }

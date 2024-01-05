@@ -12,11 +12,15 @@ using ZeldaLike.Source.Managers;
 using ZeldaLike.Source.Entities;
 using ZeldaLike.Source.Managers.Events;
 using LDtkTypes.TestHome;
+using ProjectMystic.Source.ZeldaLikeImGui;
 
 namespace ProjectMystic.Source.Scene
 {
     public class GameScene : IScene {
         public string Name => "GameScene";
+
+        public Effect overlayEffect;
+        Vector4 overlayColor = new Vector4(0.0f,0.1f,0.5f, 1f);
 
         public static IScene Instance {
             get { return m_Instance ??= new GameScene(); } 
@@ -24,10 +28,7 @@ namespace ProjectMystic.Source.Scene
         
         private static IScene m_Instance;
 
-        private GameScene() {
-            CameraManager.CreateCamera("Main");
-            CameraManager.CurrentCamera.Position = new Vector2(320 - 74, 180 - 4);
-
+        private GameScene() {        
             MediatorHandler.RegisterPlayerNotifications();
 
             Coroutine.StartCoroutine(() => CheckCollisions());
@@ -38,24 +39,27 @@ namespace ProjectMystic.Source.Scene
 
             LevelLoader.SpawnEntitiesInLevel<PlayerEnt>();
             LevelLoader.SpawnEntitiesInLevel<DoorEnt>();
+
+            CameraManager.CreateCamera("Main", EntityManager.Find("Player"));
+            CameraManager.CurrentCamera.Position = new Vector2(320 - 72, 180 - 4);
         }
 
         public void Update(GameTime gameTime) {
             LevelLoader.Update(gameTime);         
             CameraManager.Update();
-            
+
             EntityManager.Update(gameTime);  
         }
 
         public void SceneContent(SpriteBatch batch, ContentManager content) {
-            
+            overlayEffect = content.Load<Effect>("Effects\\File");
+            overlayEffect.Parameters["OverlayColor"].SetValue(overlayColor);
         }
 
         public void Draw(SpriteBatch batch, GameTime gameTime) {
             batch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, transformMatrix: CameraManager.CurrentCameraMatrices);
                 LevelLoader.Draw(batch);
                 EntityManager.Draw(batch, gameTime);                
-                //batch.DrawString(Globals.font, Globals.fps.ToString(), new Vector2(5, 5), Color.White);
             batch.End();
         }
 

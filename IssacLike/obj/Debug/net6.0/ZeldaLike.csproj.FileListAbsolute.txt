@@ -91,3 +91,6 @@ D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\runtimes\win-x64\nati
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\runtimes\win-x64\native\nvtt.dll
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Worlds\TestHome.xnb
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\tileBaseTileset.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\obj\Debug\net6.0\ZeldaLike.sourcelink.json
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Effects\File.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Effects\player.xnb

@@ -31,6 +31,18 @@
 /processor:LDtkFileProcessor
 /build:../../Assets/Levels/ZinkLevels/TestHome.ldtk;Worlds/TestHome.ldtk
 
+#begin Effects/File.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Effects/File.fx
+
+#begin Effects/player.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Effects/player.fx
+
 #begin Fonts/File.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
