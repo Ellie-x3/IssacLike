@@ -12,6 +12,7 @@ using ProjectMystic.Source.Components;
 using ProjectMystic.Source.ZeldaLikeImGui;
 using ZeldaLike.Source.Entities;
 using ZeldaLike.Source.Managers;
+using ProjectMystic.Source.Managers;
 
 namespace ProjectMystic.Source.Entities {
     public abstract class Entity : IDisposable {
@@ -24,12 +25,13 @@ namespace ProjectMystic.Source.Entities {
         protected Vector2 Position { get; set;}
         protected Vector2 Direction { get; }
         protected Vector2 Scale = new Vector2(1f);
-        protected Vector2 Origin = new Vector2(1f);
+        protected Vector2 Origin = new Vector2(0f);
         protected SpriteEffects SpriteEffects { get; set; }
         protected Color Color = Color.White;
         public List<IComponent> Components = new List<IComponent>();
 
-        public string Name { get; set; }
+        public string Name { get; set; } = "DEFAULT_ENTITY_SHOULD_CHANGE";
+
         protected bool Destroyed { get;set; }
         protected float Layer { get;set; }
 
@@ -112,13 +114,24 @@ namespace ProjectMystic.Source.Entities {
         }
 
         protected void InteractWith(Entity other) {
-            if(mediator != null)
+            if(mediator != null) {
+                Logger.Log("Executing");
                 mediator.Notify($"INTERACTION_{GetType().Name}_{other.GetType().Name}", this, other);
+            }
+                
         }
 
         //protected abstract Rectangle CalculateBound();
 
-        public virtual void Dispose() { }
+        public void Dispose(Entity entity) { 
+            Destroyed = true;
+            EntityManager.Remove(entity);
+            Dispose();
+        }
+
+        public virtual void Dispose() {
+
+        }
 
         public virtual void OnCollisionEvent(ICollidable other) { }
         public virtual void OnExitCollisionEvent() { }

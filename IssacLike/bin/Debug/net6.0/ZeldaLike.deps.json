@@ -10,10 +10,12 @@
         "dependencies": {
           "LDtkMonogame": "1.1.2",
           "LDtkMonogame.ContentPipeline": "1.1.2",
+          "MonoGame.Aseprite": "5.1.2",
           "MonoGame.Content.Builder.Task": "3.8.1.303",
           "MonoGame.Extended": "3.8.0",
           "MonoGame.Framework.DesktopGL": "3.8.1.303",
-          "MonoGame.ImGuiNet": "1.0.0"
+          "MonoGame.ImGuiNet": "1.0.0",
+          "Nopipeline.Task": "2.2.0"
         },
         "runtime": {
           "ZeldaLike.dll": {}
@@ -123,6 +125,14 @@
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "MonoGame.Aseprite/5.1.2": {
+        "runtime": {
+          "lib/net6.0/MonoGame.Aseprite.dll": {
+            "assemblyVersion": "5.1.2.0",
+            "fileVersion": "5.1.2.0"
+          }
         }
       },
       "MonoGame.Content.Builder.Task/3.8.1.303": {},
@@ -419,6 +429,7 @@
           }
         }
       },
+      "Nopipeline.Task/2.2.0": {},
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -1089,6 +1100,13 @@
       "path": "microsoft.win32.primitives/4.3.0",
       "hashPath": "microsoft.win32.primitives.4.3.0.nupkg.sha512"
     },
+    "MonoGame.Aseprite/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JQBo+F5SpvQZrpfzOOaK+NzlaFz7XmfmQvrkmyHNkSJNMtcJS7ZegGBtKr0hLGwPYFFHikRhoAz2BVl4sMcdBg==",
+      "path": "monogame.aseprite/5.1.2",
+      "hashPath": "monogame.aseprite.5.1.2.nupkg.sha512"
+    },
     "MonoGame.Content.Builder.Task/3.8.1.303": {
       "type": "package",
       "serviceable": true,
@@ -1130,6 +1148,13 @@
       "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "Nopipeline.Task/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u06nYzGcXCBcnF7cRe8Xa0KxBxGx8grhujZmb3PUiMVbds8d/I6qJ+waGn0IeC7Tdwmt0P6l3v7MqdYog5rJQg==",
+      "path": "nopipeline.task/2.2.0",
+      "hashPath": "nopipeline.task.2.2.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

@@ -36,6 +36,38 @@ namespace ProjectMystic.Source.Util {
             }                                     
         }
 
+        public static async void StartSingleCoroutine(Expression<Func<IEnumerator>> factory) {
+            var body = (MethodCallExpression)factory.Body;
+            var methodName = body.Method.Name;
+
+            if (m_CoroutineTask.ContainsKey(methodName)) {
+                StopCoroutine(methodName);
+
+                await Task.Delay(500);
+            }
+
+            var cancel = new CancellationTokenSource();
+            Task task = Task.Run(() => RunSingleCoroutine(factory, cancel.Token, methodName), cancel.Token);
+
+            if (!m_CoroutineTask.ContainsKey(methodName)) m_CoroutineTask.Add(methodName, cancel);
+        }
+
+        private static async Task RunSingleCoroutine(Expression<Func<IEnumerator>> factory, CancellationToken token, string coroutinename) {
+
+            while (!token.IsCancellationRequested) {
+                IEnumerator coroutine = factory.Compile().Invoke();
+
+                while (coroutine.MoveNext()) {
+                    if (token.IsCancellationRequested) {
+                        return;
+                    }
+                    await Task.Delay(1);
+                }
+
+                StopCoroutine(coroutinename);
+            }
+        }
+
         public static void StopCoroutine(string coroutine) {
             if (m_CoroutineTask.TryGetValue(coroutine, out CancellationTokenSource token)) {
                 System.Diagnostics.Debug.WriteLine($"Stopping task with {token}");

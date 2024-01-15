@@ -6,18 +6,16 @@
   <SourceFiles>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Atlas/Enemies.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Levels/ZinkLevels/TestHome.ldtk</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Tiles/Gui.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Tiles/HUDItem.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Tiles/StaticSword.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/zink/Zink_ItemShow.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Effects/File.fx</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Effects/player.fx</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Fonts/File.spritefont</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/background.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/line.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/mainmenu.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/mcfront.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/mcside.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/new_player_idle.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/new_player_walk.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Player_Idle.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Player_Walk.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Zink_Idle.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Zink_Walk.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/TEXTURE_default.png</File>
@@ -26,15 +24,13 @@
   <DestFiles>
     <File>Textures/Enemies/Enemies.png</File>
     <File>Worlds/TestHome.ldtk</File>
+    <File>Textures/Gui/Gui.png</File>
+    <File>Textures/Gui/HUDItem.png</File>
+    <File>Textures/Items/StaticSword.png</File>
+    <File>Textures/Player/Zink_ItemShow.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Fonts/Font.spritefont</File>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

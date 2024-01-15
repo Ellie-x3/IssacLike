@@ -3,12 +3,6 @@ D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\back
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Enemies\Enemies.xnb
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\line.xnb
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\mainmenu.xnb
-D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Player\mcfront.xnb
-D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Player\mcside.xnb
-D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Player\new_player_idle.xnb
-D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Player\new_player_walk.xnb
-D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Player\Player_Idle.xnb
-D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Player\Player_Walk.xnb
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\TEXTURE_default.xnb
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\ZeldaLike.exe
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\ZeldaLike.deps.json
@@ -94,3 +88,186 @@ D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\tileBaseTiles
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\obj\Debug\net6.0\ZeldaLike.sourcelink.json
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Effects\File.xnb
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Effects\player.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Items\StaticSword.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Gui\Gui.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Gui\HUDItem.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Textures\Player\Zink_ItemShow.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\MonoGame.Aseprite.dll
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Player\Idle.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Player\Walk.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiles.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Etc\Chicken.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Etc\Door_closed.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Etc\Door_nothing.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Etc\Door_open.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Etc\Stairs_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Etc\Stairs_floor_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Etc\Stairs_up.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bathroom\Bathtub_Left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bathroom\Bathtub_Right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bathroom\Sink_Bathroom.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bathroom\Toilet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bedroom\Bedside_table.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bedroom\Bed_Blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bedroom\Bed_Brown.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bedroom\Bed_Green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bedroom\Bed_Red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Bedroom\Closet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Kitchen\Bin.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Kitchen\Fridge.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Kitchen\Furnace.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Kitchen\Kitchen_Sink.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Kitchen\Worktop_spritesheet_16x16.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Big Sofa\Sofa_big_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Big Sofa\Sofa_big_brown.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Big Sofa\Sofa_big_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Big Sofa\Sofa_big_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Big Sofa\Sofa_big_spritesheet_48x48.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Big Sofa\Sofa_big_white.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Carpet\Carpet_blue_1.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Carpet\Carpet_blue_2.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Carpet\Carpet_blue_3.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Carpet\Carpet_green_1.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Carpet\Carpet_green_2.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Carpet\Carpet_green_3.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Carpet\Carpet_red_1.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Carpet\Carpet_red_2.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Carpet\Carpet_red_3.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Floor.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\library_big.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\library_small.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Lil_Table.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Map.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Picture.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Plant\Plant_Green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Plant\Plant_Pink.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Plant\Plan_Dark.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Small Sofa\Sofa_small_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Small Sofa\Sofa_small_brown.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Small Sofa\Sofa_small_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Small Sofa\Sofa_small_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Small Sofa\Sofa_small_spritesheet_32x32.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Small Sofa\Sofa_small_white.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Trunk\Trunk_Blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Trunk\Trunk_Brown.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Trunk\Trunk_Green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Trunk\Trunk_Red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Trunk\Trunk_Spritesheet32x16.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Wall_crack.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Window.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Window_Double.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Wooden Table\Wooden_table_brown.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Wooden Table\Wooden_table_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Wooden Table\Wooden_table_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Wooden Table\Wooden_table_spritesheet48x48.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Wooden Table\Wooden_table__blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Indoors\Other\Wooden_chair.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\NPCs\NPC_1_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\NPCs\NPC_2_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\NPCs\NPC_3_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\NPCs\NPC_4_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\NPCs\NPC_5_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\NPCs\NPC_6_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\NPCs\NPC_7_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House1_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House1_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House1_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House1_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House2_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House2_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House2_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House2_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House3_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House3_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House3_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House3_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House4_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House4_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House4_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\House4_spritesheet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House1_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House1_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House1_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House2_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House2_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House2_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House3_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House3_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House3_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House4_blue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House4_green.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Buildings\Wooden_House4_red.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\blue_veggie.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\blue_veggie_2.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\farm_spot_dry.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\farm_spot_wet.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\orange_veggie.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\orange_veggie_2.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\red_veggie.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\red_veggie_2.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\sprout.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\white_veggie.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Farm\white_veggie_2.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Other\bench.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Other\mailbox.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Other\sign.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Other\sign_2_left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Other\sign_2_right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Outdoors\Other\streetlight.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Palette\rosyandblue.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tilesets\brown_walls.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tilesets\fence.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tilesets\fountain.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tilesets\gray_walls.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tilesets\green_walls.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tilesets\red_walls.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tilesets\TS_Dirt.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tilesets\TS_Water.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Attack\Char_atk_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Attack\Char_atk_left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Attack\Char_atk_right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Attack\Char_atk_up.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Char_4_sides.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Idle\Char_idle_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Idle\Char_idle_left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Idle\Char_idle_right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Idle\Char_idle_up.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Walk\Char_walk_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Walk\Char_walk_left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Walk\Char_walk_right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_one\Walk\Char_walk_up.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Attack\Char2_atk_up.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Attack\Char2_two_attack_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Attack\Char2_two_attack_left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Attack\Char2_two_attack_right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Char2_4sides.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Idle\Char2_idle_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Idle\Char2_idle_left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Idle\Char2_idle_right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Idle\Char2_idle_up.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Walk\Char2_walk_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Walk\Char2_walk_left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Walk\Char2_walk_right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Character\Char_two\Walk\Char2_walk_up.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Blue_orb.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Coin.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Green_orb.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Heart.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Misc\Bush.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Misc\Chest.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Misc\Grass.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Misc\Rock.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Misc\Sign.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Misc\Tree\Tree.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Misc\Tree\Tree_top.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Misc\Tree\Tree_trunk.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Other\Red_orb.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Idle\Skel_idle_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Idle\Skel_idle_left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Idle\Skel_idle_right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Idle\Skel_idle_up.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Skel_4Sides.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Walk\Skel_walk_down.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Walk\Skel_walk_left.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Walk\Skel_walk_right.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Walk\Skel_walk_up.xnb

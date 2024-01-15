@@ -6,29 +6,381 @@
   <SourceFiles>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Atlas/Enemies.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Levels/ZinkLevels/TestHome.ldtk</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Tiles/Gui.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Tiles/HUDItem.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Tiles/StaticSword.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/zink/Zink_ItemShow.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Effects/File.fx</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Effects/player.fx</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Fonts/File.spritefont</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/background.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/line.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/mainmenu.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/mcfront.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/mcside.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/new_player_idle.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/new_player_walk.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Player_Idle.png</File>
-    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Player_Walk.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Zink_Idle.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/Player/Zink_Walk.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Textures/TEXTURE_default.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/tileBaseTileset.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Player/Idle.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Player/Walk.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiles.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Etc/Chicken.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Etc/Door_closed.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Etc/Door_nothing.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Etc/Door_open.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Etc/Stairs_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Etc/Stairs_floor_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Etc/Stairs_up.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/NPCs/NPC_1_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/NPCs/NPC_2_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/NPCs/NPC_3_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/NPCs/NPC_4_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/NPCs/NPC_5_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/NPCs/NPC_6_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/NPCs/NPC_7_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Palette/rosyandblue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tilesets/brown_walls.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tilesets/fence.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tilesets/fountain.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tilesets/gray_walls.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tilesets/green_walls.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tilesets/red_walls.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tilesets/TS_Dirt.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tilesets/TS_Water.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bathroom/Bathtub_Left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bathroom/Bathtub_Right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bathroom/Sink_Bathroom.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bathroom/Toilet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bedroom/Bedside_table.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bedroom/Bed_Blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bedroom/Bed_Brown.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bedroom/Bed_Green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bedroom/Bed_Red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Bedroom/Closet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Kitchen/Bin.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Kitchen/Fridge.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Kitchen/Furnace.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Kitchen/Kitchen_Sink.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Kitchen/Worktop_spritesheet_16x16.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Floor.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/library_big.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/library_small.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Lil_Table.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Map.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Picture.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Wall_crack.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Window.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Window_Double.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Wooden_chair.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House1_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House1_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House1_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House1_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House2_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House2_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House2_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House2_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House3_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House3_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House3_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House3_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House4_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House4_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House4_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/House4_spritesheet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House1_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House1_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House1_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House2_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House2_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House2_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House3_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House3_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House3_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House4_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House4_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Buildings/Wooden_House4_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/blue_veggie.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/blue_veggie_2.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/farm_spot_dry.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/farm_spot_wet.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/orange_veggie.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/orange_veggie_2.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/red_veggie.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/red_veggie_2.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/sprout.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/white_veggie.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Farm/white_veggie_2.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Other/bench.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Other/mailbox.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Other/sign.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Other/sign_2_left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Other/sign_2_right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Outdoors/Other/streetlight.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Blue_orb.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Coin.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Green_orb.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Heart.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Red_orb.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Skeleton/Skel_4Sides.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Big Sofa/Sofa_big_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Big Sofa/Sofa_big_brown.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Big Sofa/Sofa_big_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Big Sofa/Sofa_big_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Big Sofa/Sofa_big_spritesheet_48x48.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Big Sofa/Sofa_big_white.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Carpet/Carpet_blue_1.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Carpet/Carpet_blue_2.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Carpet/Carpet_blue_3.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Carpet/Carpet_green_1.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Carpet/Carpet_green_2.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Carpet/Carpet_green_3.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Carpet/Carpet_red_1.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Carpet/Carpet_red_2.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Carpet/Carpet_red_3.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Plant/Plant_Green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Plant/Plant_Pink.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Plant/Plan_Dark.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Small Sofa/Sofa_small_blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Small Sofa/Sofa_small_brown.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Small Sofa/Sofa_small_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Small Sofa/Sofa_small_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Small Sofa/Sofa_small_spritesheet_32x32.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Small Sofa/Sofa_small_white.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Trunk/Trunk_Blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Trunk/Trunk_Brown.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Trunk/Trunk_Green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Trunk/Trunk_Red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Trunk/Trunk_Spritesheet32x16.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Wooden Table/Wooden_table_brown.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Wooden Table/Wooden_table_green.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Wooden Table/Wooden_table_red.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Wooden Table/Wooden_table_spritesheet48x48.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Indoors/Other/Wooden Table/Wooden_table__blue.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Char_4_sides.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Char2_4sides.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Bush.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Chest.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Grass.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Rock.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Sign.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Skeleton/Idle/Skel_idle_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Skeleton/Idle/Skel_idle_left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Skeleton/Idle/Skel_idle_right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Skeleton/Idle/Skel_idle_up.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Skeleton/Walk/Skel_walk_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Skeleton/Walk/Skel_walk_left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Skeleton/Walk/Skel_walk_right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Skeleton/Walk/Skel_walk_up.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Attack/Char_atk_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Attack/Char_atk_left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Attack/Char_atk_right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Attack/Char_atk_up.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Idle/Char_idle_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Idle/Char_idle_left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Idle/Char_idle_right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Idle/Char_idle_up.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Walk/Char_walk_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Walk/Char_walk_left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Walk/Char_walk_right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_one/Walk/Char_walk_up.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Attack/Char2_atk_up.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Attack/Char2_two_attack_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Attack/Char2_two_attack_left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Attack/Char2_two_attack_right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Idle/Char2_idle_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Idle/Char2_idle_left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Idle/Char2_idle_right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Idle/Char2_idle_up.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Walk/Char2_walk_down.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Walk/Char2_walk_left.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Walk/Char2_walk_right.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Character/Char_two/Walk/Char2_walk_up.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Tree/Tree.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Tree/Tree_top.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Tree/Tree_trunk.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Textures/Enemies/Enemies.png</File>
     <File>Worlds/TestHome.ldtk</File>
+    <File>Textures/Gui/Gui.png</File>
+    <File>Textures/Gui/HUDItem.png</File>
+    <File>Textures/Items/StaticSword.png</File>
+    <File>Textures/Player/Zink_ItemShow.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Fonts/Font.spritefont</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -7,6 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectMystic.Source.Entities;
 using ProjectMystic.Source.ZeldaLikeImGui;
+using LDtk;
+using LDtkTypes.TestHome;
+using ProjectMystic.Source.Entities.Player;
+using ZeldaLike.Source.Entities.Items;
 
 namespace ProjectMystic.Source.Managers
 {
@@ -25,6 +29,10 @@ namespace ProjectMystic.Source.Managers
             if (Entities.Contains(entity)) {
                 Entities.Remove(entity);
             }
+
+            if (EntityQueue.Contains(entity)) {
+                EntityQueue.Remove(entity);
+            }
         }
 
         public static void Update(GameTime gameTime) {
@@ -41,21 +49,53 @@ namespace ProjectMystic.Source.Managers
         }
      
         public static void Draw(SpriteBatch batch, GameTime gameTime) {
-            foreach (Entity ent in Entities) {
-                ent.Draw(batch, gameTime);
+
+            for(int i = Entities.Count - 1; i >= 0; i--) {
+                Entities[i].Draw(batch, gameTime);
             }
         }
 
-        public static Entity Find(string name) {
+        public static Entity? Find(string name) {
             var ent = Entities.Find(x => x.Name.Equals(name));
 
             if(ent == null)
                 ent = EntityQueue.Find(x => x.Name.Equals(name));
 
-            if(ent == null)
-                throw new NullReferenceException($"No entity with the name: {name}");
-
             return ent;
+        }
+
+        public static bool Exists(Entity entity) {
+            if (!Entities.Contains(entity) && !EntityQueue.Contains(entity)) {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static void SpawnEntitiesInLevel<T>(LDtkLevel level) where T : ILDtkEntity, new() {
+            foreach (T entity in level.GetEntities<T>()) {
+                Entity child = CreateGameEntityFactory(entity);
+                Add(child);
+            }
+        }
+
+        private static Entity CreateGameEntityFactory(ILDtkEntity entity) {
+            switch (entity) {
+                case PlayerEnt playerEntity:
+                    return new APlayer(playerEntity);
+                case DoorEnt doorEntity:
+                    var size = doorEntity.Size;
+                    var Position = doorEntity.Position;
+                    Door door = new Door(new Rectangle((int)Position.X, (int)Position.Y, (int)size.X, (int)size.Y), doorEntity);
+
+                    return door;
+                case Pickup swordData:
+                    Sword sword = new Sword(swordData);
+                    return sword;
+
+                default:
+                    throw new ArgumentException("Unsupported entity type: " + entity.GetType());
+            }
         }
     }
 }

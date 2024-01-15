@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "T4T6Wn9NBM2w3pRIZf7nukc54J34uc/yJNCjV5TcRjfrwKAsJZ9WbW5X0n/pju3debvm2VM/prreXNJ1jtVgig==",
+  "dgSpecHash": "h05usrSIVULtEat4yKKjoUWeTPzZmZKX1+yq1SoeaZjWeCu3NDwulvSLXgHLgUa1SAAOD7CTXpInbBSPcfFZDg==",
   "success": true,
   "projectFilePath": "D:\\MonoGame\\ZeldaLike\\ZeldaLike\\IssacLike\\ZeldaLike.csproj",
   "expectedPackageFiles": [
@@ -11,12 +11,14 @@
     "C:\\Users\\Ellie\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\monogame.aseprite\\5.1.2\\monogame.aseprite.5.1.2.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\monogame.extended\\3.8.0\\monogame.extended.3.8.0.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\monogame.framework.content.pipeline\\3.8.1.303\\monogame.framework.content.pipeline.3.8.1.303.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Ellie\\.nuget\\packages\\nopipeline.task\\2.2.0\\nopipeline.task.2.2.0.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Ellie\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

@@ -13,6 +13,7 @@ using ZeldaLike.Source.Entities;
 using ZeldaLike.Source.Managers.Events;
 using LDtkTypes.TestHome;
 using ProjectMystic.Source.ZeldaLikeImGui;
+using ZeldaLike.Source.GUI;
 
 namespace ProjectMystic.Source.Scene
 {
@@ -37,11 +38,15 @@ namespace ProjectMystic.Source.Scene
         public void Initialize(SpriteBatch batch, ContentManager content) {
             LevelLoader.Init(batch, content);
 
-            LevelLoader.SpawnEntitiesInLevel<PlayerEnt>();
-            LevelLoader.SpawnEntitiesInLevel<DoorEnt>();
+            EntityManager.SpawnEntitiesInLevel<PlayerEnt>(LevelLoader.CurrentLevel);
+            EntityManager.SpawnEntitiesInLevel<DoorEnt>(LevelLoader.CurrentLevel);
 
             CameraManager.CreateCamera("Main", EntityManager.Find("Player"));
             CameraManager.CurrentCamera.Position = new Vector2(320 - 72, 180 - 4);
+
+            GuiManager.Add("Hud", new PlayerHud());
+
+            GuiManager.SetHud = GuiManager.Guis["Hud"];
         }
 
         public void Update(GameTime gameTime) {
@@ -49,17 +54,20 @@ namespace ProjectMystic.Source.Scene
             CameraManager.Update();
 
             EntityManager.Update(gameTime);  
+            GuiManager.Update(gameTime);
         }
 
         public void SceneContent(SpriteBatch batch, ContentManager content) {
             overlayEffect = content.Load<Effect>("Effects\\File");
             overlayEffect.Parameters["OverlayColor"].SetValue(overlayColor);
+            GuiManager.LoadContent();
         }
 
         public void Draw(SpriteBatch batch, GameTime gameTime) {
             batch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, transformMatrix: CameraManager.CurrentCameraMatrices);
                 LevelLoader.Draw(batch);
-                EntityManager.Draw(batch, gameTime);                
+                EntityManager.Draw(batch, gameTime);
+                GuiManager.Draw(batch);
             batch.End();
         }
 

@@ -29,13 +29,16 @@ namespace ProjectMystic.Source.Components {
 
         public Entity Owner { get; set; }
         public string name { get; set; }
+        public bool Disable { get; set; } = false;
 
         public Flipbook CurrentAnimation { get => m_CurrentAnimation; }
         private Flipbook m_CurrentAnimation;
+        private Texture2D m_SingleFrameAnimation;
 
         private Direction m_Facing; //Should be between 0 and 3
 
         public Dictionary<string, Flipbook> Animations = new Dictionary<string, Flipbook>();
+        public Dictionary<string, Texture2D> SingleFrame = new Dictionary<string, Texture2D>();
 
         public Animation() { }
 
@@ -44,7 +47,7 @@ namespace ProjectMystic.Source.Components {
         }
 
         public void Update(GameTime gameTime) {
-            if(m_CurrentAnimation != null) {
+            if(m_CurrentAnimation != null && !Disable) {
                 m_CurrentAnimation.Update(gameTime, m_Facing, m_State);
 
                 if (m_CurrentAnimation.IsFinished) {
@@ -54,9 +57,13 @@ namespace ProjectMystic.Source.Components {
         }
 
         public void Draw(SpriteBatch batch, Vector2 position, Color color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layer) {
-            if(m_CurrentAnimation != null) {
+            if(m_CurrentAnimation != null && !Disable) {
                 batch.Draw(m_CurrentAnimation.Texture, position, m_CurrentAnimation.UV[m_CurrentAnimation.CurrentFrame], Color.White, 0f, origin, scale, effects, layer);      
-            }  
+            } else {
+                batch.Draw(m_SingleFrameAnimation, new Vector2(position.X - 8, position.Y - 8), Color.White);
+            }
+
+
         }
 
         public void Create(string key, Texture2D texture, Vector2 size, int frameCount, int totalFrameCount, float frameTime) {
@@ -68,11 +75,22 @@ namespace ProjectMystic.Source.Components {
             Animations.Add(key, new Flipbook(texture, size, frameCount, totalFrameCount, frameTime));
         }
 
+        public void Create(string key, Texture2D texture) {
+            if (SingleFrame.ContainsKey(key)) {
+                Logger.Log("Key: {0} already exists", key);
+                return;
+            }
+
+            SingleFrame.Add(key, texture);
+        }
+
         public void Play(string key, Direction direction = Direction.NONE, State state = State.LOOP) {
             if (!Animations.ContainsKey(key)) {
                 Logger.Log("No Animation for: {0}", key);
                 return;
             }
+
+            Disable = false;
 
             if(m_CurrentAnimation == null || m_CurrentAnimation.Key != key) {
                 m_CurrentAnimation = Animations[key];
@@ -83,6 +101,17 @@ namespace ProjectMystic.Source.Components {
                 
             m_Facing = direction;
             m_State = state;
+        }
+
+        public void Play(string key) {
+
+            if (!SingleFrame.ContainsKey(key)) {
+                Logger.Log("No single frame animation for: {0}", key);
+                return;
+            }
+
+            Disable = true;
+            m_SingleFrameAnimation = SingleFrame[key];
         }
     }
 

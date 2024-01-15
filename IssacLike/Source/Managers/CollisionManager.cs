@@ -29,7 +29,7 @@ namespace ProjectMystic.Source.Managers {
                     if(colliderA.Entity == null || colliderB.Entity == null)
                         return;
 
-                    if (colliderA.Bound.Intersects(colliderB.Bound)) {
+                    if (colliderA.Bound.Intersects(colliderB.Bound) && EntityManager.Exists(colliderA.Entity) && EntityManager.Exists(colliderB.Entity)) {
                         colliderA.Entity.OnCollisionEvent(colliderB);
                         colliderB.Entity.OnCollisionEvent(colliderA);
 
@@ -41,8 +41,14 @@ namespace ProjectMystic.Source.Managers {
 
             foreach(var pair in CollidingPairs.Keys) {
                 if (!collidingPairs.ContainsKey(pair)) {
-                    EntityManager.Find(pair.Item1).OnExitCollisionEvent();
-                    EntityManager.Find(pair.Item2).OnExitCollisionEvent();
+                    Entity ent1 = EntityManager.Find(pair.Item1);
+                    Entity ent2 = EntityManager.Find(pair.Item2);
+
+                    if (ent1 != null)
+                        ent1.OnExitCollisionEvent();
+
+                    if(ent2 != null)
+                        ent2.OnExitCollisionEvent();
                 }
             }
 

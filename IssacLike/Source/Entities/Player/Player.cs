@@ -16,10 +16,59 @@ using ProjectMystic.Source.Managers.Events;
 using LDtkTypes.TestHome;
 using ZeldaLike.Source.Managers.Events;
 using System.Reflection.Metadata;
+using System.Collections;
+using ZeldaLike.Source.Entities.StateMachine;
+using ZeldaLike.Source.Entities.Player.States;
+using ZeldaLike.Source.Entities.Player;
+using ZeldaLike.Source.Managers;
+using ZeldaLike.Source.GUI;
 
 namespace ProjectMystic.Source.Entities.Player
 {
-    public class Player : Entity {
+    public class APlayer : Entity {
+
+        public Animation.Direction Facing { get => m_Facing; set => m_Facing = value; }
+        public Vector2 HalfSprite { get => m_SpriteHalf; }
+        public Point Collider { get => m_DoorColliderPoint; }
+        public Vector2 Velocity { get => body.Velocity; }
+        public Vector2 BodyPosition { get => Position; set => Position = value; }
+        public Vector2 NextBodyPosition { get => m_NextPosition; set => m_NextPosition = value; }
+        public Vector2? BodyOverridePosition { get => m_OvrridePosition; set => m_OvrridePosition = value; }
+        public StateMachine StateMachine { get => m_StateMatchine; }
+        public Inventory Inventory { get => m_Inventory; }
+        public bool OverrideDraw = false;
+
+        public CharacterBody Body { get => body; }
+        public Animation Animation { get => AnimationController; }
+        public Collider PlayerCollider { get => m_WallCollider; }
+
+        public Vector2 PlayerMoveInput { get {
+                body.Magnitude = Directions.Zero;
+
+                if (Input.IsKeyDown(Keys.W)) {
+                    body.Magnitude += Directions.North;
+                    m_Facing = Animation.Direction.NORTH;
+                }
+
+                if (Input.IsKeyDown(Keys.S)) {
+                    body.Magnitude += Directions.South;
+                    m_Facing = Animation.Direction.SOUTH;
+                }
+
+                if (Input.IsKeyDown(Keys.A)) {
+                    body.Magnitude += Directions.West;
+                    m_Facing = Animation.Direction.WEST;
+                }
+
+                if (Input.IsKeyDown(Keys.D)) {
+                    body.Magnitude += Directions.East;
+                    m_Facing = Animation.Direction.EAST;
+                }
+
+                return body.Magnitude;
+            }
+        }
+
         #region Components
         //Components
         [Component(typeof(CharacterBody))]
@@ -27,9 +76,6 @@ namespace ProjectMystic.Source.Entities.Player
 
         [Component(typeof(Animation))]
         private Animation AnimationController;
-
-        [Component(typeof(Collider))]
-        private Collider m_DoorCollider;
 
         [Component(typeof(Collider))]
         private Collider m_WallCollider;
@@ -42,7 +88,7 @@ namespace ProjectMystic.Source.Entities.Player
 
         //Collision
         private Point m_DoorColliderPoint;
-        private Point DoorColliderLocation {
+        public Point ColliderLocation {
             get {
                 m_DoorColliderPoint = new Point((int)(Position.X - m_SpriteHalf.X), (int)(Position.Y - m_SpriteHalf.Y));
                 return m_DoorColliderPoint;
@@ -54,45 +100,34 @@ namespace ProjectMystic.Source.Entities.Player
         private Rectangle horizontalRect;
         private Rectangle verticalRect;
 
-        private Vector2 m_PrevPosition;
         private Vector2 m_NextPosition;
         private Vector2? m_OvrridePosition;
 
         //DEBUG / TESTING
-        public Vector2 PlayerPosition { get => Position; set {
-                Position = value;
-            }
-        }
+        public Vector2 PlayerPosition { get => Position; set => Position = value; }
 
-        private bool shadertesting = false;
-        public Effect overlayEffect;
-        Vector4 overlayColor = new Vector4(0.5f, 0.35f, 0.35f, 1f);
+        private StateMachine m_StateMatchine;
+        private Inventory m_Inventory;
+        private bool m_ShowInventory = false;
 
         //LDtk
         private PlayerEnt data;
 
-        public Player(PlayerEnt data)
-        {
+        public APlayer(PlayerEnt data)
+        {         
             this.data = data;
             Name = "Player";
             Scale = new Vector2(1f);
             Origin = new Vector2(8f, 8f);
-            TextureLoader.AddTexture("Walk", "Player/Zink_Walk");
-            TextureLoader.AddTexture("Idle", "Player/Zink_Idle");
-
-            overlayEffect = Globals.Content.Load<Effect>("Effects\\player");
-            overlayEffect.Parameters["OverlayColor"].SetValue(overlayColor);
+            m_Inventory = new Inventory();              
         }
 
-    public override void Start()
+        public override void Start()
         {
             var mediator = MediatorHandler.PlayerMediator;
             SetMediator(mediator);
 
-            AnimationController = new Animation();
-
-            AnimationController.Create("Walk", TextureLoader.Texture("Walk"), new Vector2(16,16), 2, 8, 0.17f);
-            AnimationController.Create("Idle", TextureLoader.Texture("Idle"), new Vector2(16,16), 1, 4, 0f);            
+            AnimationController = new Animation();            
 
             body = new CharacterBody
             {
@@ -102,53 +137,41 @@ namespace ProjectMystic.Source.Entities.Player
             };
 
             Position = body.Position;
-            //Origin = Position;
-            m_DoorCollider = new Collider(new Rectangle(DoorColliderLocation.X, DoorColliderLocation.Y, 16,16)) {
+
+            m_WallCollider = new Collider(new Rectangle(ColliderLocation.X, ColliderLocation.Y, 16,16)) {
                 CanCollide = true,
                 Tag = "Player",
-                //Color = new Color(140, 238, 100, 10)
+                Color = new Color(255, 0, 0, 125)
             };
 
-            m_WallCollider = new Collider(new Rectangle(DoorColliderLocation.X, DoorColliderLocation.Y, 16, 16)) {
-                CanCollide = false,
-                Tag = "Player",
-                Color = new Color(255, 0, 100, 150)
-            };
+            m_StateMatchine = new StateMachine();
+            StateFactory<Idle> idleFactory = owner => new Idle(this);
+            StateFactory<Walk> walkFactory = owner => new Walk(this);
+            StateFactory<Collecting> collectFactory = owner => new Collecting(this);
+            m_StateMatchine.RegisterState("Idle", idleFactory, this);
+            m_StateMatchine.RegisterState("Walk", walkFactory, this);
+            m_StateMatchine.RegisterState("Collecting", collectFactory, this);
+            m_StateMatchine.Transition("Idle");
 
             base.Start();
         }
 
         public override void Update(GameTime gameTime)
         {
-            PlayerMove(gameTime);
+            m_StateMatchine.Update();
 
-            if (Input.IsKeyPressed(Keys.F10)) {
-                m_CollidedWithDoor = false;
+            if (Inventory.SignificantItemCollected) {
+                m_StateMatchine.Transition("Collecting");
             }
-
-            if (Input.IsKeyDown(Keys.F9)) {
-                shadertesting = true;
-                overlayColor = new Vector4(1f, 0.35f, 0.35f, 1f);
-                overlayEffect.Parameters["OverlayColor"].SetValue(overlayColor);
-            } else {
-                shadertesting = false;
-            }
-
+            
             base.Update(gameTime);
         }
 
-        public override void Draw(SpriteBatch batch, GameTime gameTime)
-        {
-            if (shadertesting) {
-                Draw(batch, gameTime, overlayEffect);
-                Logger.Log("Trying to draw");
-                return;
-            }
-
+        public override void Draw(SpriteBatch batch, GameTime gameTime) {            
             base.Draw(batch, gameTime);          
         }
 
-        private Vector2? OnWallCollision(List<Rectangle> walls) {
+        public Vector2? OnWallCollision(List<Rectangle> walls) {
             // Create two rectangles for potential new positions along X and Y axes
             horizontalRect = new Rectangle(
                 (int)(m_NextPosition.X - m_SpriteHalf.X),
@@ -186,56 +209,16 @@ namespace ProjectMystic.Source.Entities.Player
             }
 
             return null;
-        }
-
-        private void PlayerMove(GameTime gameTime) {
-            body.Magnitude = Directions.Zero;
-
-            if (Input.IsKeyDown(Keys.W)) {
-                body.Magnitude += Directions.North;
-                m_Facing = Animation.Direction.NORTH;
-            }
-
-            if (Input.IsKeyDown(Keys.S)) {
-                body.Magnitude += Directions.South;
-                m_Facing = Animation.Direction.SOUTH;
-            }
-
-            if (Input.IsKeyDown(Keys.A)) {
-                body.Magnitude += Directions.West;
-                m_Facing = Animation.Direction.WEST;
-            }        
-
-            if (Input.IsKeyDown(Keys.D)) {
-                body.Magnitude += Directions.East;
-                m_Facing = Animation.Direction.EAST;
-            }
-
-            if (body.Magnitude != Directions.Zero) {
-                AnimationController.Play("Walk", m_Facing);
-            } else {
-                AnimationController.Play("Idle", m_Facing);
-            }
-
-            body.Magnitude = Directions.Normalize(body.Magnitude);
-            body.Velocity = body.Magnitude * body.Speed * Globals.Delta;
-            body.Position = Position;
-
-            m_PrevPosition = body.Position;
-            m_NextPosition = body.Position + body.Velocity;
-
-            m_OvrridePosition = OnWallCollision(LevelLoader.LevelCollisionTiles);
-
-            Position = m_OvrridePosition ?? m_NextPosition;
-            m_DoorCollider.Location = DoorColliderLocation;
-            m_WallCollider.Location = DoorColliderLocation;
-        }
+        }    
 
         public override void OnCollisionEvent(ICollidable other) {
-            if(!m_CollidedWithDoor) {
+            
+            if(!m_CollidedWithDoor && other.Entity is Door) {
                 InteractWith(other.Entity);
                 
                 m_CollidedWithDoor = true;
+            } else if (other.Entity is not Door){
+                InteractWith(other.Entity);
             }
         }
 
