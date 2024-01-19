@@ -103,7 +103,6 @@ namespace ProjectMystic.Source.Entities {
 
                 if(attributes.Length > 0) {
                     var component = (IComponent)field.GetValue(this);
-                    Logger.Log("{0} : {1}", Name, component);
                     AddComponent(component);
                 }
             }
@@ -115,7 +114,6 @@ namespace ProjectMystic.Source.Entities {
 
         protected void InteractWith(Entity other) {
             if(mediator != null) {
-                Logger.Log("Executing");
                 mediator.Notify($"INTERACTION_{GetType().Name}_{other.GetType().Name}", this, other);
             }
                 

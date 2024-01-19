@@ -3,7 +3,7 @@
   <SourceFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Tiles/Gui.png</SourceFile>
   <SourceTime>2024-01-07T21:28:20.4765574-04:00</SourceTime>
   <DestFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Textures/Gui/Gui.xnb</DestFile>
-  <DestTime>2024-01-07T21:29:45.3990534-04:00</DestTime>
+  <DestTime>2024-01-15T19:23:09.1852602-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T08:44:56-03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

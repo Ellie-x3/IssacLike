@@ -163,7 +163,11 @@ namespace ProjectMystic.Source.Entities.Player
             if (Inventory.SignificantItemCollected) {
                 m_StateMatchine.Transition("Collecting");
             }
-            
+
+            if (Input.IsKeyPressed(Keys.F6)) {
+                TransitionManager.SetTransition("FullUp");
+            }
+
             base.Update(gameTime);
         }
 
@@ -172,6 +176,9 @@ namespace ProjectMystic.Source.Entities.Player
         }
 
         public Vector2? OnWallCollision(List<Rectangle> walls) {
+
+            List<Rectangle> wallsCollection = new List<Rectangle>(walls);
+
             // Create two rectangles for potential new positions along X and Y axes
             horizontalRect = new Rectangle(
                 (int)(m_NextPosition.X - m_SpriteHalf.X),
@@ -190,8 +197,8 @@ namespace ProjectMystic.Source.Entities.Player
             Vector2 adjustedPosition = body.Position;
 
             // Check for horizontal and vertical collisions separately
-            bool collidedHorizontally = walls.Any(wall => horizontalRect.Intersects(wall));
-            bool collidedVertically = walls.Any(wall => verticalRect.Intersects(wall));
+            bool collidedHorizontally = wallsCollection.Any(wall => horizontalRect.Intersects(wall));
+            bool collidedVertically = wallsCollection.Any(wall => verticalRect.Intersects(wall));
 
             if (!collidedHorizontally) {
                 // Allow horizontal movement
@@ -213,9 +220,11 @@ namespace ProjectMystic.Source.Entities.Player
 
         public override void OnCollisionEvent(ICollidable other) {
             
+            
+
             if(!m_CollidedWithDoor && other.Entity is Door) {
-                InteractWith(other.Entity);
-                
+                TransitionManager.SetTransition("FullUp");
+                InteractWith(other.Entity);             
                 m_CollidedWithDoor = true;
             } else if (other.Entity is not Door){
                 InteractWith(other.Entity);

@@ -33,7 +33,7 @@ namespace ZeldaLike.Source.Managers.Events {
 
                 StateFactory<Attack> attackFactory = owner => new Attack(player);
                 player.StateMachine.RegisterState("Attack", attackFactory, player);
-
+                
                 PlayerHud.ChangeWeaponSelected(sword.Image);
             });
         }

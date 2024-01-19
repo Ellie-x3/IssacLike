@@ -36,14 +36,14 @@ namespace ZeldaLike.Source.Entities.Items {
         public Sword(Pickup data) {
             Name = "Sword";
             Position = new Vector2(data.Position.X, data.Position.Y);
-            Origin = new Vector2(3f);
-            TextureLoader.AddTexture("Sword", "Items/StaticSword");
+            
+            TextureLoader.LoadTexture("Sword", "Graphics/Items/Sword");
             Image = TextureLoader.Texture("Sword");
 
             m_Sprite = new Sprite(Image);
-            m_Sprite.Source = new Rectangle(0,0,22,22);
+            m_Sprite.Source = new Rectangle(0,0,7,14);
             
-            m_CollectionArea = new Rectangle((int)Position.X, (int)Position.Y, 16, 16);
+            m_CollectionArea = new Rectangle((int)Position.X, (int)Position.Y, 7, 14);
 
             m_CollectionAreaTexture = new Texture2D(Globals.s_GraphicsDevice, 1, 1);
             m_CollectionAreaTexture.SetData(new Color[] { Color.Red }); 
@@ -55,7 +55,7 @@ namespace ZeldaLike.Source.Entities.Items {
         }        
 
         public override void Draw(SpriteBatch batch, GameTime gameTime) {
-            //batch.Draw(m_CollectionAreaTexture, m_CollectionArea, Color.White);
+            batch.Draw(m_CollectionAreaTexture, m_CollectionArea, Color.White);
             base.Draw(batch, gameTime);
         }
 
@@ -65,9 +65,11 @@ namespace ZeldaLike.Source.Entities.Items {
             if(other.Entity.Name == "Player") {
                 APlayer player = other.Entity as APlayer;
 
-                player.Inventory.BasicSwordCollected = true;
-                player.Inventory.CollectedItems.Add(ItemName, true);
-                player.Inventory.SignificantItemCollected = true;
+                if (!player.Inventory.BasicSwordCollected) {
+                    player.Inventory.BasicSwordCollected = true;
+                    player.Inventory.CollectedItems.Add(ItemName, true);
+                    player.Inventory.SignificantItemCollected = true;
+                }                
             }
 
             Dispose(this);

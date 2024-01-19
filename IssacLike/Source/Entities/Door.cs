@@ -42,7 +42,6 @@ namespace ProjectMystic.Source.Entities
             Name = "Door";
             m_Position = new Vector2(door.X, door.Y);
             m_Door = door;
-            Logger.Log("MADE NEW DOOR");
         }
 
         public override void Start() {

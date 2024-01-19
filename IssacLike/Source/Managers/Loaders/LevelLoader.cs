@@ -17,6 +17,7 @@ using ProjectMystic.Source.Entities;
 using System.Reflection;
 using System.Text.Json;
 using ZeldaLike.Source.Entities.Items;
+using ProjectMystic.Source.Managers.Events;
 
 namespace ProjectMystic.Source.Managers.Resources {
     public class LevelLoader : ResourceLoader {
@@ -29,9 +30,9 @@ namespace ProjectMystic.Source.Managers.Resources {
         public static Dictionary<Guid, LDtkLevel> WorldLevels = new Dictionary<Guid, LDtkLevel>();
         public static bool s_DrawLevelCollision { get { return m_DrawLevelCollision; } set { m_DrawLevelCollision = value; } }
         public static Dictionary<Guid, Guid> ReferencedEntityLevel = new Dictionary<Guid, Guid>();
+        public static List<Entity> LDtkLevelEntities = new List<Entity>();
 
-        private static List<LDtkLevel> Levels = new List<LDtkLevel>();
-        private static List<Entity> LDtkLevelEntities = new List<Entity>();
+        private static List<LDtkLevel> Levels = new List<LDtkLevel>();        
 
         private static Texture2D m_BoundBox;
         private static LDtkWorld m_World;
@@ -52,10 +53,10 @@ namespace ProjectMystic.Source.Managers.Resources {
                 WorldLevels.Add(level.Iid, level);
             }
            
-            CurrentLevel = Levels[1];
+            CurrentLevel = Levels[0];
             LevelCollisions(CurrentLevel);
             SmallerLevelCollisions(CurrentLevel);
-            NextLevel = Levels[0];
+            NextLevel = Levels[1];
         }
 
         //Create a renderer wrapper to render the room the player is in
@@ -81,7 +82,8 @@ namespace ProjectMystic.Source.Managers.Resources {
             LevelCollisions(CurrentLevel);
             SmallerLevelCollisions(CurrentLevel);
             EntityManager.SpawnEntitiesInLevel<DoorEnt>(CurrentLevel);
-            EntityManager.SpawnEntitiesInLevel<Pickup>(CurrentLevel);
+            EntityManager.SpawnEntitiesInLevel<Pickup>(CurrentLevel);            
+            EventManager.OnRoomChanged();
         }
 
         private static void UnLoadLevel() {
@@ -125,8 +127,6 @@ namespace ProjectMystic.Source.Managers.Resources {
         public static void LevelCollisions(LDtkLevel level) {
             LDtkIntGrid collisions = level.GetIntGrid("IntGrid");
 
-            Logger.Log("ADDING: {0} LEVEL COLLISIONS!!", level.Identifier);
-
             Vector2 levelTopLeft = Vector2.Zero;
             Vector2 levelBottomRight = new Vector2(level.Size.X, level.Size.Y);
 
@@ -147,8 +147,6 @@ namespace ProjectMystic.Source.Managers.Resources {
 
         public static void SmallerLevelCollisions(LDtkLevel level) {
             LDtkIntGrid collisions = level.GetIntGrid("SmallerCollision");
-
-            Logger.Log("ADDING: {0} LEVEL COLLISIONS!!", level.Identifier);
 
             Vector2 levelTopLeft = Vector2.Zero;
             Vector2 levelBottomRight = new Vector2(level.Size.X, level.Size.Y);
@@ -194,11 +192,16 @@ namespace ProjectMystic.Source.Managers.Resources {
         }
 
         private static void DespawnEntitiesFromLevel() {
-            List<Entity> entitiesToRemove = new List<Entity>(LDtkLevelEntities);
+            List<Entity> entitiesToRemove = new List<Entity>(LDtkLevelEntities);            
+
+            Logger.Log("Despawning entities!!!");
 
             foreach (Entity ent in entitiesToRemove) {
-                if(ent is APlayer)
+
+                if (ent is APlayer) {                    
                     continue;
+                }
+                   
 
                 LDtkLevelEntities.Remove(ent);
                 EntityManager.Remove(ent);

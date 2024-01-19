@@ -26,6 +26,7 @@ namespace ProjectMystic.Source.Util
 
         //Debug
         public static Vector2 RoomSize { get => new Vector2(640, 360); }
+        public static Vector2 CameraSize { get => new Vector2(320, 180); }
         public static Vector2 TileSize { get => new Vector2(16f); }
 
         public static Vector2 ScreenSize {

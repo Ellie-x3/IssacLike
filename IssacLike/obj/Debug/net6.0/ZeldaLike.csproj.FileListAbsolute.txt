@@ -271,3 +271,6 @@ D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Walk\Skel_walk_left.xnb
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Walk\Skel_walk_right.xnb
 D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Tiny Village Pack\Tiny Village Pack\Tiny Adventure Pack\Skeleton\Walk\Skel_walk_up.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\window.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Items\Sword.xnb
+D:\MonoGame\ZeldaLike\ZeldaLike\IssacLike\bin\Debug\net6.0\Content\Graphics\Player\Pickup.xnb

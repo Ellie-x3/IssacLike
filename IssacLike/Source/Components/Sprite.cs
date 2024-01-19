@@ -22,7 +22,6 @@ namespace ProjectMystic.Source.Components {
 
         public void Draw(SpriteBatch batch, Vector2 position, Color color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layer) {
             batch.Draw(Texture, position, Source, color, rotation, origin, scale, effects, layer);
-            Logger.Log(Texture);
         }
 
         public void Initialize() {

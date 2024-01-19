@@ -11,61 +11,72 @@ using LDtk;
 using LDtkTypes.TestHome;
 using ProjectMystic.Source.Entities.Player;
 using ZeldaLike.Source.Entities.Items;
+using ProjectMystic.Source.Managers.Resources;
+using System.Collections;
 
 namespace ProjectMystic.Source.Managers
 {
     public static class EntityManager
     {
         private static List<Entity> Entities = new List<Entity>();
-
-        private static List<Entity> EntityQueue = new List<Entity>();
+        private static List<Entity> EntitiesToAdd = new List<Entity>();
+        private static List<Entity> EntitiesToRemove = new List<Entity>();
 
         public static void Add(Entity entity) {
-            EntityQueue.Add(entity);
-            entity.Start();
+            EntitiesToAdd.Add(entity);
+            entity.Start();           
         }
 
         public static void Remove(Entity entity) {
             if (Entities.Contains(entity)) {
-                Entities.Remove(entity);
-            }
-
-            if (EntityQueue.Contains(entity)) {
-                EntityQueue.Remove(entity);
+                EntitiesToRemove.Add(entity);
             }
         }
 
-        public static void Update(GameTime gameTime) {
-            foreach(Entity queued in EntityQueue) {
-                Entities.Add(queued);            
-            }            
+        public static void Initialize() {
+            foreach (Entity ent in EntitiesToAdd) {
+                Entities.Add(ent);
+            }
 
+            EntitiesToAdd.Clear();
+
+            foreach (Entity ent in EntitiesToRemove) {
+                Entities.Remove(ent);
+            }
+
+            EntitiesToRemove.Clear();
+        }
+
+        public static void Update(GameTime gameTime) {       
             foreach (Entity ent in Entities) {
-                if(EntityQueue.Contains(ent))
-                    EntityQueue.Remove(ent);
-
                 ent.Update(gameTime);
             }
+
+            foreach (Entity ent in EntitiesToAdd) {
+                Entities.Add(ent);
+            }
+
+            EntitiesToAdd.Clear();
+
+            foreach (Entity ent in EntitiesToRemove) {
+                Entities.Remove(ent);
+            }
+
+            EntitiesToRemove.Clear();
         }
      
         public static void Draw(SpriteBatch batch, GameTime gameTime) {
-
             for(int i = Entities.Count - 1; i >= 0; i--) {
                 Entities[i].Draw(batch, gameTime);
             }
         }
 
         public static Entity? Find(string name) {
-            var ent = Entities.Find(x => x.Name.Equals(name));
-
-            if(ent == null)
-                ent = EntityQueue.Find(x => x.Name.Equals(name));
-
-            return ent;
+            return Entities.Find(x => x.Name.Equals(name));
         }
 
         public static bool Exists(Entity entity) {
-            if (!Entities.Contains(entity) && !EntityQueue.Contains(entity)) {
+            if (!Entities.Contains(entity)) {
                 return false;
             }
 
@@ -76,6 +87,7 @@ namespace ProjectMystic.Source.Managers
             foreach (T entity in level.GetEntities<T>()) {
                 Entity child = CreateGameEntityFactory(entity);
                 Add(child);
+                LevelLoader.LDtkLevelEntities.Add(child);
             }
         }
 

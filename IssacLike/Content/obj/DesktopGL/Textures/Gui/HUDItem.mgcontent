@@ -3,7 +3,7 @@
   <SourceFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Tiles/HUDItem.png</SourceFile>
   <SourceTime>2024-01-10T21:52:29.523751-04:00</SourceTime>
   <DestFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Textures/Gui/HUDItem.xnb</DestFile>
-  <DestTime>2024-01-10T21:53:14.5433217-04:00</DestTime>
+  <DestTime>2024-01-15T19:23:09.1882586-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T08:44:56-03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

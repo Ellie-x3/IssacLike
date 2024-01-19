@@ -31,9 +31,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\IssacLikeBulletHell\IssacLike\vendor\MonoGame.ImGuiNet\Monogame.ImGuiNet.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\Transitions\" />
-  </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
     <Exec Command="dotnet tool restore" />

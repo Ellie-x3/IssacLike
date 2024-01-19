@@ -24,7 +24,7 @@ namespace ZeldaLike.Source.Entities.Player.States {
             m_Owner = owner;
             player = m_Owner as APlayer;
 
-            TextureLoader.AddTexture("ItemShow", "Player/Zink_ItemShow");
+            TextureLoader.LoadTexture("ItemShow", "Graphics/Player/Pickup");
             player.Animation.Create("ShowItem", TextureLoader.Texture("ItemShow"));
         }
 

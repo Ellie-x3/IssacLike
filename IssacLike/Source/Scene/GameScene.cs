@@ -32,6 +32,8 @@ namespace ProjectMystic.Source.Scene
         private GameScene() {        
             MediatorHandler.RegisterPlayerNotifications();
 
+            
+
             Coroutine.StartCoroutine(() => CheckCollisions());
         }
 
@@ -40,6 +42,9 @@ namespace ProjectMystic.Source.Scene
 
             EntityManager.SpawnEntitiesInLevel<PlayerEnt>(LevelLoader.CurrentLevel);
             EntityManager.SpawnEntitiesInLevel<DoorEnt>(LevelLoader.CurrentLevel);
+            EntityManager.SpawnEntitiesInLevel<Pickup>(LevelLoader.CurrentLevel);
+
+            EntityManager.Initialize();
 
             CameraManager.CreateCamera("Main", EntityManager.Find("Player"));
             CameraManager.CurrentCamera.Position = new Vector2(320 - 72, 180 - 4);
@@ -55,6 +60,7 @@ namespace ProjectMystic.Source.Scene
 
             EntityManager.Update(gameTime);  
             GuiManager.Update(gameTime);
+            TransitionManager.Update(gameTime);
         }
 
         public void SceneContent(SpriteBatch batch, ContentManager content) {
@@ -68,6 +74,7 @@ namespace ProjectMystic.Source.Scene
                 LevelLoader.Draw(batch);
                 EntityManager.Draw(batch, gameTime);
                 GuiManager.Draw(batch);
+                TransitionManager.Draw(batch);
             batch.End();
         }
 

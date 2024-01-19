@@ -198,6 +198,9 @@
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Tree/Tree.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Tree/Tree_top.png</File>
     <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Tiny Village Pack/Tiny Village Pack/Tiny Adventure Pack/Other/Misc/Tree/Tree_trunk.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/window.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Items/Sword.png</File>
+    <File>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/Graphics/Player/Pickup.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Textures/Enemies/Enemies.png</File>
@@ -209,6 +212,9 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Fonts/Font.spritefont</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

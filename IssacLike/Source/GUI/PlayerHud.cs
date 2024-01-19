@@ -14,30 +14,29 @@ namespace ZeldaLike.Source.GUI {
     public class PlayerHud : IUserInterface {
         //Circle around weapon
         private Texture2D WeaponHudTexture;
-        private Rectangle WeaponHud;
+        private Vector2 WeaponHud;
         private static Vector2 WeaponHudPosition;
         private static Vector2 WeaponHudSize = new Vector2(22);
         private static int WeaponHudPadding = 1;
 
         //Weapon in circle
         private static Texture2D WeaponHudItemTexture;
-        private static Rectangle WeaponHudItem;
+        private static Vector2 WeaponHudItem;
 
         public void LoadContent() {
             TextureLoader.AddTexture("WeaponSelected", "Gui/HUDItem");
-            TextureLoader.AddTexture("Sword", "Items/StaticSword");
             WeaponHudTexture = TextureLoader.Texture("WeaponSelected");
-            WeaponHudPosition = new Vector2((int)CameraManager.CurrentCamera.Position.X - (int)Globals.ScreenSize.X / 4, (int)CameraManager.CurrentCamera.Position.Y - (int)Globals.ScreenSize.Y / 4);
+            WeaponHudPosition = new Vector2(CameraManager.CurrentCamera.Position.X - Globals.ScreenSize.X / 4, CameraManager.CurrentCamera.Position.Y - Globals.ScreenSize.Y / 4);
 
-            WeaponHud = new Rectangle((int)WeaponHudPosition.X + WeaponHudPadding, (int)WeaponHudPosition.Y + WeaponHudPadding, (int)WeaponHudSize.X, (int)WeaponHudSize.Y);
+            WeaponHud = new Vector2(WeaponHudPosition.X + WeaponHudPadding, WeaponHudPosition.Y + WeaponHudPadding);
         }
 
         public void Update(GameTime gameTime) {
-            WeaponHudPosition = new Vector2((int)CameraManager.CurrentCamera.Position.X - (int)Globals.ScreenSize.X / 4, (int)CameraManager.CurrentCamera.Position.Y - (int)Globals.ScreenSize.Y / 4);
-            WeaponHud = new Rectangle((int)WeaponHudPosition.X + WeaponHudPadding, (int)WeaponHudPosition.Y + WeaponHudPadding, (int)WeaponHudSize.X, (int)WeaponHudSize.Y);
+            WeaponHudPosition = new Vector2(CameraManager.CurrentCamera.Position.X - Globals.ScreenSize.X / 4, CameraManager.CurrentCamera.Position.Y - Globals.ScreenSize.Y / 4);
+            WeaponHud = new Vector2(WeaponHudPosition.X + WeaponHudPadding, WeaponHudPosition.Y + WeaponHudPadding);
 
             if (WeaponHudItemTexture != null)
-                WeaponHudItem = new Rectangle((int)WeaponHudPosition.X + WeaponHudPadding, (int)WeaponHudPosition.Y + WeaponHudPadding, (int)WeaponHudSize.X, (int)WeaponHudSize.Y);
+                WeaponHudItem = new Vector2(WeaponHudPosition.X + 8.5f, WeaponHudPosition.Y + 5);
         }
 
         public void Draw(SpriteBatch batch) {
@@ -51,7 +50,7 @@ namespace ZeldaLike.Source.GUI {
         public static void ChangeWeaponSelected(Texture2D item) {
             WeaponHudItemTexture = item;
 
-            WeaponHudItem = new Rectangle((int)WeaponHudPosition.X + (int)WeaponHudPadding, (int)WeaponHudPosition.Y + WeaponHudPadding + 1, (int)WeaponHudSize.X, (int)WeaponHudSize.Y);
+            WeaponHudItem = new Vector2(WeaponHudPosition.X + 8.5f, WeaponHudPosition.Y + 5);
         }
 
     }

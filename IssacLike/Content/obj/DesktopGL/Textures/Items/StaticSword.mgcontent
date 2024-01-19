@@ -3,7 +3,7 @@
   <SourceFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/../../Assets/Tiles/StaticSword.png</SourceFile>
   <SourceTime>2024-01-10T22:07:35.4270953-04:00</SourceTime>
   <DestFile>D:/MonoGame/ZeldaLike/ZeldaLike/IssacLike/Content/bin/DesktopGL/Textures/Items/StaticSword.xnb</DestFile>
-  <DestTime>2024-01-12T21:25:28.4183389-04:00</DestTime>
+  <DestTime>2024-01-15T19:23:09.1912602-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T08:44:56-03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
