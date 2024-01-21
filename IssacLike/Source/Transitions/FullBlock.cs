@@ -23,6 +23,8 @@ namespace ZeldaLike.Source.Transitions {
         private bool m_IsReversed;
 
         public bool IsFinished { get; set; } = false;
+        public bool FirstPassIsFinished { get; private set; } = false;
+        public bool SecondPassIsFinished { get; private set; } = false;
 
         public FullBlock(Vector2 position, float speed = 1.0f, bool reverse = false) {            
             IsFinished = false;
@@ -36,32 +38,47 @@ namespace ZeldaLike.Source.Transitions {
 
             m_Texture.SetData(new Color[] {Color.Black});
             m_Rectangle = new Rectangle(0, 0, (int)Globals.CameraSize.X, (int)Globals.CameraSize.Y + 20);
-
-            EventManager.E_RoomChanged += RoomChanged;
         }
 
         public void Draw(SpriteBatch batch) {
             batch.Draw(m_Texture, m_Position, m_Rectangle, Color.White);
         }
 
-        public void Update(GameTime gameTime) {
-            if(!IsFinished)
-                m_Position = new Vector2(m_Position.X, m_Position.Y + Speed);
+        public void FirstDrawPass(SpriteBatch batch) {
+            batch.Draw(m_Texture, m_Position, m_Rectangle, Color.White);
+        }
 
-            if(m_Position.Y > CameraManager.CurrentCamera.Position.Y && !m_IsReversed) {
+        public void SecondDrawPass(SpriteBatch batch) {
+            batch.Draw(m_Texture, m_Position, m_Rectangle, Color.White);
+        }
+
+        public void FirstPassUpdate(GameTime gameTime) {
+            if(!FirstPassIsFinished)
+                m_Position = new Vector2(CameraManager.CurrentCamera.Position.X - Globals.CameraSize.X, m_Position.Y + Speed);
+
+            if(m_Position.Y < CameraManager.CurrentCamera.Position.Y - Globals.CameraSize.Y && m_IsReversed) {
                 IsFinished = true;
-               // m_Position = m_InitialPosition;
-            } else if(m_Position.Y < CameraManager.CurrentCamera.Position.Y - Globals.CameraSize.Y && m_IsReversed) {
-                IsFinished = true;
-               // m_Position = m_InitialPosition;
+                FirstPassIsFinished = true;  
+                Speed *= -1;              
+            }
+        }
+
+        public void Update(GameTime gameTime) {
+            //
+        }
+
+        public void SecondPassUpdate(GameTime gameTime) {
+            if(!SecondPassIsFinished)
+                m_Position = new Vector2(CameraManager.CurrentCamera.Position.X - Globals.CameraSize.X, m_Position.Y + Speed);
+
+            if(m_Position.Y > CameraManager.CurrentCamera.Position.Y) {
+                SecondPassIsFinished = true;
+                TransitionManager.ChangeState(TransitionManager.TransitionStates.TRANSITIONFINISHED);               
             }
         }
 
         public void Dispose() { }
 
-        private void RoomChanged() {
-            Logger.Log("CHANGING ROOOOMS");
-        }
-
+        
     }
 }

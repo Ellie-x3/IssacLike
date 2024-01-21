@@ -29,5 +29,14 @@
         "IssacLike/Content/bin": true,
         "IssacLike/Content/obj": true
     },
-    
+    "editor.scrollbar.horizontal": "hidden",
+    "workbench.editor.showTabs": "none",
+    "workbench.editor.enablePreview": false,
+    "background.fullscreen": {
+        "images": ["https://images2.alphacoders.com/134/1343743.png"],
+        "opacity": 0.95,
+        "size": "cover",
+        "position": "center",
+        "interval": 0
+    }
 }

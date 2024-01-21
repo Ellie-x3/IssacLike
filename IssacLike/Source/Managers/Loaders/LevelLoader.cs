@@ -18,6 +18,7 @@ using System.Reflection;
 using System.Text.Json;
 using ZeldaLike.Source.Entities.Items;
 using ProjectMystic.Source.Managers.Events;
+using ZeldaLike.Source.Managers;
 
 namespace ProjectMystic.Source.Managers.Resources {
     public class LevelLoader : ResourceLoader {
@@ -25,7 +26,7 @@ namespace ProjectMystic.Source.Managers.Resources {
         public static List<Rectangle> LevelCollisionTiles = new List<Rectangle>();
         public static LDtkRenderer m_Renderer { get; private set; }
         public static LDtkLevel CurrentLevel { get; set; }
-        public static LDtkLevel NextLevel { get; private set; }
+        public static LDtkLevel NextLevel { get; set; }
         public static LDtkWorld World { get => m_World; }
         public static Dictionary<Guid, LDtkLevel> WorldLevels = new Dictionary<Guid, LDtkLevel>();
         public static bool s_DrawLevelCollision { get { return m_DrawLevelCollision; } set { m_DrawLevelCollision = value; } }
@@ -40,6 +41,9 @@ namespace ProjectMystic.Source.Managers.Resources {
         
 
         public static void Init(SpriteBatch batch, ContentManager content) {
+
+            EventManager.E_TransitionDuring += ChangeToNextLevel;
+
             m_Renderer = new LDtkRenderer(batch, content);
             LDtkFile file = LDtkFile.FromFile("Worlds/TestHome", content);
             m_World = file.LoadWorld(Worlds.World.Iid);
@@ -82,8 +86,8 @@ namespace ProjectMystic.Source.Managers.Resources {
             LevelCollisions(CurrentLevel);
             SmallerLevelCollisions(CurrentLevel);
             EntityManager.SpawnEntitiesInLevel<DoorEnt>(CurrentLevel);
-            EntityManager.SpawnEntitiesInLevel<Pickup>(CurrentLevel);            
-            EventManager.OnRoomChanged();
+            EntityManager.SpawnEntitiesInLevel<Pickup>(CurrentLevel);
+            TransitionManager.ChangeState(TransitionManager.TransitionStates.AFTERTRANSITION);
         }
 
         private static void UnLoadLevel() {
@@ -225,5 +229,9 @@ namespace ProjectMystic.Source.Managers.Resources {
 
             return null;
         }
+
+        private static void ChangeToNextLevel(){
+            ChangeLevel(NextLevel);
+        }        
     }
 }

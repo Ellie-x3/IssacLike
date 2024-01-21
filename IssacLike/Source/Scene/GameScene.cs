@@ -56,11 +56,11 @@ namespace ProjectMystic.Source.Scene
 
         public void Update(GameTime gameTime) {
             LevelLoader.Update(gameTime);         
-            CameraManager.Update();
 
             EntityManager.Update(gameTime);  
             GuiManager.Update(gameTime);
             TransitionManager.Update(gameTime);
+            CameraManager.Update();
         }
 
         public void SceneContent(SpriteBatch batch, ContentManager content) {

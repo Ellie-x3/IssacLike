@@ -13,11 +13,16 @@ using ProjectMystic.Source.Entities.Player;
 using ZeldaLike.Source.Entities.Items;
 using ProjectMystic.Source.Managers.Resources;
 using System.Collections;
+using ProjectMystic.Source.Managers.Events;
 
 namespace ProjectMystic.Source.Managers
 {
     public static class EntityManager
     {
+
+        public static List<Entity> AllEntities { get => Entities; }
+        public static bool PauseEntityUpdateLoop { get; set; } = false;
+
         private static List<Entity> Entities = new List<Entity>();
         private static List<Entity> EntitiesToAdd = new List<Entity>();
         private static List<Entity> EntitiesToRemove = new List<Entity>();
@@ -34,6 +39,9 @@ namespace ProjectMystic.Source.Managers
         }
 
         public static void Initialize() {
+            EventManager.E_TransitionBefore += PauseAllEntities;
+            EventManager.E_TransitionFinished += UnPauseAllEntities;
+
             foreach (Entity ent in EntitiesToAdd) {
                 Entities.Add(ent);
             }
@@ -47,7 +55,10 @@ namespace ProjectMystic.Source.Managers
             EntitiesToRemove.Clear();
         }
 
-        public static void Update(GameTime gameTime) {       
+        public static void Update(GameTime gameTime) { 
+            if(PauseEntityUpdateLoop)
+                return;
+                  
             foreach (Entity ent in Entities) {
                 ent.Update(gameTime);
             }
@@ -108,6 +119,14 @@ namespace ProjectMystic.Source.Managers
                 default:
                     throw new ArgumentException("Unsupported entity type: " + entity.GetType());
             }
+        }
+
+        private static void PauseAllEntities(){
+            PauseEntityUpdateLoop = true;
+        }
+
+        private static void UnPauseAllEntities(){
+            PauseEntityUpdateLoop = false;
         }
     }
 }

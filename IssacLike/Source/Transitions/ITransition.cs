@@ -9,7 +9,14 @@ using System.Threading.Tasks;
 namespace ZeldaLike.Source.Transitions {
     public interface ITransition : IDisposable {
         void Draw(SpriteBatch batch);
+        void FirstDrawPass(SpriteBatch batch);
+        void SecondDrawPass(SpriteBatch batch);
+        
+        void FirstPassUpdate(GameTime gameTime);
         void Update(GameTime gameTime);
-        bool IsFinished { get; set; }
+        void SecondPassUpdate(GameTime gameTime);
+
+        bool FirstPassIsFinished { get; }
+        bool SecondPassIsFinished { get; }
     }
 }

@@ -13,7 +13,9 @@ namespace ZeldaLike.Source.Managers.Events {
 
         public static Mediator PlayerMediator;
 
-        public static void Initialize() { }
+        public static void Initialize() { 
+
+        }
 
         public static void RegisterPlayerNotifications() {
             PlayerMediator = new Mediator();
@@ -22,9 +24,9 @@ namespace ZeldaLike.Source.Managers.Events {
                 APlayer player = args[0] as APlayer;
                 Door door = args[1] as Door;
 
-                player.PlayerPosition = new Vector2(door.LinkedDoorLocation.X + 8, door.LinkedDoorLocation.Y + 8);
-
-                LevelLoader.ChangeLevel(door.LinkedDoorLevel);                
+                TransitionManager.SetTransition(TransitionManager.TransitionTypes.SCREENCOVER);
+                LevelLoader.NextLevel = door.LinkedDoorLevel; 
+                player.PlayerTransitionPosition = new Vector2(door.LinkedDoorLocation.X + 8, door.LinkedDoorLocation.Y + 8);                                              
             });
 
             PlayerMediator.RegisterHandler("INTERACTION_APlayer_Sword", args => {

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using ProjectMystic.Source.ZeldaLikeImGui;
 using ProjectMystic.Source.Util;
 using ProjectMystic.Source.Managers;
@@ -13,18 +14,20 @@ using ProjectMystic.Source.Scene;
 using LDtk;
 using LDtk.Renderer;
 using LDtkTypes.TestHome;
+using System.Collections;
 
 namespace ProjectMystic
 {
     public class ZeldaLike : Game {
-
         
-
         private SpriteBatch m_SpriteBatch;
 
         private SceneManager m_SceneManager;
 
         private Color m_BackgroundColor = new Color(19,0,13,255);
+
+        private Process process;
+        private string MemoryUse = "";
 
         private RenderTarget2D m_RenderTarget;
         private float m_RenderScale;
@@ -42,12 +45,14 @@ namespace ProjectMystic
             m_SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             IsFixedTimeStep = true;
-            TargetElapsedTime = TimeSpan.FromSeconds(1.0 / 240.0f);
+            TargetElapsedTime = TimeSpan.FromSeconds(1.0 / 60.0f);
 
             IsMouseVisible = true;
 
             Globals.ScreenSize = new Vector2(1280, 720);
             Globals.s_Graphics.ApplyChanges();
+
+            Coroutine.StartCoroutine(() => DisplayTitle());
         }
 
         protected override void Initialize() {
@@ -86,7 +91,7 @@ namespace ProjectMystic
 
             GameManager.Update(gameTime);
 
-            Globals.fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Globals.fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;            
 
             base.Update(gameTime);
  
@@ -110,6 +115,30 @@ namespace ProjectMystic
             
             base.Draw(gameTime);
             Logger.Draw(gameTime);
+        }
+
+        private string MemoryUsage() {      
+             
+            long totalMemInMegaBytes = process.WorkingSet64 / 1024 / 1024;
+            return $"- Usage: {totalMemInMegaBytes} MB";
+        }
+
+        private string CpuUsage(){
+            var totalProcessTime = process.TotalProcessorTime;
+
+            return $"- Usage: {(int)((totalProcessTime.TotalMilliseconds / Environment.ProcessorCount) / 100f)}%";
+        }
+
+        private IEnumerator DisplayTitle(){
+            WaitForSeconds wait = new WaitForSeconds(2f);
+            while (!wait.IsWaitFinished()) {
+                yield return null;
+            }
+
+            process = Process.GetCurrentProcess(); 
+            MemoryUse = MemoryUsage();
+            string cpuUse = CpuUsage();
+            Window.Title = $"Zelda Like - Memory {MemoryUse} - CPU {cpuUse} - {Globals.fps} FPS";
         }
     }
 }

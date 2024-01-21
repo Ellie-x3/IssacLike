@@ -19,7 +19,6 @@ namespace ZeldaLike.Source.Managers {
             }
         }
 
-
         private static IUserInterface? ActiveGui;
         private static IUserInterface? ActiveHud;   
 

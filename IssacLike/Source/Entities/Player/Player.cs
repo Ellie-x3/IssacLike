@@ -1,27 +1,18 @@
 ﻿using ProjectMystic.Source.Components;
 using ProjectMystic.Source.Managers;
-using ProjectMystic.Source.Managers.Resources;
-using ProjectMystic.Source.ZeldaLikeImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjectMystic.Source.Util;
-using LDtk;
-using ProjectMystic.Source.Managers.Events;
 using LDtkTypes.TestHome;
 using ZeldaLike.Source.Managers.Events;
-using System.Reflection.Metadata;
-using System.Collections;
 using ZeldaLike.Source.Entities.StateMachine;
 using ZeldaLike.Source.Entities.Player.States;
 using ZeldaLike.Source.Entities.Player;
 using ZeldaLike.Source.Managers;
-using ZeldaLike.Source.GUI;
+using ProjectMystic.Source.Managers.Events;
 
 namespace ProjectMystic.Source.Entities.Player
 {
@@ -33,6 +24,7 @@ namespace ProjectMystic.Source.Entities.Player
         public Vector2 Velocity { get => body.Velocity; }
         public Vector2 BodyPosition { get => Position; set => Position = value; }
         public Vector2 NextBodyPosition { get => m_NextPosition; set => m_NextPosition = value; }
+        public Vector2 PlayerTransitionPosition { get; set; }
         public Vector2? BodyOverridePosition { get => m_OvrridePosition; set => m_OvrridePosition = value; }
         public StateMachine StateMachine { get => m_StateMatchine; }
         public Inventory Inventory { get => m_Inventory; }
@@ -119,7 +111,9 @@ namespace ProjectMystic.Source.Entities.Player
             Name = "Player";
             Scale = new Vector2(1f);
             Origin = new Vector2(8f, 8f);
-            m_Inventory = new Inventory();              
+            m_Inventory = new Inventory();  
+
+            SubscribeToGameEvents();            
         }
 
         public override void Start()
@@ -127,7 +121,7 @@ namespace ProjectMystic.Source.Entities.Player
             var mediator = MediatorHandler.PlayerMediator;
             SetMediator(mediator);
 
-            AnimationController = new Animation();            
+            AnimationController = new Animation();                        
 
             body = new CharacterBody
             {
@@ -165,7 +159,7 @@ namespace ProjectMystic.Source.Entities.Player
             }
 
             if (Input.IsKeyPressed(Keys.F6)) {
-                TransitionManager.SetTransition("FullUp");
+                
             }
 
             base.Update(gameTime);
@@ -223,7 +217,6 @@ namespace ProjectMystic.Source.Entities.Player
             
 
             if(!m_CollidedWithDoor && other.Entity is Door) {
-                TransitionManager.SetTransition("FullUp");
                 InteractWith(other.Entity);             
                 m_CollidedWithDoor = true;
             } else if (other.Entity is not Door){
@@ -234,5 +227,14 @@ namespace ProjectMystic.Source.Entities.Player
         public override void OnExitCollisionEvent() {
             m_CollidedWithDoor = false;
         }
+        
+        private void SubscribeToGameEvents(){
+            EventManager.E_TransitionDuring += UpdatePositionOnTransition;
+        }
+
+        private void UpdatePositionOnTransition(){
+            Position = PlayerTransitionPosition;
+        }
+
     }
 }
